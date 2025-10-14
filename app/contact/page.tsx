@@ -1,96 +1,89 @@
 // app/contact/page.tsx
 import { Metadata } from 'next';
-import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+import { Resend } from 'resend';
 
 export const metadata: Metadata = {
   title: 'Contact | Vitura',
   description: 'Tell us about your project and timelines.',
 };
 
-type ActionState = { ok: boolean; message: string };
+// --- Server Action (must return void | Promise<void>) ---
+async function sendEmail(formData: FormData): Promise<void> {
+  'use server';
 
-async function wait(ms: number) {
-  return new Promise((r) => setTimeout(r, ms));
+  // honeypot
+  const hp = (formData.get('website') || '').toString().trim();
+  if (hp) {
+    redirect('/contact?status=sent'); // silently accept bots
+  }
+
+  const name = (formData.get('name') || '').toString().trim();
+  const email = (formData.get('email') || '').toString().trim();
+  const company = (formData.get('company') || '').toString().trim();
+  const message = (formData.get('message') || '').toString().trim();
+
+  if (!name || !email || !message) {
+    redirect('/contact?status=invalid');
+  }
+  if (!/^\S+@\S+\.\S+$/.test(email)) {
+    redirect('/contact?status=invalid');
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY!);
+
+  try {
+    const { error } = await resend.emails.send({
+      // If your domain isn't verified in Resend yet, temporarily use: "Vitura <onboarding@resend.dev>"
+      from: 'Vitura <hello@vitura.studio>',
+      to: [process.env.CONTACT_TO_EMAIL!],
+      reply_to: email,
+      subject: `New inquiry from ${name}${company ? ` (${company})` : ''}`,
+      text: `Name: ${name}
+Email: ${email}
+${company ? `Company: ${company}\n` : ''}
+
+${message}`,
+    });
+
+    if (error) {
+      console.error('Resend error:', error);
+      redirect('/contact?status=error');
+    }
+
+    redirect('/contact?status=sent');
+  } catch (e) {
+    console.error(e);
+    redirect('/contact?status=error');
+  }
 }
 
-export default function ContactPage() {
-  // --- Server Action (runs on server) ---
-  async function sendEmail(formData: FormData): Promise<ActionState> {
-    'use server';
-    const name = (formData.get('name') || '').toString().trim();
-    const email = (formData.get('email') || '').toString().trim();
-    const company = (formData.get('company') || '').toString().trim();
-    const message = (formData.get('message') || '').toString().trim();
-    const hp = (formData.get('website') || '').toString().trim(); // honeypot
-    // lightweight rate limiting: 500–900ms delay to slow bots
-    await wait(600 + Math.floor(Math.random() * 400));
-
-    if (hp) return { ok: true, message: 'Thanks! (filtered)' }; // bot filled hidden field
-
-    if (!name || !email || !message) {
-      return { ok: false, message: 'Please fill name, email, and message.' };
-    }
-    // ultra-simple email check
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
-      return { ok: false, message: 'Please enter a valid email.' };
-    }
-
-    try {
-      // Send via Resend
-      const apiKey = process.env.RESEND_API_KEY!;
-      const to = process.env.CONTACT_TO_EMAIL!;
-      if (!apiKey || !to) {
-        console.error('Missing RESEND_API_KEY or CONTACT_TO_EMAIL');
-        return { ok: false, message: 'Email temporarily unavailable.' };
-      }
-
-      const res = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: `Vitura Contact <no-reply@vitura.studio>`,
-          to: [to],
-          reply_to: email,
-          subject: `New inquiry from ${name} ${company ? `(${company})` : ''}`,
-          text: [
-            `Name: ${name}`,
-            `Email: ${email}`,
-            company ? `Company: ${company}` : '',
-            '',
-            `Message:`,
-            message,
-          ].join('\n'),
-        }),
-        // prevent Next from caching this
-        cache: 'no-store',
-      });
-
-      if (!res.ok) {
-        const t = await res.text();
-        console.error('Resend error:', t);
-        return {
-          ok: false,
-          message: 'Could not send email. Please try again.',
-        };
-      }
-
-      // Optional: revalidate a path or store to DB here
-      revalidatePath('/contact');
-      return {
-        ok: true,
-        message: 'Message sent. We’ll get back to you shortly.',
-      };
-    } catch (e) {
-      console.error(e);
-      return { ok: false, message: 'Something went wrong. Please try again.' };
-    }
-  }
+export default function ContactPage({
+  searchParams,
+}: {
+  searchParams?: { status?: string };
+}) {
+  const status = searchParams?.status;
 
   return (
     <main className='bg-white text-neutral-900'>
+      {/* Optional status banners */}
+      {status === 'sent' && (
+        <div className='bg-green-50 text-green-800 px-6 py-3'>
+          Message sent. We’ll get back to you shortly.
+        </div>
+      )}
+      {status === 'error' && (
+        <div className='bg-rose-50 text-rose-800 px-6 py-3'>
+          Could not send email. Please try again.
+        </div>
+      )}
+      {status === 'invalid' && (
+        <div className='bg-amber-50 text-amber-800 px-6 py-3'>
+          Please fill name, valid email, and message.
+        </div>
+      )}
+
       {/* HERO */}
       <section className='border-b bg-neutral-50'>
         <div className='mx-auto max-w-7xl px-6 py-16 md:py-24'>
@@ -121,6 +114,7 @@ export default function ContactPage() {
               className='hidden'
               aria-hidden='true'
             />
+
             <div className='md:col-span-1'>
               <label className='block text-sm font-medium'>Name</label>
               <input
@@ -130,6 +124,7 @@ export default function ContactPage() {
                 placeholder='Your name'
               />
             </div>
+
             <div className='md:col-span-1'>
               <label className='block text-sm font-medium'>Email</label>
               <input
@@ -140,6 +135,7 @@ export default function ContactPage() {
                 placeholder='you@company.com'
               />
             </div>
+
             <div className='md:col-span-2'>
               <label className='block text-sm font-medium'>
                 Company / Org (optional)
@@ -150,6 +146,7 @@ export default function ContactPage() {
                 placeholder='Company name'
               />
             </div>
+
             <div className='md:col-span-2'>
               <label className='block text-sm font-medium'>Project brief</label>
               <textarea
@@ -160,6 +157,7 @@ export default function ContactPage() {
                 placeholder='What are you trying to achieve? Timelines? Constraints?'
               />
             </div>
+
             <div className='md:col-span-2 flex items-center justify-between'>
               <p className='text-xs text-neutral-500'>
                 We’ll only use your info to reply about this inquiry.
