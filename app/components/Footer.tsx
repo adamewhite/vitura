@@ -23,18 +23,11 @@ export default function Footer() {
                 <Mail className='h-4 w-4' />
               </Link>
               <Link
-                href='tel:+12125550123'
+                href='tel:+13476888230'
                 aria-label='Phone'
                 className='rounded-full border p-2 hover:bg-white'
               >
                 <Phone className='h-4 w-4' />
-              </Link>
-              <Link
-                href='https://twitter.com'
-                aria-label='Twitter/X'
-                className='rounded-full border p-2 hover:bg-white'
-              >
-                <Twitter className='h-4 w-4' />
               </Link>
               <Link
                 href='https://www.linkedin.com'
