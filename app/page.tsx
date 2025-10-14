@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
 import VituraLogo from './components/VituraLogo';
+import SiteNav from './components/SiteNav';
 
 export default function Home() {
   return (
@@ -22,50 +23,7 @@ export default function Home() {
         <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.55))]' />
 
         {/* NAV */}
-        <nav className='absolute inset-x-0 top-0 z-20'>
-          <div className='mx-auto flex max-w-7xl items-center justify-between px-6 py-6 text-white'>
-            <Link
-              href='/'
-              className='text-lg font-semibold tracking-tight'
-            >
-              <VituraLogo color='white' />
-            </Link>
-            <ul className='flex items-center gap-8'>
-              <li>
-                <Link
-                  href='/services'
-                  className='hover:opacity-80'
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/our-story'
-                  className='hover:opacity-80'
-                >
-                  Our Story
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/work'
-                  className='hover:opacity-80'
-                >
-                  Work
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/contact'
-                  className='hover:opacity-80'
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <SiteNav />
 
         {/* HERO COPY */}
         <div className='relative z-10 flex h-full items-center'>
@@ -73,9 +31,8 @@ export default function Home() {
             <h1 className='mx-auto max-w-4xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight'>
               Vitura is a studio for digital transformation,
               <br className='hidden sm:block' />
-              data strategy, and human-centered design
-              <br className='hidden sm:block' />
-              based in New York.
+              {' '}data strategy, and human-centered design
+              <br className='hidden sm:block' /> based in New York.
             </h1>
             <p className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90'>
               A mix of tech, creative, and strategy—think{' '}
