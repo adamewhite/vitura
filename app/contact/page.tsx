@@ -37,7 +37,7 @@ async function sendEmail(formData: FormData): Promise<void> {
       // If your domain isn't verified in Resend yet, temporarily use: "Vitura <onboarding@resend.dev>"
       from: 'Vitura <hello@vitura.studio>',
       to: [process.env.CONTACT_TO_EMAIL!],
-      reply_to: email,
+      replyTo: email,
       subject: `New inquiry from ${name}${company ? ` (${company})` : ''}`,
       text: `Name: ${name}
 Email: ${email}
