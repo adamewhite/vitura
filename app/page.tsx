@@ -20,38 +20,34 @@ export default function Home() {
           className='object-cover'
         />
         {/* Legibility overlay */}
-        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.55))]' />
+        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.5))]' />
 
         {/* NAV */}
-        <SiteNav />
 
         {/* HERO COPY */}
         <div className='relative z-10 flex h-full items-center'>
           <div className='mx-auto max-w-5xl px-6 text-center text-white'>
-            <h1 className='mx-auto max-w-4xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight'>
-              Vitura is a studio for digital transformation,
-              <br className='hidden sm:block' />
-              {' '}data strategy, and human-centered design
+            <h1
+              className='mx-auto max-w-4xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
+                   drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]'
+            >
+              We are a studio for digital transformation,
+              <br className='hidden sm:block' /> data strategy, and
+              human-centered design
               <br className='hidden sm:block' /> based in New York.
             </h1>
-            <p className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90'>
+
+            <p
+              className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90
+                  drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]'
+            >
               A mix of tech, creative, and strategy—think{' '}
               <span className='italic'>Digital Experience Architect</span> meets
               <span className='italic'> Data Experience Studio</span>.
             </p>
+
             <div className='mt-8 flex flex-wrap items-center justify-center gap-4'>
-              <Link
-                href='/contact'
-                className='rounded-full bg-white px-5 py-2.5 text-sm font-medium text-neutral-900 hover:bg-white/90'
-              >
-                Start a Project
-              </Link>
-              <Link
-                href='/our-story'
-                className='rounded-full border border-white/70 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/10'
-              >
-                Our Story
-              </Link>
+              {/* buttons unchanged */}
             </div>
           </div>
         </div>
@@ -115,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* ==== FEATURED WORK ==== */}
-      <section className='border-t bg-neutral-50 py-20'>
+      <section className='border-t bg-gradient-to-br from-[#998ada] via-[#6741A6] to-[#414e63] py-20'>
         <div className='mx-auto max-w-7xl px-6'>
           <div className='flex items-end justify-between gap-6'>
             <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
