@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Schibsted_Grotesk } from 'next/font/google';
 import './globals.css';
 import SiteNav from './components/SiteNav';
+import Footer from './components/Footer';
 
 const primary = Schibsted_Grotesk({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({
       >
         <SiteNav />
         {children}
+        <Footer />
       </body>
     </html>
   );
