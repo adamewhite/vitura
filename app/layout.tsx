@@ -55,6 +55,18 @@ export const metadata: Metadata = {
       'Clean pipelines, clear decisions, and human-centered products.',
     images: ['/og.jpg'],
   },
+  // ► Discord embed color (reads OG + this theme color)
+  // Use a brand hex; Discord likes this for the left bar in embeds
+  themeColor: '#111827', // e.g., Tailwind slate-900-ish
+
+  // ► Facebook-specific (optional but useful for Insights/Debuggers)
+  // Next.js doesn't have first-class fields for these, so put them in `other`.
+  other: {
+    // Replace with your real App ID if you have a FB app; otherwise remove it.
+    // 'fb:app_id': 'YOUR_FACEBOOK_APP_ID',
+    // (Optional) If you have Facebook page admins, you can add:
+    // 'fb:admins': '1234567890',
+  },
 };
 
 export default function RootLayout({
