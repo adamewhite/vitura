@@ -42,7 +42,9 @@ export const metadata: Metadata = {
     description:
       'Clean pipelines, clear decisions, and human-centered products.',
     siteName: 'Vitura',
-    images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Vitura' }],
+    images: [
+      { url: '/og.jpg', width: 1200, height: 630, alt: 'Vitura Studio' },
+    ],
   },
 
   // Twitter (X) cards
