@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import { Schibsted_Grotesk } from 'next/font/google';
 import './globals.css';
-import SiteNav from './components/SiteNav';
+import Header from './components/Header';
 import Footer from './components/Footer';
 
 const primary = Schibsted_Grotesk({
@@ -81,7 +81,7 @@ export default function RootLayout({
       <body
         className={`${primary.className} bg-rose-100 text-neutral-900 antialiased`}
       >
-        <SiteNav />
+        <Header />
         {children}
         <Footer />
       </body>

@@ -209,12 +209,12 @@ export default function OurStoryPage() {
             >
               Get in touch <ArrowRight className='ml-2 h-4 w-4' />
             </Link>
-            <Link
+            {/* <Link
               href='/work'
               className='inline-flex items-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium hover:bg-neutral-100'
             >
               See our work
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

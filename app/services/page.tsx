@@ -39,12 +39,12 @@ export default function ServicesPage() {
               >
                 Start a project
               </Link>
-              <Link
+              {/* <Link
                 href='/work'
                 className='rounded-full border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-neutral-100'
               >
                 See our work
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
