@@ -3,6 +3,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
 
+export const metadata = {
+  title: 'Home',
+  description:
+    'Digital transformation, data strategy, and human-centered design.',
+  openGraph: {
+    title: 'Vitura Studio — Digital Strategy, Data & Design',
+    description:
+      'Clean pipelines, clear decisions, and human-centered products.',
+    images: [{ url: '/og.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vitura Studio — Digital Strategy, Data & Design',
+    description:
+      'Clean pipelines, clear decisions, and human-centered products.',
+    images: ['/og.jpg'],
+  },
+};
 
 export default function Home() {
   return (
@@ -251,7 +269,6 @@ export default function Home() {
           </form>
         </div>
       </section>
-
     </main>
   );
 }
