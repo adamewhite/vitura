@@ -11,11 +11,50 @@ const primary = Schibsted_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Vitura Studio',
-  description:
-    'Digital transformation, data strategy, and human-centered design.',
   metadataBase: new URL('https://vitura.studio'),
   alternates: { canonical: '/' }, // pages can override if needed
+
+  title: {
+    default: 'Vitura Studio — Digital Strategy, Data & Design',
+    template: '%s — Vitura',
+  },
+  description:
+    'Digital transformation, data strategy, and human-centered design.',
+  keywords: [
+    'digital strategy',
+    'data products',
+    'dashboards',
+    'UX',
+    'Next.js',
+    'design systems',
+  ],
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
+  },
+
+  // OpenGraph (used by LinkedIn/FB, and helpful for Google too)
+  openGraph: {
+    type: 'website',
+    url: 'https://vitura.studio',
+    title: 'Vitura Studio — Digital Strategy, Data & Design',
+    description:
+      'Clean pipelines, clear decisions, and human-centered products.',
+    siteName: 'Vitura',
+    images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Vitura' }],
+  },
+
+  // Twitter (X) cards
+  twitter: {
+    card: 'summary_large_image',
+    site: '@yourhandle', // optional
+    creator: '@yourhandle', // optional
+    title: 'Vitura Studio — Digital Strategy, Data & Design',
+    description:
+      'Clean pipelines, clear decisions, and human-centered products.',
+    images: ['/og.jpg'],
+  },
 };
 
 export default function RootLayout({

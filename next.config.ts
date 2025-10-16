@@ -12,6 +12,7 @@ const nextConfig = {
       // Redirect any path that ends with a slash (except the root) to the non-slashed version
       // Note: Next.js patterns aren't regex, so handle common depths explicitly
       { source: '/:path+/', destination: '/:path+', permanent: true },
+      // future: { source: '/old-slug', destination: '/new-slug', permanent: true },
     ];
   },
 };
