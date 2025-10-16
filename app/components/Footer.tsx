@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import VituraLogo from './VituraLogo';
 
 export default function Footer() {

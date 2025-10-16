@@ -6,7 +6,7 @@ export default function NotFound() {
     <main className='mx-auto flex min-h-[60vh] max-w-3xl flex-col items-center justify-center px-6 text-center'>
       <p className='text-sm uppercase tracking-widest text-neutral-500'>404</p>
       <h1 className='mt-2 text-3xl font-semibold sm:text-4xl'>
-        We can't find that page.
+        We can{"'"}t find that page.
       </h1>
       <p className='mt-3 text-neutral-600'>
         The link may be outdated or the address has changed.
