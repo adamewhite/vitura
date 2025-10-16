@@ -11,9 +11,11 @@ const primary = Schibsted_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Vitura',
+  title: 'Vitura Studio',
   description:
     'Digital transformation, data strategy, and human-centered design.',
+  metadataBase: new URL('https://vitura.studio'),
+  alternates: { canonical: '/' }, // pages can override if needed
 };
 
 export default function RootLayout({

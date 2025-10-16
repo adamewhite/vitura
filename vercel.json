@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "http://vitura.studio/:path*",
+      "destination": "https://vitura.studio/:path*",
+      "permanent": true
+    },
+    {
+      "source": "https://www.vitura.studio/:path*",
+      "destination": "https://vitura.studio/:path*",
+      "permanent": true
+    },
+    {
+      "source": "http://www.vitura.studio/:path*",
+      "destination": "https://vitura.studio/:path*",
+      "permanent": true
+    }
+  ]
+}
