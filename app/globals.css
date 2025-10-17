@@ -81,16 +81,41 @@ h6 {
 /* Subtle paper-like texture hint (optional) */
 :root {
   /* Tweak these if you want closer color matching */
-  --page: #648DB3; /* pinkish background (body is set via layout) */
-  --card: #B2D8CE; /* warm grey/stone for inner canvas */
+  /* --page: linear-gradient(135deg, #fafbfc 0%, #f4f6f8 50%, #bfd3ed 100%); */
+  --page: #b5c1eb; /* pinkish background (body is set via layout) */
+  --card: #3f65d6;
+  --primary-black: #232426 /* warm grey/stone for inner canvas */;
+  --card-gradient: linear-gradient(
+    135deg,
+    #1b5ded 0%,
+    #3a99d0 50%,
+    #1b5ded 100%
+  );
+  --frost: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 50%, #e8f4f8 100%);
+  --ice: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #ecf5fb 100%);
+  --mist: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e8edf3 100%);
+  --pearl: linear-gradient(135deg, #fafcfe 0%, #f4f7fa 50%, #eff3f7 100%);
+  --slate: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #dde4ed 100%);
+  --sky: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 50%, #d6ebf7 100%);
+  --glass: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(240, 248, 255, 0.85) 50%,
+    rgba(230, 242, 250, 0.9) 100%
+  );
+  --azure: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #d9edf8 100%);
 }
 
 body {
-  background-color: var(--page);
+  background: var(--pearl);
+  color: var(--primary-black);
 }
 
-.bg-stone-100 {
-  background-color: var(
-    --card
-  ) !important; /* nudge toward the screenshot tone */
+.custom-banner {
+  background: var(--slate);
+  color: white;
+  padding: 5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: bold;
 }

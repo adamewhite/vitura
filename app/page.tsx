@@ -141,7 +141,7 @@ export default function Home() {
       </section> */}
 
       {/* ==== PROCESS / APPROACH ==== */}
-      <section className='py-20  bg-gradient-to-br from-[#1B5DED] via-[#3a99d0] to-[#1B5DED] '>
+      <section className='py-20  custom-banner'>
         <div className='mx-auto max-w-7xl px-6'>
           <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
             How we work
@@ -175,24 +175,6 @@ export default function Home() {
                 <p className='mt-2 text-sm text-neutral-700'>{desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==== CTA STRIP ==== */}
-      <section className='border-y bg-neutral-900 py-16 text-white'>
-        <div className='mx-auto max-w-7xl px-6 text-center'>
-          <h3 className='text-2xl font-bold'>Have a challenge in mind?</h3>
-          <p className='mx-auto mt-2 max-w-2xl text-white/80'>
-            Let’s map the fastest path from idea to impact—then build it.
-          </p>
-          <div className='mt-6'>
-            <Link
-              href='/contact'
-              className='inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-medium text-neutral-900 hover:bg-white/90'
-            >
-              Contact Us
-            </Link>
           </div>
         </div>
       </section>
