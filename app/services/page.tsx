@@ -31,7 +31,7 @@ export default function ServicesPage() {
         <Image
           src={wyeth}
           alt='Vitura gradient background'
-          placeholder='blur'
+          // placeholder='blur'
           fill
           priority
           sizes='100vw'

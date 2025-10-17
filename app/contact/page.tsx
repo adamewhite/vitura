@@ -93,7 +93,7 @@ export default function ContactPage({
         <Image
           src={yayoi}
           alt='Vitura contact background'
-          placeholder='blur' // This will now work
+          // placeholder='blur' // This will now work
           fill
           priority
           sizes='100vw'

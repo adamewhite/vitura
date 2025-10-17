@@ -27,7 +27,7 @@ export default function OurStoryPage() {
         <Image
           src={pinkpurpleblue}
           alt='Vitura gradient background'
-          placeholder='blur'
+          // placeholder='blur'
           fill
           priority
           sizes='100vw'

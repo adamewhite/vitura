@@ -13,7 +13,7 @@ export default function Home() {
         <Image
           src={purples} // Use the import, not a string path
           alt='Vitura background'
-          placeholder='blur' // This will now work
+          // placeholder='blur' // This will now work
           fill
           priority
           sizes='100vw'
