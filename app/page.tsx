@@ -2,20 +2,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
+import purples from '../public/purples.jpg'; // import the image file
 
 export default function Home() {
   return (
-    <main className='min-h-screen bg-white text-neutral-900'>
+    <main className='min-h-screen bg-transparent text-neutral-900'>
       {/* ==== HERO (full viewport) ==== */}
       <section className='relative h-screen'>
         {/* BG image */}
         <Image
-          src='/purples.jpg'
+          src={purples} // Use the import, not a string path
           alt='Vitura background'
+          placeholder='blur' // This will now work
           fill
           priority
           sizes='100vw'
-          className='object-cover'
+          className='object-cover transition-opacity duration-500'
         />
         {/* Legibility overlay */}
         <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.5))]' />
@@ -23,29 +25,16 @@ export default function Home() {
         {/* NAV */}
 
         {/* HERO COPY */}
-        <div className='relative z-10 flex h-full items-center'>
-          <div className='mx-auto max-w-5xl px-6 text-center text-white'>
-            <h1
-              className='mx-auto max-w-4xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
-                   drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]'
-            >
-              We are a studio for digital transformation,
-              <br className='hidden sm:block' /> data strategy, and
-              human-centered design
-              <br className='hidden sm:block' /> based in New York.
-            </h1>
-
-            <p
-              className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90
-                  drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]'
-            >
-              A mix of tech, creative, and strategy—think{' '}
-              <span className='italic'>Digital Experience Architect</span> meets
-              <span className='italic'> Data Experience Studio</span>.
-            </p>
-
-            <div className='mt-8 flex flex-wrap items-center justify-center gap-4'>
-              {/* buttons unchanged */}
+        <div className='relative z-10 h-full'>
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
+            <div className='mx-auto max-w-5xl text-center text-white'>
+              <h1
+                className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
+             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance'
+              >
+                We are a studio for digital transformation, data strategy, and
+                human-centered design based in New York.
+              </h1>
             </div>
           </div>
         </div>
@@ -109,7 +98,7 @@ export default function Home() {
       </section>
 
       {/* ==== FEATURED WORK ==== */}
-      <section className='border-t bg-gradient-to-br from-[#998ada] via-[#6741A6] to-[#414e63] py-20'>
+      {/* <section className='border-t bg-gradient-to-br from-[#998ada] via-[#6741A6] to-[#414e63] py-20'>
         <div className='mx-auto max-w-7xl px-6'>
           <div className='flex items-end justify-between gap-6'>
             <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
@@ -149,15 +138,15 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ==== PROCESS / APPROACH ==== */}
-      <section className='py-20'>
+      <section className='py-20  bg-gradient-to-br from-[#1B5DED] via-[#3a99d0] to-[#1B5DED] '>
         <div className='mx-auto max-w-7xl px-6'>
           <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
             How we work
           </h2>
-          <div className='mt-10 grid grid-cols-1 gap-6 md:grid-cols-4'>
+          <div className='mt-10 grid grid-cols-1 gap-6 md:grid-cols-4 '>
             {[
               [
                 'Discover',
@@ -178,7 +167,7 @@ export default function Home() {
             ].map(([title, desc]) => (
               <div
                 key={title}
-                className='rounded-2xl border p-6'
+                className='rounded-2xl border p-6 bg-white shadow-sm'
               >
                 <div className='text-sm font-semibold uppercase tracking-wide text-neutral-500'>
                   {title}

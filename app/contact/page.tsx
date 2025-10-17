@@ -2,9 +2,11 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { Resend } from 'resend';
+import Image from 'next/image';
+import yayoi from '../../public/yayoi.jpg'; // import the image file
 
 export const metadata: Metadata = {
-  title: 'Contact | Vitura',
+  title: 'Contact Us',
   description: 'Tell us about your project and timelines.',
 };
 
@@ -66,7 +68,7 @@ export default function ContactPage({
   const status = searchParams?.status;
 
   return (
-    <main className='bg-white text-neutral-900'>
+    <main className='bg-transparent text-neutral-900'>
       {/* Optional status banners */}
       {status === 'sent' && (
         <div className='bg-green-50 text-green-800 px-6 py-3'>
@@ -85,15 +87,43 @@ export default function ContactPage({
       )}
 
       {/* HERO */}
-      <section className='border-b bg-neutral-50'>
-        <div className='mx-auto max-w-7xl px-6 py-16 md:py-24'>
-          <div className='mx-auto max-w-3xl text-center'>
-            <h1 className='text-3xl font-extrabold tracking-tight sm:text-5xl'>
-              Contact
-            </h1>
-            <p className='mt-4 text-neutral-600'>
-              Tell us about your team, timelines, and what success looks like.
-            </p>
+      {/* ==== HERO (full viewport) ==== */}
+      <section className='relative h-[100svh]'>
+        {/* BG image */}
+        <Image
+          src={yayoi}
+          alt='Vitura contact background'
+          placeholder='blur' // This will now work
+          fill
+          priority
+          sizes='100vw'
+          className='object-cover transition-opacity duration-500'
+        />
+
+        {/* Legibility overlay */}
+        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.5))]' />
+
+        {/* If your Header is fixed, keep content clear of it */}
+        <div className='pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24' />
+
+        {/* HERO COPY */}
+        <div className='relative z-10 h-full'>
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
+            <div className='mx-auto max-w-5xl text-center text-white'>
+              <h1
+                className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
+             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance'
+              >
+                Contact Us
+              </h1>
+
+              <p
+                className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90
+             drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]'
+              >
+                Tell us about your team, timelines, and what success looks like.
+              </p>
+            </div>
           </div>
         </div>
       </section>

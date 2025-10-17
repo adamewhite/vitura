@@ -5,7 +5,10 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import VituraLogo from './VituraLogo';
 
-export default function SiteNav() {
+export default function Header({
+  textClass = 'text-neutral-900',
+  logoColor = '#111827',
+}: Props) {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -31,10 +34,9 @@ export default function SiteNav() {
   }, [open]);
 
   const links = [
-    { href: '/services', label: 'Services' },
+    { href: '/services', label: 'Our Services' },
     { href: '/our-story', label: 'Our Story' },
-    // { href: '/work', label: 'Work' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/contact', label: 'Contact Us' },
   ];
 
   return (
@@ -45,16 +47,16 @@ export default function SiteNav() {
           aria-label='Vitura home'
           className='text-lg font-semibold tracking-tight'
         >
-          <VituraLogo color='white' />
+          <VituraLogo color={logoColor} />
         </Link>
 
         {/* Desktop links */}
-        <ul className='hidden items-center gap-8 md:flex'>
+        <ul className={`hidden items-center gap-8 md:flex ${textClass}`}>
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className='hover:opacity-80'
+                className='hover:opacity-80 text-2xl font-medium'
               >
                 {l.label}
               </Link>
@@ -89,8 +91,7 @@ export default function SiteNav() {
             className='absolute right-4 top-4 w-[88%] max-w-sm rounded-2xl border border-white/10 bg-white/10 p-4 text-white shadow-xl'
             onClick={(e) => e.stopPropagation()}
           >
-            <div className='flex items-center justify-between'>
-              <span className='text-sm font-medium'>Menu</span>
+            <div className='flex items-center justify-end'>
               <button
                 type='button'
                 className='rounded-md p-2'

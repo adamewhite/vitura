@@ -25,12 +25,12 @@ export default function NotFound() {
         >
           Services
         </Link>
-        <Link
+        {/* <Link
           href='/work'
           className='rounded-xl border px-4 py-2 text-black transition hover:bg-neutral-50'
         >
           Work
-        </Link>
+        </Link> */}
         <Link
           href='/about'
           className='rounded-xl border px-4 py-2 text-black transition hover:bg-neutral-50'

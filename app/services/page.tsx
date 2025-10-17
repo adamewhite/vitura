@@ -10,41 +10,59 @@ import {
   Search,
   Palette,
   Database,
+  ArrowRight,
 } from 'lucide-react';
+import Image from 'next/image';
+import wyeth from '../../public/wyeth.jpg'; // import the image file
+import PillButton from '../components/PillButton';
 
 export const metadata: Metadata = {
-  title: 'Services | Vitura',
+  title: 'Services',
   description:
     'Strategy, design, and engineering for data-rich products and content experiences.',
 };
 
 export default function ServicesPage() {
   return (
-    <main className='bg-white text-neutral-900'>
-      {/* HERO */}
-      <section className='border-b bg-neutral-50'>
-        <div className='mx-auto max-w-7xl px-6 py-16 md:py-24'>
-          <div className='mx-auto max-w-3xl text-center'>
-            <h1 className='text-3xl font-extrabold tracking-tight sm:text-5xl'>
-              Services
-            </h1>
-            <p className='mt-4 text-neutral-600'>
-              We combine strategy, design, and engineering to turn messy data
-              and complex ideas into clear digital experiences.
-            </p>
-            <div className='mt-6 flex items-center justify-center gap-3'>
-              <Link
-                href='/contact'
-                className='rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-neutral-800'
+    <main className='bg-transparent text-neutral-900'>
+      {/* ==== HERO (full viewport) ==== */}
+      <section className='relative h-[100svh]'>
+        {/* BG image */}
+        <Image
+          src={wyeth}
+          alt='Vitura gradient background'
+          placeholder='blur'
+          fill
+          priority
+          sizes='100vw'
+          className='object-cover transition-opacity duration-500'
+        />
+
+        {/* Legibility overlay */}
+        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.15)_30%,rgba(0,0,0,0.2))]' />
+
+        {/* If your Header is fixed, keep content clear of it */}
+        <div className='pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24' />
+
+        {/* HERO COPY */}
+
+        <div className='relative z-10 h-full'>
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
+            <div className='mx-auto max-w-5xl text-center text-white'>
+              <h1
+                className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
+             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance'
               >
-                Start a project
-              </Link>
-              {/* <Link
-                href='/work'
-                className='rounded-full border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-neutral-100'
+                Our Services
+              </h1>
+
+              <p
+                className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90
+             drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]'
               >
-                See our work
-              </Link> */}
+                We combine strategy, design, and engineering to turn messy data
+                and complex ideas into clear digital experiences.
+              </p>
             </div>
           </div>
         </div>
@@ -86,7 +104,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
       {/* PROCESS */}
       <section className='border-y bg-neutral-50 py-16 md:py-20'>
         <div className='mx-auto max-w-7xl px-6'>
@@ -113,7 +130,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
       {/* PACKAGES / WAYS TO ENGAGE */}
       <section className='py-16 md:py-20'>
         <div className='mx-auto max-w-7xl px-6'>
@@ -141,20 +157,15 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-                <div className='mt-6'>
-                  <Link
-                    href='/contact'
-                    className='inline-block rounded-full bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800'
-                  >
-                    Talk to us
-                  </Link>
-                </div>
+                <PillButton
+                  href='/contact'
+                  text='Talk to us'
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
-
       {/* FAQ */}
       <section className='border-t bg-neutral-50 py-16 md:py-20'>
         <div className='mx-auto max-w-4xl px-6'>
@@ -176,7 +187,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className='py-16 md:py-24'>
         <div className='mx-auto max-w-5xl px-6 text-center'>

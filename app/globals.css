@@ -81,8 +81,8 @@ h6 {
 /* Subtle paper-like texture hint (optional) */
 :root {
   /* Tweak these if you want closer color matching */
-  --page: #fde4e6; /* pinkish background (body is set via layout) */
-  --card: #eeede4; /* warm grey/stone for inner canvas */
+  --page: #648DB3; /* pinkish background (body is set via layout) */
+  --card: #B2D8CE; /* warm grey/stone for inner canvas */
 }
 
 body {
@@ -94,5 +94,3 @@ body {
     --card
   ) !important; /* nudge toward the screenshot tone */
 }
-
-

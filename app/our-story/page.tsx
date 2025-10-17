@@ -10,27 +10,71 @@ import {
   Beaker,
   ArrowRight,
 } from 'lucide-react';
+import Image from 'next/image';
+import pinkpurpleblue from '../../public/pinkpurpleblue.jpg'; // import the image file
 
 export const metadata: Metadata = {
-  title: 'Our Story | Vitura',
+  title: 'Our Story',
   description:
-    'Why Vitura exists: building humane, purpose-driven digital experiences instead of bloated toolkits no one asked for.',
+    'Strategy, design, and engineering for data-rich products and content experiences.',
 };
 
 export default function OurStoryPage() {
   return (
-    <main className='bg-white text-neutral-900'>
-      {/* HERO */}
-      <section className='border-b bg-neutral-50'>
-        <div className='mx-auto max-w-7xl px-6 py-16 md:py-24'>
-          <div className='mx-auto max-w-3xl text-center'>
-            <h1 className='text-3xl font-extrabold tracking-tight sm:text-5xl'>
+    <main className='bg-transparent text-neutral-900'>
+      <section className='relative h-[100svh]'>
+        {/* BG image */}
+        <Image
+          src={pinkpurpleblue}
+          alt='Vitura gradient background'
+          placeholder='blur'
+          fill
+          priority
+          sizes='100vw'
+          className='object-cover transition-opacity duration-500'
+        />
+
+        {/* Legibility overlay */}
+        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.15)_30%,rgba(0,0,0,0.2))]' />
+
+        {/* If your Header is fixed, keep content clear of it */}
+        <div className='pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24' />
+
+        {/* HERO COPY */}
+        <div className='relative z-10 flex h-full items-center'>
+          <div className='mx-auto max-w-5xl px-6 text-center text-white'>
+            <h1
+              className='mx-auto max-w-4xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
+                   drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance'
+            >
               Our Story
             </h1>
-            <p className='mt-4 text-neutral-600'>
+
+            <p
+              className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90
+                   drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]'
+            >
               We started Vitura after too many rooms where the software was
               clearly built for itself—not for the people who had to use it.
             </p>
+
+            {/* <div className='mt-8 flex flex-wrap items-center justify-center gap-4'>
+              <Link
+                href='/contact'
+                className='inline-flex items-center rounded-full bg-white/10 px-6 py-3 text-sm font-medium
+                     text-white ring-1 ring-white/30 backdrop-blur hover:bg-white/15'
+              >
+                Get in touch <ArrowRight className='ml-2 h-4 w-4' />
+              </Link> */}
+            {/* Optional secondary */}
+            {/* <Link
+          href="/work"
+          className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium
+                     text-neutral-900 hover:bg-neutral-100"
+        >
+          See our work
+        </Link> */}
+            {/* </div> */}
           </div>
         </div>
       </section>
