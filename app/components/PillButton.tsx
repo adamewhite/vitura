@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function PillButton({ href, text, color }: Props) {
+export default function PillButton({ href, text, color }) {
   return (
     <div className='mt-6'>
       <Link
