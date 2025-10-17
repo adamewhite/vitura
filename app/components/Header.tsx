@@ -8,7 +8,7 @@ import VituraLogo from './VituraLogo';
 export default function Header({
   textClass = 'text-neutral-900',
   logoColor = '#111827',
-}: Props) {
+}) {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
