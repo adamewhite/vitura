@@ -8,13 +8,22 @@ type Style = { textClass: string; logoColor: string };
 // Map top-level routes to styles
 const ROUTE_STYLES: Record<string, Style> = {
   '/our-story': {
-    textClass: 'text-[#e0ff16]',
-    logoColor: '#e0ff16',
+    textClass: 'text-story-main',
+    logoColor: 'var(--story-banner)',
   },
-  '/services': { textClass: 'text-[#d81d1d]', logoColor: '#d81d1d' },
-  '/contact': { textClass: 'text-[#2f46f5]', logoColor: '#2f46f5' },
+  '/services': {
+    textClass: 'text-services-main',
+    logoColor: 'var(--services-banner)',
+  },
+  '/contact': {
+    textClass: 'text-contact-main',
+    logoColor: 'var(--contact-banner)',
+  },
   // default / fallback
-  _default: { textClass: 'white', logoColor: 'white' },
+  _default: {
+    textClass: 'text-landing-main',
+    logoColor: 'var(--landing-banner)',
+  },
 };
 
 export default function HeaderShell() {

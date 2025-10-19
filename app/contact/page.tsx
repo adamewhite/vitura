@@ -68,7 +68,7 @@ export default function ContactPage({
   const status = searchParams?.status;
 
   return (
-    <main className='bg-transparent text-neutral-900'>
+    <main className='text-neutral-900 bg-contact-base min-h-screen font-primary'>
       {/* Optional status banners */}
       {status === 'sent' && (
         <div className='bg-green-50 text-green-800 px-6 py-3'>
@@ -129,7 +129,7 @@ export default function ContactPage({
       </section>
 
       {/* FORM */}
-      <section className='py-16 md:py-20'>
+      <section className='py-16 md:py-20 font-primary'>
         <div className='mx-auto max-w-3xl px-6'>
           <form
             action={sendEmail}
@@ -146,44 +146,50 @@ export default function ContactPage({
             />
 
             <div className='md:col-span-1'>
-              <label className='block text-sm font-medium'>Name</label>
+              <label className='block text-lg font-medium font-primary'>
+                Name
+              </label>
               <input
                 name='name'
                 required
-                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900'
+                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900 font-secondary text-xl'
                 placeholder='Your name'
               />
             </div>
 
             <div className='md:col-span-1'>
-              <label className='block text-sm font-medium'>Email</label>
+              <label className='block text-lg font-medium font-primary'>
+                Email
+              </label>
               <input
                 name='email'
                 type='email'
                 required
-                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900'
+                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900 font-secondary text-xl'
                 placeholder='you@company.com'
               />
             </div>
 
             <div className='md:col-span-2'>
-              <label className='block text-sm font-medium'>
-                Company / Org (optional)
+              <label className='block text-lg font-medium font-primary'>
+                Company / Organization (optional)
               </label>
               <input
                 name='company'
-                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900'
+                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900 font-secondary text-xl'
                 placeholder='Company name'
               />
             </div>
 
             <div className='md:col-span-2'>
-              <label className='block text-sm font-medium'>Project brief</label>
+              <label className='block text-lg font-medium font-primary'>
+                About Your Project
+              </label>
               <textarea
                 name='message'
                 required
                 rows={6}
-                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900'
+                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900 font-secondary text-xl'
                 placeholder='What are you trying to achieve? Timelines? Constraints?'
               />
             </div>

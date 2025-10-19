@@ -1,15 +1,50 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from 'next';
-import { Schibsted_Grotesk } from 'next/font/google';
+import { League_Spartan, Libre_Baskerville, Gantari } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import Footer from './components/Footer';
 import HeaderShell from './components/HeaderShell';
 import ImagePreloader from './components/ImagePreloader';
 import PageLoader from './components/PageLoader';
 
-const primary = Schibsted_Grotesk({
+const secondary = League_Spartan({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
+  variable: '--font-secondary', // Add this
+});
+
+// const primary = Libre_Baskerville({
+//   subsets: ['latin'],
+//   weight: ['400', '700'],
+//   style: ['italic', 'normal'],
+//   variable: '--font-primary', // Add this
+// });
+
+// const primary = Gantari({
+//   subsets: ['latin'],
+//   variable: '--font-primary', // Add this
+// });
+
+const primary = localFont({
+  src: [
+    {
+      path: './fonts/Folio-Light.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/FolioLightItalic.ttf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: './fonts/Folio-Medium.otf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-primary',
 });
 
 export const viewport: Viewport = {
@@ -80,7 +115,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${primary.className} text-neutral-900 antialiased`}
+        className={`${secondary.variable} ${primary.variable}  antialiased`}
       >
         <ImagePreloader />
         <PageLoader>

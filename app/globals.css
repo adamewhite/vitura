@@ -83,31 +83,42 @@ h6 {
   /* Tweak these if you want closer color matching */
   /* --page: linear-gradient(135deg, #fafbfc 0%, #f4f6f8 50%, #bfd3ed 100%); */
   --page: #b5c1eb; /* pinkish background (body is set via layout) */
-  --card: #3f65d6;
-  --primary-black: #232426 /* warm grey/stone for inner canvas */;
-  --card-gradient: linear-gradient(
-    135deg,
-    #1b5ded 0%,
-    #3a99d0 50%,
-    #1b5ded 100%
-  );
-  --frost: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 50%, #e8f4f8 100%);
-  --ice: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #ecf5fb 100%);
-  --mist: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e8edf3 100%);
-  --pearl: linear-gradient(135deg, #fafcfe 0%, #f4f7fa 50%, #eff3f7 100%);
-  --slate: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #dde4ed 100%);
-  --sky: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 50%, #d6ebf7 100%);
-  --glass: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(240, 248, 255, 0.85) 50%,
-    rgba(230, 242, 250, 0.9) 100%
-  );
-  --azure: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #d9edf8 100%);
+
+  /* card styles */
+  --card-base: #3f65d6;
+  --card-main: #b2b6c2;
+  --card-body: #e8e6e1;
+  --card-neutral: #f4f4f4;
+  --card-black: #1c150f;
+
+  /* landing styles */
+  --landing-banner: hsl(60, 100%, 87%);
+  --landing-main: hsl(55, 92%, 90%);
+  --landing-base: hsl(93, 22%, 46%);
+
+  /* services styles */
+  --services-banner: hsl(0, 100%, 51%);
+  --services-main: hsl(0, 100%, 51%);
+  --services-base: hsl(93, 22%, 46%);
+
+  /* our story styles */
+  --story-banner: hsl(75, 100%, 51%);
+  --story-main: hsl(75, 100%, 51%);
+  --story-base: hsl(93, 22%, 46%);
+
+  /* contact styles */
+  --contact-banner: hsl(178, 100%, 51%);
+  --contact-main: hsl(178, 100%, 51%);
+  --contact-base: hsl(93, 22%, 46%);
+
+  /* footer styles */
+  --footer-banner: hsl(25, 68%, 62%);
+  --footer-main: hsl(178, 95%, 84%);
+  --footer-base: hsl(233, 98%, 16%);
 }
 
 body {
-  background: var(--pearl);
+  /* background: var(--mist); */
   color: var(--primary-black);
 }
 
@@ -118,4 +129,8 @@ body {
   border-radius: 0.5rem;
   text-align: center;
   font-weight: bold;
+}
+
+h1 {
+  color: var(--banner-text);
 }

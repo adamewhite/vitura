@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className='bg-transparent text-neutral-900'>
+    <main className='text-neutral-900 bg-services-base font-primary'>
       {/* ==== HERO (full viewport) ==== */}
       <section className='relative h-[100svh]'>
         {/* BG image */}
@@ -51,7 +51,7 @@ export default function ServicesPage() {
             <div className='mx-auto max-w-5xl text-center text-white'>
               <h1
                 className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
-             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance'
+             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance italic'
               >
                 Our Services
               </h1>

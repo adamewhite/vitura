@@ -6,7 +6,7 @@ import purples from '../public/purples.jpg'; // import the image file
 
 export default function Home() {
   return (
-    <main className='min-h-screen bg-transparent text-neutral-900'>
+    <main className='min-h-screen text-neutral-900 bg-landing-base'>
       {/* ==== HERO (full viewport) ==== */}
       <section className='relative h-screen'>
         {/* BG image */}
@@ -30,7 +30,7 @@ export default function Home() {
             <div className='mx-auto max-w-5xl text-center text-white'>
               <h1
                 className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
-             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance'
+             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance font-primary italic'
               >
                 We are a studio for digital transformation, data strategy, and
                 human-centered design based in New York.
@@ -44,10 +44,10 @@ export default function Home() {
       <section className='relative py-20'>
         <div className='mx-auto max-w-7xl px-6'>
           <div className='mx-auto max-w-3xl text-center'>
-            <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
+            <h2 className='text-3xl text-card-body font-bold tracking-tight sm:text-4xl font-primary'>
               What we do
             </h2>
-            <p className='mt-4 text-neutral-600'>
+            <p className='mt-4 text-white'>
               Strategy, design, and engineering for data-rich products and
               content experiences.
             </p>
@@ -81,13 +81,17 @@ export default function Home() {
             ].map((card) => (
               <div
                 key={card.title}
-                className='rounded-2xl border bg-white p-6 shadow-sm'
+                className='rounded-2xl border  bg-card-neutral text-card-black p-6 shadow-sm'
               >
-                <h3 className='text-lg font-semibold'>{card.title}</h3>
-                <p className='mt-2 text-sm text-neutral-600'>{card.desc}</p>
+                <h3 className='text-lg font-semibold font-primary'>
+                  {card.title}
+                </h3>
+                <p className='mt-2 text-md text-neutral-600 font-secondary'>
+                  {card.desc}
+                </p>
                 <Link
                   href='/services'
-                  className='mt-4 inline-block text-sm font-medium text-neutral-900 underline underline-offset-4'
+                  className='mt-4 inline-block text-sm font-medium text-neutral-900 underline underline-offset-4 font-secondary'
                 >
                   Learn more
                 </Link>
@@ -141,12 +145,12 @@ export default function Home() {
       </section> */}
 
       {/* ==== PROCESS / APPROACH ==== */}
-      <section className='py-20  custom-banner'>
+      <section className='py-20 bg-card-base text-card-main'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
+          <h2 className='text-3xl font-bold tracking-tight sm:text-4xl text-center font-primary'>
             How we work
           </h2>
-          <div className='mt-10 grid grid-cols-1 gap-6 md:grid-cols-4 '>
+          <div className='mt-10 grid grid-cols-1 gap-6 md:grid-cols-4 font-normal '>
             {[
               [
                 'Discover',
@@ -169,10 +173,12 @@ export default function Home() {
                 key={title}
                 className='rounded-2xl border p-6 bg-white shadow-sm'
               >
-                <div className='text-sm font-semibold uppercase tracking-wide text-neutral-500'>
+                <div className='text-sm uppercase tracking-wide text-neutral-500 font-secondary font-bold'>
                   {title}
                 </div>
-                <p className='mt-2 text-sm text-neutral-700'>{desc}</p>
+                <p className='mt-2 text-sm text-neutral-700 font-primary'>
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
@@ -182,7 +188,7 @@ export default function Home() {
       {/* ==== CONTACT PREVIEW ==== */}
       <section className='py-20'>
         <div className='mx-auto max-w-5xl px-6'>
-          <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
+          <h2 className='text-3xl font-bold tracking-tight sm:text-4xl font-primary'>
             Let’s talk
           </h2>
           <p className='mt-3 max-w-2xl text-neutral-600'>

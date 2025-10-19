@@ -5,12 +5,12 @@ import VituraLogo from './VituraLogo';
 
 export default function Footer() {
   return (
-    <footer className='border-t bg-neutral-50'>
+    <footer className='border-t bg-footer-base text-footer-main'>
       <div className='mx-auto max-w-7xl px-6 py-12'>
         <div className='grid grid-cols-1 gap-10 md:grid-cols-4'>
           <div>
-            <VituraLogo color='black' />
-            <p className='mt-3 max-w-xs text-sm text-neutral-600'>
+            <VituraLogo color='var(--footer-banner)' />
+            <p className='mt-3 max-w-xs text-sm text-footer-main'>
               A studio for digital transformation, data strategy, and
               human-centered design.
             </p>
@@ -104,17 +104,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          <div>
-            <div className='text-sm font-semibold'>NYC</div>
-            <address className='mt-3 not-italic text-sm text-neutral-600'>
-              123 West Broadway
-              <br />
-              New York, NY 10013
-              <br />
-              United States
-            </address>
           </div>
         </div>
 

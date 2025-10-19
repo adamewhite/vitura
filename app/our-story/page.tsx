@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function OurStoryPage() {
   return (
-    <main className='bg-transparent text-neutral-900'>
+    <main className='text-neutral-900 bg-story-base font-primary'>
       <section className='relative h-[100svh]'>
         {/* BG image */}
         <Image

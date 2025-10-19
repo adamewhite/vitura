@@ -6,7 +6,7 @@ import { Menu, X } from 'lucide-react';
 import VituraLogo from './VituraLogo';
 
 export default function Header({
-  textClass = 'text-neutral-900',
+  textClass = 'text-red-900',
   logoColor = '#111827',
 }) {
   const [open, setOpen] = useState(false);
@@ -41,7 +41,9 @@ export default function Header({
 
   return (
     <nav className='absolute inset-x-0 top-0 z-20'>
-      <div className='mx-auto flex max-w-7xl items-center justify-between px-6 py-6 text-white'>
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between px-6 py-6 ${textClass}`}
+      >
         <Link
           href='/'
           aria-label='Vitura home'
@@ -51,7 +53,7 @@ export default function Header({
         </Link>
 
         {/* Desktop links */}
-        <ul className={`hidden items-center gap-8 md:flex ${textClass}`}>
+        <ul className='hidden items-center gap-8 md:flex font-primary italic'>
           {links.map((l) => (
             <li key={l.href}>
               <Link

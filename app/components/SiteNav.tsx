@@ -33,7 +33,7 @@ export default function SiteNav() {
   const links = [
     { href: '/services', label: 'Services' },
     { href: '/our-story', label: 'Our Story' },
-    { href: '/work', label: 'Work' },
+    // { href: '/work', label: 'Work' },
     { href: '/contact', label: 'Contact' },
   ];
 

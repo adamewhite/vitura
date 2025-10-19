@@ -18,7 +18,6 @@ export default function VituraLogo({
   className = '',
   src = '/vitura.svg',
 }: Props) {
-  console.log('textVariant in Logo', color);
   return (
     <span
       role='img'
