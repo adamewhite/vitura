@@ -57,7 +57,7 @@ export default function OurStoryPage() {
       {/* ORIGIN STORY */}
       <section className='py-16 md:py-20 bg-story-base text-story-light-color'>
         <div className='mx-auto max-w-4xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-base'>
             Why we exist
           </h2>
           <div className='mt-5 space-y-4 opacity-80 font-secondary'>
@@ -98,7 +98,7 @@ export default function OurStoryPage() {
             ].map((item) => (
               <li
                 key={item}
-                className='rounded-md border border-story-light-color/10 bg-white text-story-dark-color p-4 leading-relaxed font-secondary'
+                className='rounded-md border border-story-light-color/10 bg-gradient-to-b from-white to-white/80 text-story-dark-color p-4 leading-relaxed font-secondary'
               >
                 • {item}
               </li>
@@ -110,14 +110,14 @@ export default function OurStoryPage() {
       {/* PRINCIPLES */}
       <section className='py-16 md:py-20 bg-story-alternative text-story-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-alt'>
             What we believe
           </h2>
           <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-3'>
             {principles.map((p) => (
               <article
                 key={p.title}
-                className='rounded-md border border-story-light-color/10 bg-white text-story-dark-color p-6 shadow-sm'
+                className='rounded-md border border-story-light-color/10 bg-gradient-to-b from-white to-white/80 text-story-dark-color p-6 shadow-sm'
               >
                 <div className='flex items-center gap-3'>
                   <p.icon className='h-5 w-5' />
@@ -139,7 +139,7 @@ export default function OurStoryPage() {
         <div className='mx-auto max-w-7xl px-6'>
           <div className='grid grid-cols-1 items-start gap-10 md:grid-cols-2'>
             <div>
-              <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary'>
+              <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-base'>
                 How we turn frustration into focus
               </h2>
               <p className='mt-3 opacity-80 font-secondary'>
@@ -169,7 +169,7 @@ export default function OurStoryPage() {
               ].map(([title, desc]) => (
                 <div
                   key={title}
-                  className='rounded-md border border-story-light-color/10 bg-white text-story-dark-color p-5'
+                  className='rounded-md border border-story-light-color/10 bg-gradient-to-b from-white to-white/80 text-story-dark-color p-5'
                 >
                   <div className='text-sm font-semibold uppercase tracking-wide opacity-70 font-secondary'>
                     {title}
@@ -187,7 +187,7 @@ export default function OurStoryPage() {
       {/* MINI–TIMELINE */}
       <section className='py-16 md:py-20 bg-story-alternative text-story-light-color'>
         <div className='mx-auto max-w-5xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-alt'>
             Milestones
           </h2>
           <ol className='mt-6 space-y-4'>
@@ -207,7 +207,7 @@ export default function OurStoryPage() {
             ].map(([title, desc], i) => (
               <li
                 key={i}
-                className='rounded-md border border-story-light-color/10 bg-white text-story-dark-color p-5'
+                className='rounded-md border border-story-light-color/10 bg-gradient-to-b from-white to-white/80 text-story-dark-color p-5'
               >
                 <div className='text-base font-semibold font-primary'>
                   {title}
@@ -224,7 +224,7 @@ export default function OurStoryPage() {
       {/* CTA */}
       <section className='py-16 md:py-24 bg-story-base text-story-light-color'>
         <div className='mx-auto max-w-4xl px-6 text-center'>
-          <h3 className='text-2xl font-bold tracking-tight font-primary text-balance'>
+          <h3 className='text-2xl font-bold tracking-tight font-primary text-balance text-heading-base'>
             Let&apos;s design for people, not just for platforms.
           </h3>
           <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary text-balance'>

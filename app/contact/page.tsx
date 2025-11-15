@@ -125,7 +125,7 @@ export default function ContactPage({
         <div className='mx-auto max-w-3xl px-6'>
           <form
             action={sendEmail}
-            className='grid grid-cols-1 gap-4 md:grid-cols-2 rounded-md border border-contact-light-color/10 bg-white p-6 shadow-sm'
+            className='grid grid-cols-1 gap-4 md:grid-cols-2 rounded-md border border-contact-light-color/10 bg-gradient-to-b from-white to-white/80 p-6 shadow-sm'
           >
             {/* honeypot (hidden) */}
             <input

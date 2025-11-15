@@ -97,9 +97,11 @@ h6 {
 
   /* Unified page theme - Single color scheme across all pages */
   --page-base: hsl(200, 70%, 25%); /* Rich deep blue background */
-  --page-alternative: hsl(198, 71%, 41%); /* Light cyan/teal */
+  --page-alternative: hsl(195, 83%, 16%); /* Dark blue alternative */
   --page-light-color: #fff5ee; /* Warm white for dark backgrounds */
   --page-dark-color: hsl(199, 26%, 14%); /* Very dark blue for light backgrounds */
+  --heading-color-base: hsl(26, 90%, 37%); /* Amber-700 for base sections */
+  --heading-color-alt: hsl(38, 92%, 50%); /* Amber-400 for alternative sections */
 
   /* Legacy aliases - map to unified page variables */
   --landing-base: var(--page-base);
@@ -218,9 +220,9 @@ i {
 .bg-contact-alternative {
   background: linear-gradient(
     to bottom,
-    hsl(189, 71%, 41%),
-    hsl(189, 68%, 38%) 50%,
-    hsl(189, 71%, 41%)
+    hsl(195, 83%, 16%),
+    hsl(195, 80%, 13%) 50%,
+    hsl(195, 83%, 16%)
   ) !important;
 }
 
@@ -235,4 +237,12 @@ i {
 
 h1 {
   color: var(--banner-text);
+}
+
+.vitura-logo-color {
+  background-color: hsl(0, 100%, 60%);
+}
+
+.vitura-logo-color:hover {
+  background-color: hsl(0, 100%, 52%);
 }

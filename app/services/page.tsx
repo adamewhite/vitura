@@ -62,7 +62,7 @@ export default function ServicesPage() {
       {/* CAPABILITIES GRID */}
       <section className='py-16 md:py-20 bg-services-base text-services-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-base'>
             Core capabilities
           </h2>
           <p className='mt-2 max-w-2xl opacity-70 font-secondary'>
@@ -73,7 +73,7 @@ export default function ServicesPage() {
             {capabilities.map((c) => (
               <article
                 key={c.title}
-                className='rounded-md border border-services-light-color/10 bg-white text-services-dark-color p-6 shadow-sm'
+                className='rounded-md border border-services-light-color/10 bg-gradient-to-b from-white to-white/80 text-services-dark-color p-6 shadow-sm'
               >
                 <div className='flex items-center gap-3'>
                   <c.icon className='h-5 w-5' />
@@ -103,7 +103,7 @@ export default function ServicesPage() {
       {/* PROCESS */}
       <section className='py-16 md:py-20 bg-services-alternative text-services-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-alt'>
             How we work
           </h2>
           <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-4'>
@@ -115,7 +115,7 @@ export default function ServicesPage() {
             ].map(([title, desc]) => (
               <div
                 key={title}
-                className='rounded-md border border-services-light-color/10 bg-white text-services-dark-color p-6'
+                className='rounded-md border border-services-light-color/10 bg-gradient-to-b from-white to-white/80 text-services-dark-color p-6'
               >
                 <div className='text-sm font-semibold uppercase tracking-wide opacity-70 font-secondary'>
                   {title}
@@ -132,14 +132,14 @@ export default function ServicesPage() {
       {/* PACKAGES / WAYS TO ENGAGE */}
       <section className='py-16 md:py-20 bg-services-base text-services-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-base'>
             Ways to engage
           </h2>
           <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-3'>
             {packages.map((p) => (
               <div
                 key={p.name}
-                className='flex h-full flex-col rounded-md border border-services-light-color/10 bg-white text-services-dark-color p-6'
+                className='flex h-full flex-col rounded-md border border-services-light-color/10 bg-gradient-to-b from-white to-white/80 text-services-dark-color p-6'
               >
                 <div className='flex items-center gap-3'>
                   <p.icon className='h-5 w-5' />
@@ -173,14 +173,14 @@ export default function ServicesPage() {
       {/* FAQ */}
       <section className='py-16 md:py-20 bg-services-alternative text-services-light-color'>
         <div className='mx-auto max-w-4xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-alt'>
             FAQs
           </h2>
           <div className='mt-8 space-y-6'>
             {faqs.map(([q, a]) => (
               <details
                 key={q}
-                className='group rounded-md border border-services-light-color/10 bg-white text-services-dark-color p-5 open:shadow-sm'
+                className='group rounded-md border border-services-light-color/10 bg-gradient-to-b from-white to-white/80 text-services-dark-color p-5 open:shadow-sm'
               >
                 <summary className='cursor-pointer list-none text-base font-medium'>
                   {q}
@@ -197,7 +197,7 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className='py-16 md:py-24 bg-services-base text-services-light-color'>
         <div className='mx-auto max-w-5xl px-6 text-center'>
-          <h3 className='text-2xl font-bold tracking-tight text-balance'>
+          <h3 className='text-2xl font-bold tracking-tight text-balance text-heading-base'>
             Have a challenge in mind?
           </h3>
           <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary text-balance'>

@@ -2,7 +2,6 @@
 import React from 'react';
 
 type Props = {
-  color?: string; // any CSS color or Tailwind var, e.g. "#6b21a8" or "currentColor"
   width?: number; // px
   height?: number; // px
   title?: string; // for a11y
@@ -11,7 +10,6 @@ type Props = {
 };
 
 export default function VituraLogo({
-  color = 'currentColor',
   width = 160,
   height = 40,
   title = 'Vitura',
@@ -22,12 +20,10 @@ export default function VituraLogo({
     <span
       role='img'
       aria-label={title}
-      className={className}
+      className={`inline-block vitura-logo-color transition-colors ease-in ${className}`}
       style={{
-        display: 'inline-block',
         width,
         height,
-        backgroundColor: color,
         WebkitMask: `url(${src}) center / contain no-repeat`,
         mask: `url(${src}) center / contain no-repeat`,
       }}

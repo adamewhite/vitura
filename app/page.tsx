@@ -37,7 +37,7 @@ export default function Home() {
       <section className='py-20 bg-landing-alternative text-landing-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
           <div className='max-w-3xl'>
-            <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary'>
+            <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary text-heading-alt'>
               What we do
             </h2>
             <p className='mt-4 font-secondary'>
@@ -74,7 +74,7 @@ export default function Home() {
             ].map((card) => (
               <div
                 key={card.title}
-                className='rounded-md border border-landing-light-color/10 bg-white text-landing-dark-color p-6 shadow-sm'
+                className='rounded-md border border-landing-light-color/10 bg-gradient-to-b from-white to-white/80 text-landing-dark-color p-6 shadow-sm'
               >
                 <h3 className='text-lg font-semibold font-primary'>
                   {card.title}
@@ -97,7 +97,7 @@ export default function Home() {
       {/* ==== PROCESS / APPROACH ==== */}
       <section className='py-20 bg-landing-base text-landing-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary'>
+          <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary text-heading-base'>
             How we work
           </h2>
           <div className='mt-10 grid grid-cols-1 gap-6 md:grid-cols-4'>
@@ -136,7 +136,7 @@ export default function Home() {
       {/* ==== CONTACT PREVIEW ==== */}
       <section className='py-20 bg-landing-alternative text-landing-light-color'>
         <div className='mx-auto max-w-5xl px-6'>
-          <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary'>
+          <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary text-heading-alt'>
             Let&apos;s talk
           </h2>
           <p className='mt-3 max-w-2xl font-secondary'>

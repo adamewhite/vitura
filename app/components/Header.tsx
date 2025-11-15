@@ -7,7 +7,6 @@ import VituraLogo from './VituraLogo';
 
 export default function Header({
   textClass = 'text-red-900',
-  logoColor = '#111827',
 }) {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -49,7 +48,7 @@ export default function Header({
           aria-label='Vitura home'
           className='text-lg font-semibold tracking-tight'
         >
-          <VituraLogo color={logoColor} />
+          <VituraLogo />
         </Link>
 
         {/* Desktop links */}

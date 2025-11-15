@@ -15,6 +15,8 @@ const config: Config = {
         secondary: ['var(--font-secondary)'],
       },
       colors: {
+        'heading-base': 'var(--heading-color-base)',
+        'heading-alt': 'var(--heading-color-alt)',
         button: {
           'dark-bg': 'var(--button-dark-bg)',
           'dark-text': 'var(--button-dark-text)',
