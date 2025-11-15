@@ -72,7 +72,7 @@ export default function ContactPage({
       {/* Optional status banners */}
       {status === 'sent' && (
         <div className='bg-green-50 text-green-800 px-6 py-3 border-b border-green-200'>
-          Message sent. We'll get back to you shortly.
+          Message sent. We&apos;ll get back to you shortly.
         </div>
       )}
       {status === 'error' && (
@@ -188,7 +188,7 @@ export default function ContactPage({
 
             <div className='md:col-span-2 flex items-center justify-between'>
               <p className='text-xs text-contact-dark-color/60 font-secondary'>
-                We'll only use your info to reply about this inquiry.
+                We&apos;ll only use your info to reply about this inquiry.
               </p>
               <button
                 type='submit'

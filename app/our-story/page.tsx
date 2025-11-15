@@ -62,7 +62,7 @@ export default function OurStoryPage() {
           </h2>
           <div className='mt-5 space-y-4 opacity-80 font-secondary'>
             <p>
-              We've led teams inside orgs where critical work happened in a maze
+              We&apos;ve led teams inside orgs where critical work happened in a maze
               of tabs, inscrutable settings, and dashboards that tried to show
               everything at once—and told us nothing. Features shipped because
               they were possible, not because anyone needed them.
@@ -74,7 +74,7 @@ export default function OurStoryPage() {
                 no progressive disclosure, no research with actual users,
                 fragile workflows,
               </em>{' '}
-              and "templates" that multiplied complexity. People did the real
+              and &ldquo;templates&rdquo; that multiplied complexity. People did the real
               design work—by inventing workarounds in spreadsheets, sticky
               notes, and long email threads.
             </p>
@@ -144,7 +144,7 @@ export default function OurStoryPage() {
               </h2>
               <p className='mt-3 opacity-80 font-secondary'>
                 We practice progressive disclosure by default: surface the next
-                best action, hide the rest until it's relevant. Then we test it
+                best action, hide the rest until it&apos;s relevant. Then we test it
                 with the people who will actually use it.
               </p>
             </div>
@@ -225,11 +225,11 @@ export default function OurStoryPage() {
       <section className='py-16 md:py-24 bg-story-base text-story-light-color'>
         <div className='mx-auto max-w-4xl px-6 text-center'>
           <h3 className='text-2xl font-bold tracking-tight font-primary text-balance'>
-            Let's design for people, not just for platforms.
+            Let&apos;s design for people, not just for platforms.
           </h3>
           <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary text-balance'>
-            Have a tool that feels heavier than the work it's supposed to help?
-            We'll find the smallest, clearest next step together.
+            Have a tool that feels heavier than the work it&apos;s supposed to help?
+            We&apos;ll find the smallest, clearest next step together.
           </p>
           <div className='mt-6 flex items-center justify-center gap-3'>
             <Link

@@ -1,24 +1,15 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from 'next';
-import {
-  League_Spartan,
-  Libre_Baskerville,
-  Libre_Franklin,
-  Gantari,
-  Schibsted_Grotesk,
-  Castoro,
-  Goudy_Bookletter_1911,
-} from 'next/font/google';
-import localFont from 'next/font/local';
+import { Hanken_Grotesk, Instrument_Sans } from 'next/font/google';
 import './globals.css';
 import Footer from './components/Footer';
 import HeaderShell from './components/HeaderShell';
 import ImagePreloader from './components/ImagePreloader';
 import PageLoader from './components/PageLoader';
 
-const secondary = Libre_Franklin({
-  weight: '400',
-  variable: '--font-secondary', // Add this
+const primary = Instrument_Sans({
+  variable: '--font-primary', // Add this
+  subsets: ['latin'],
 });
 
 // const secondary = Libre_Baskerville({
@@ -27,10 +18,9 @@ const secondary = Libre_Franklin({
 //   variable: '--font-secondary', // Add this
 // });
 
-const primary = Schibsted_Grotesk({
+const secondary = Hanken_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-primary', // Add this
+  variable: '--font-secondary', // Add this
 });
 
 // const primary = Libre_Baskerville({
