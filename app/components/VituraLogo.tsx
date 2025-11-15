@@ -16,11 +16,14 @@ export default function VituraLogo({
   className = '',
   src = '/vitura.svg',
 }: Props) {
+  // Use default color class unless a custom class is provided
+  const colorClass = className.includes('vitura-logo-') ? '' : 'vitura-logo-color';
+
   return (
     <span
       role='img'
       aria-label={title}
-      className={`inline-block vitura-logo-color transition-colors ease-in ${className}`}
+      className={`inline-block ${colorClass} transition-colors ease-in ${className}`}
       style={{
         width,
         height,

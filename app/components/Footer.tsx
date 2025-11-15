@@ -9,7 +9,7 @@ export default function Footer() {
       <div className='mx-auto max-w-7xl px-6 py-12'>
         <div className='grid grid-cols-1 gap-10 md:grid-cols-4'>
           <div>
-            <VituraLogo color='var(--footer-banner)' />
+            <VituraLogo className='vitura-logo-footer' />
             <p className='mt-3 max-w-xs text-sm text-footer-main'>
               A studio for digital transformation, data strategy, and
               human-centered design.
