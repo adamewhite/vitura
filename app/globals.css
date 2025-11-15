@@ -254,3 +254,11 @@ h1 {
 .vitura-logo-footer:hover {
   background-color: hsl(25, 68%, 55%);
 }
+
+.vitura-logo-white {
+  background-color: white;
+}
+
+.vitura-logo-white:hover {
+  background-color: hsl(0, 0%, 90%);
+}

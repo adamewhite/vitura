@@ -45,7 +45,7 @@ export default function SiteNav() {
           aria-label='Vitura home'
           className='text-lg font-semibold tracking-tight'
         >
-          <VituraLogo color='white' />
+          <VituraLogo className='vitura-logo-white' />
         </Link>
 
         {/* Desktop links */}
