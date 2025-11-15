@@ -46,11 +46,11 @@ export default function ServicesPage() {
         <div className='relative z-10 h-full'>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
             <div className='mx-auto max-w-5xl text-center'>
-              <h1 className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-services-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-services-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
                 Our Services
               </h1>
 
-              <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-services-light-color [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%),_0_0_20px_rgb(0_0_0_/_60%)] font-primary'>
+              <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-services-light-color [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%),_0_0_20px_rgb(0_0_0_/_60%)] font-primary text-balance'>
                 We combine strategy, design, and engineering to turn messy data
                 and complex ideas into clear digital experiences.
               </p>
@@ -73,7 +73,7 @@ export default function ServicesPage() {
             {capabilities.map((c) => (
               <article
                 key={c.title}
-                className='rounded-2xl border border-services-light-color/10 bg-white text-services-dark-color p-6 shadow-sm'
+                className='rounded-md border border-services-light-color/10 bg-white text-services-dark-color p-6 shadow-sm'
               >
                 <div className='flex items-center gap-3'>
                   <c.icon className='h-5 w-5' />
@@ -101,9 +101,9 @@ export default function ServicesPage() {
       </section>
 
       {/* PROCESS */}
-      <section className='py-16 md:py-20 bg-services-alternative'>
+      <section className='py-16 md:py-20 bg-services-alternative text-services-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-services-dark-color'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
             How we work
           </h2>
           <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-4'>
@@ -115,7 +115,7 @@ export default function ServicesPage() {
             ].map(([title, desc]) => (
               <div
                 key={title}
-                className='rounded-2xl border border-services-dark-color/10 bg-white text-services-dark-color p-6'
+                className='rounded-md border border-services-light-color/10 bg-white text-services-dark-color p-6'
               >
                 <div className='text-sm font-semibold uppercase tracking-wide opacity-70 font-secondary'>
                   {title}
@@ -139,7 +139,7 @@ export default function ServicesPage() {
             {packages.map((p) => (
               <div
                 key={p.name}
-                className='flex h-full flex-col rounded-2xl border border-services-light-color/10 bg-white text-services-dark-color p-6'
+                className='flex h-full flex-col rounded-md border border-services-light-color/10 bg-white text-services-dark-color p-6'
               >
                 <div className='flex items-center gap-3'>
                   <p.icon className='h-5 w-5' />
@@ -171,16 +171,16 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ */}
-      <section className='py-16 md:py-20 bg-services-alternative'>
+      <section className='py-16 md:py-20 bg-services-alternative text-services-light-color'>
         <div className='mx-auto max-w-4xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-services-dark-color'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
             FAQs
           </h2>
           <div className='mt-8 space-y-6'>
             {faqs.map(([q, a]) => (
               <details
                 key={q}
-                className='group rounded-2xl border border-services-dark-color/10 bg-white text-services-dark-color p-5 open:shadow-sm'
+                className='group rounded-md border border-services-light-color/10 bg-white text-services-dark-color p-5 open:shadow-sm'
               >
                 <summary className='cursor-pointer list-none text-base font-medium'>
                   {q}
@@ -197,10 +197,10 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className='py-16 md:py-24 bg-services-base text-services-light-color'>
         <div className='mx-auto max-w-5xl px-6 text-center'>
-          <h3 className='text-2xl font-bold tracking-tight'>
+          <h3 className='text-2xl font-bold tracking-tight text-balance'>
             Have a challenge in mind?
           </h3>
-          <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary'>
+          <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary text-balance'>
             Tell us your goals and constraints—we'll map the fastest path from
             idea to impact.
           </p>

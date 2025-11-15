@@ -49,12 +49,12 @@ export default function SiteNav() {
         </Link>
 
         {/* Desktop links */}
-        <ul className='hidden items-center gap-8 md:flex'>
+        <ul className='hidden items-center gap-4 md:flex lg:gap-8'>
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className='hover:opacity-80'
+                className='hover:opacity-80 text-base lg:text-xl'
               >
                 {l.label}
               </Link>

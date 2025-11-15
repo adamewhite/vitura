@@ -42,11 +42,11 @@ export default function OurStoryPage() {
         {/* HERO COPY */}
         <div className='relative z-10 flex h-full items-center'>
           <div className='mx-auto max-w-5xl px-6 text-center'>
-            <h1 className='mx-auto max-w-4xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-story-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
+            <h1 className='mx-auto max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-story-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
               Our Story
             </h1>
 
-            <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-story-light-color [text-shadow:_0_1px_6px_rgb(0_0_0_/_45%)] font-primary'>
+            <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-story-light-color [text-shadow:_0_1px_6px_rgb(0_0_0_/_45%)] font-primary text-balance'>
               We started Vitura after too many rooms where the software was
               clearly built for itself—not for the people who had to use it.
             </p>
@@ -98,7 +98,7 @@ export default function OurStoryPage() {
             ].map((item) => (
               <li
                 key={item}
-                className='rounded-2xl border border-story-light-color/10 bg-white text-story-dark-color p-4 leading-relaxed font-secondary'
+                className='rounded-md border border-story-light-color/10 bg-white text-story-dark-color p-4 leading-relaxed font-secondary'
               >
                 • {item}
               </li>
@@ -108,16 +108,16 @@ export default function OurStoryPage() {
       </section>
 
       {/* PRINCIPLES */}
-      <section className='py-16 md:py-20 bg-story-alternative'>
+      <section className='py-16 md:py-20 bg-story-alternative text-story-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-story-dark-color font-primary'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary'>
             What we believe
           </h2>
           <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-3'>
             {principles.map((p) => (
               <article
                 key={p.title}
-                className='rounded-2xl border border-story-dark-color/10 bg-white text-story-dark-color p-6 shadow-sm'
+                className='rounded-md border border-story-light-color/10 bg-white text-story-dark-color p-6 shadow-sm'
               >
                 <div className='flex items-center gap-3'>
                   <p.icon className='h-5 w-5' />
@@ -169,7 +169,7 @@ export default function OurStoryPage() {
               ].map(([title, desc]) => (
                 <div
                   key={title}
-                  className='rounded-2xl border border-story-light-color/10 bg-white text-story-dark-color p-5'
+                  className='rounded-md border border-story-light-color/10 bg-white text-story-dark-color p-5'
                 >
                   <div className='text-sm font-semibold uppercase tracking-wide opacity-70 font-secondary'>
                     {title}
@@ -185,9 +185,9 @@ export default function OurStoryPage() {
       </section>
 
       {/* MINI–TIMELINE */}
-      <section className='py-16 md:py-20 bg-story-alternative'>
+      <section className='py-16 md:py-20 bg-story-alternative text-story-light-color'>
         <div className='mx-auto max-w-5xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-story-dark-color font-primary'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary'>
             Milestones
           </h2>
           <ol className='mt-6 space-y-4'>
@@ -207,7 +207,7 @@ export default function OurStoryPage() {
             ].map(([title, desc], i) => (
               <li
                 key={i}
-                className='rounded-2xl border border-story-dark-color/10 bg-white text-story-dark-color p-5'
+                className='rounded-md border border-story-light-color/10 bg-white text-story-dark-color p-5'
               >
                 <div className='text-base font-semibold font-primary'>
                   {title}
@@ -224,10 +224,10 @@ export default function OurStoryPage() {
       {/* CTA */}
       <section className='py-16 md:py-24 bg-story-base text-story-light-color'>
         <div className='mx-auto max-w-4xl px-6 text-center'>
-          <h3 className='text-2xl font-bold tracking-tight font-primary'>
+          <h3 className='text-2xl font-bold tracking-tight font-primary text-balance'>
             Let's design for people, not just for platforms.
           </h3>
-          <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary'>
+          <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary text-balance'>
             Have a tool that feels heavier than the work it's supposed to help?
             We'll find the smallest, clearest next step together.
           </p>

@@ -108,11 +108,11 @@ export default function ContactPage({
         <div className='relative z-10 h-full'>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
             <div className='mx-auto max-w-5xl text-center'>
-              <h1 className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-contact-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-contact-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
                 Contact Us
               </h1>
 
-              <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-contact-light-color [text-shadow:_0_1px_6px_rgb(0_0_0_/_45%)] font-primary'>
+              <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-contact-light-color [text-shadow:_0_1px_6px_rgb(0_0_0_/_45%)] font-primary text-balance'>
                 Tell us about your team, timelines, and what success looks like.
               </p>
             </div>
@@ -125,7 +125,7 @@ export default function ContactPage({
         <div className='mx-auto max-w-3xl px-6'>
           <form
             action={sendEmail}
-            className='grid grid-cols-1 gap-4 md:grid-cols-2 rounded-2xl border border-contact-light-color/10 bg-white p-6 shadow-sm'
+            className='grid grid-cols-1 gap-4 md:grid-cols-2 rounded-md border border-contact-light-color/10 bg-white p-6 shadow-sm'
           >
             {/* honeypot (hidden) */}
             <input
@@ -144,7 +144,7 @@ export default function ContactPage({
               <input
                 name='name'
                 required
-                className='mt-1 w-full rounded-xl border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
+                className='mt-1 w-full rounded-md border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
                 placeholder='Your name'
               />
             </div>
@@ -157,7 +157,7 @@ export default function ContactPage({
                 name='email'
                 type='email'
                 required
-                className='mt-1 w-full rounded-xl border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
+                className='mt-1 w-full rounded-md border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
                 placeholder='you@company.com'
               />
             </div>
@@ -168,7 +168,7 @@ export default function ContactPage({
               </label>
               <input
                 name='company'
-                className='mt-1 w-full rounded-xl border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
+                className='mt-1 w-full rounded-md border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
                 placeholder='Company name'
               />
             </div>
@@ -181,7 +181,7 @@ export default function ContactPage({
                 name='message'
                 required
                 rows={6}
-                className='mt-1 w-full rounded-xl border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
+                className='mt-1 w-full rounded-md border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
                 placeholder='What are you trying to achieve? Timelines? Constraints?'
               />
             </div>

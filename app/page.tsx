@@ -24,7 +24,7 @@ export default function Home() {
         <div className='relative z-10 h-full'>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
             <div className='mx-auto max-w-5xl text-center'>
-              <h1 className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-landing-light-color tracking-[.001em] [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-landing-light-color tracking-[.001em] [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
                 We are a studio for digital transformation, data strategy, and
                 human-centered design based in New York.
               </h1>
@@ -34,13 +34,13 @@ export default function Home() {
       </section>
 
       {/* ==== SERVICES ==== */}
-      <section className='py-20 bg-landing-alternative'>
+      <section className='py-20 bg-landing-alternative text-landing-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <div className='mx-auto max-w-3xl text-center'>
-            <h2 className='text-3xl sm:text-4xl font-bold tracking-tight text-landing-dark-color font-primary'>
+          <div className='max-w-3xl'>
+            <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary'>
               What we do
             </h2>
-            <p className='mt-4 text-landing-dark-color font-secondary'>
+            <p className='mt-4 font-secondary'>
               Strategy, design, and engineering for data-rich products and
               content experiences.
             </p>
@@ -74,7 +74,7 @@ export default function Home() {
             ].map((card) => (
               <div
                 key={card.title}
-                className='rounded-2xl border border-landing-dark-color/10 bg-white text-landing-dark-color p-6 shadow-sm'
+                className='rounded-md border border-landing-light-color/10 bg-white text-landing-dark-color p-6 shadow-sm'
               >
                 <h3 className='text-lg font-semibold font-primary'>
                   {card.title}
@@ -97,7 +97,7 @@ export default function Home() {
       {/* ==== PROCESS / APPROACH ==== */}
       <section className='py-20 bg-landing-base text-landing-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-3xl sm:text-4xl font-bold tracking-tight text-center font-primary'>
+          <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary'>
             How we work
           </h2>
           <div className='mt-10 grid grid-cols-1 gap-6 md:grid-cols-4'>
@@ -121,14 +121,12 @@ export default function Home() {
             ].map(([title, desc]) => (
               <div
                 key={title}
-                className='rounded-2xl border border-landing-light-color/10 bg-white text-landing-dark-color p-6 shadow-sm'
+                className='rounded-md border border-landing-light-color/10 bg-gradient-to-b from-white to-white/80 text-landing-dark-color p-6 shadow-sm'
               >
                 <div className='text-sm uppercase tracking-wide opacity-70 font-secondary font-bold'>
                   {title}
                 </div>
-                <p className='mt-2 text-sm font-primary'>
-                  {desc}
-                </p>
+                <p className='mt-2 text-sm font-primary'>{desc}</p>
               </div>
             ))}
           </div>
@@ -136,33 +134,33 @@ export default function Home() {
       </section>
 
       {/* ==== CONTACT PREVIEW ==== */}
-      <section className='py-20 bg-landing-alternative'>
+      <section className='py-20 bg-landing-alternative text-landing-light-color'>
         <div className='mx-auto max-w-5xl px-6'>
-          <h2 className='text-3xl sm:text-4xl font-bold tracking-tight text-landing-dark-color font-primary'>
+          <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary'>
             Let's talk
           </h2>
-          <p className='mt-3 max-w-2xl text-landing-dark-color font-secondary'>
+          <p className='mt-3 max-w-2xl font-secondary'>
             Tell us about your team, timelines, and what success looks like.
           </p>
           <form className='mt-8 grid grid-cols-1 gap-4 md:grid-cols-2'>
             <input
-              className='rounded-xl border border-landing-dark-color/20 px-4 py-3 text-landing-dark-color bg-white placeholder:text-landing-dark-color/50 outline-none focus:ring-2 focus:ring-landing-dark-color'
+              className='rounded-md border border-landing-light-color/20 px-4 py-3 text-landing-dark-color bg-white placeholder:text-landing-dark-color/50 outline-none focus:ring-2 focus:ring-landing-light-color'
               placeholder='Name'
               aria-label='Name'
             />
             <input
-              className='rounded-xl border border-landing-dark-color/20 px-4 py-3 text-landing-dark-color bg-white placeholder:text-landing-dark-color/50 outline-none focus:ring-2 focus:ring-landing-dark-color'
+              className='rounded-md border border-landing-light-color/20 px-4 py-3 text-landing-dark-color bg-white placeholder:text-landing-dark-color/50 outline-none focus:ring-2 focus:ring-landing-light-color'
               placeholder='Email'
               type='email'
               aria-label='Email'
             />
             <input
-              className='rounded-xl border border-landing-dark-color/20 px-4 py-3 text-landing-dark-color bg-white placeholder:text-landing-dark-color/50 outline-none focus:ring-2 focus:ring-landing-dark-color md:col-span-2'
+              className='rounded-md border border-landing-light-color/20 px-4 py-3 text-landing-dark-color bg-white placeholder:text-landing-dark-color/50 outline-none focus:ring-2 focus:ring-landing-light-color md:col-span-2'
               placeholder='Company / Org'
               aria-label='Company'
             />
             <textarea
-              className='min-h-[120px] rounded-xl border border-landing-dark-color/20 px-4 py-3 text-landing-dark-color bg-white placeholder:text-landing-dark-color/50 outline-none focus:ring-2 focus:ring-landing-dark-color md:col-span-2'
+              className='min-h-[120px] rounded-md border border-landing-light-color/20 px-4 py-3 text-landing-dark-color bg-white placeholder:text-landing-dark-color/50 outline-none focus:ring-2 focus:ring-landing-light-color md:col-span-2'
               placeholder='Project brief'
               aria-label='Project brief'
             />
