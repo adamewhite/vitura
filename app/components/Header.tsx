@@ -53,7 +53,7 @@ export default function Header({
         </Link>
 
         {/* Desktop links */}
-        <ul className='hidden items-center gap-8 md:flex font-primary italic'>
+        <ul className='hidden items-center gap-8 md:flex font-primary'>
           {links.map((l) => (
             <li key={l.href}>
               <Link

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { Resend } from 'resend';
 import Image from 'next/image';
-import yayoi from '../../public/yayoi.jpg'; // import the image file
+import yayoi from '../../public/yayoi.jpg';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -68,32 +68,30 @@ export default function ContactPage({
   const status = searchParams?.status;
 
   return (
-    <main className='text-neutral-900 bg-contact-base min-h-screen font-primary'>
+    <main className='min-h-screen font-primary'>
       {/* Optional status banners */}
       {status === 'sent' && (
-        <div className='bg-green-50 text-green-800 px-6 py-3'>
-          Message sent. We’ll get back to you shortly.
+        <div className='bg-green-50 text-green-800 px-6 py-3 border-b border-green-200'>
+          Message sent. We'll get back to you shortly.
         </div>
       )}
       {status === 'error' && (
-        <div className='bg-rose-50 text-rose-800 px-6 py-3'>
+        <div className='bg-rose-50 text-rose-800 px-6 py-3 border-b border-rose-200'>
           Could not send email. Please try again.
         </div>
       )}
       {status === 'invalid' && (
-        <div className='bg-amber-50 text-amber-800 px-6 py-3'>
+        <div className='bg-amber-50 text-amber-800 px-6 py-3 border-b border-amber-200'>
           Please fill name, valid email, and message.
         </div>
       )}
 
       {/* HERO */}
-      {/* ==== HERO (full viewport) ==== */}
-      <section className='relative h-[100svh]'>
+      <section className='relative h-[100svh] bg-contact-base'>
         {/* BG image */}
         <Image
           src={yayoi}
           alt='Vitura contact background'
-          // placeholder='blur' // This will now work
           fill
           priority
           sizes='100vw'
@@ -109,18 +107,12 @@ export default function ContactPage({
         {/* HERO COPY */}
         <div className='relative z-10 h-full'>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
-            <div className='mx-auto max-w-5xl text-center text-white'>
-              <h1
-                className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
-             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance'
-              >
+            <div className='mx-auto max-w-5xl text-center'>
+              <h1 className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-contact-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
                 Contact Us
               </h1>
 
-              <p
-                className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90
-             drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]'
-              >
+              <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-contact-light-color [text-shadow:_0_1px_6px_rgb(0_0_0_/_45%)] font-primary'>
                 Tell us about your team, timelines, and what success looks like.
               </p>
             </div>
@@ -129,11 +121,11 @@ export default function ContactPage({
       </section>
 
       {/* FORM */}
-      <section className='py-16 md:py-20 font-primary'>
+      <section className='py-16 md:py-20 bg-contact-base text-contact-light-color'>
         <div className='mx-auto max-w-3xl px-6'>
           <form
             action={sendEmail}
-            className='grid grid-cols-1 gap-4 md:grid-cols-2 rounded-2xl border bg-white p-6 shadow-sm'
+            className='grid grid-cols-1 gap-4 md:grid-cols-2 rounded-2xl border border-contact-light-color/10 bg-white p-6 shadow-sm'
           >
             {/* honeypot (hidden) */}
             <input
@@ -146,61 +138,61 @@ export default function ContactPage({
             />
 
             <div className='md:col-span-1'>
-              <label className='block text-lg font-medium font-primary'>
+              <label className='block text-lg font-medium text-contact-dark-color font-primary'>
                 Name
               </label>
               <input
                 name='name'
                 required
-                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900 font-secondary text-xl'
+                className='mt-1 w-full rounded-xl border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
                 placeholder='Your name'
               />
             </div>
 
             <div className='md:col-span-1'>
-              <label className='block text-lg font-medium font-primary'>
+              <label className='block text-lg font-medium text-contact-dark-color font-primary'>
                 Email
               </label>
               <input
                 name='email'
                 type='email'
                 required
-                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900 font-secondary text-xl'
+                className='mt-1 w-full rounded-xl border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
                 placeholder='you@company.com'
               />
             </div>
 
             <div className='md:col-span-2'>
-              <label className='block text-lg font-medium font-primary'>
+              <label className='block text-lg font-medium text-contact-dark-color font-primary'>
                 Company / Organization (optional)
               </label>
               <input
                 name='company'
-                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900 font-secondary text-xl'
+                className='mt-1 w-full rounded-xl border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
                 placeholder='Company name'
               />
             </div>
 
             <div className='md:col-span-2'>
-              <label className='block text-lg font-medium font-primary'>
+              <label className='block text-lg font-medium text-contact-dark-color font-primary'>
                 About Your Project
               </label>
               <textarea
                 name='message'
                 required
                 rows={6}
-                className='mt-1 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-neutral-900 font-secondary text-xl'
+                className='mt-1 w-full rounded-xl border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
                 placeholder='What are you trying to achieve? Timelines? Constraints?'
               />
             </div>
 
             <div className='md:col-span-2 flex items-center justify-between'>
-              <p className='text-xs text-neutral-500'>
-                We’ll only use your info to reply about this inquiry.
+              <p className='text-xs text-contact-dark-color/60 font-secondary'>
+                We'll only use your info to reply about this inquiry.
               </p>
               <button
                 type='submit'
-                className='rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800'
+                className='rounded-full bg-button-light-bg text-button-light-text px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity'
               >
                 Send message
               </button>
@@ -208,7 +200,7 @@ export default function ContactPage({
           </form>
 
           {/* Direct email as backup (obfuscated) */}
-          <p className='mt-4 text-sm text-neutral-600'>
+          <p className='mt-4 text-sm opacity-70 font-secondary'>
             Prefer email? Reach us at{' '}
             <EmailObfuscated
               user='hello'
@@ -230,7 +222,7 @@ function EmailObfuscated({ user, domain }: { user: string; domain: string }) {
   return (
     <a
       href={`mailto:${address}`}
-      className='underline underline-offset-4'
+      className='underline underline-offset-4 hover:opacity-80'
       aria-label='email address'
     >
       {user}

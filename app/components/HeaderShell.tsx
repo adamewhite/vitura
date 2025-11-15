@@ -8,21 +8,21 @@ type Style = { textClass: string; logoColor: string };
 // Map top-level routes to styles
 const ROUTE_STYLES: Record<string, Style> = {
   '/our-story': {
-    textClass: 'text-story-main',
-    logoColor: 'var(--story-banner)',
+    textClass: 'text-story-light-color',
+    logoColor: 'var(--story-light-color)',
   },
   '/services': {
-    textClass: 'text-services-main',
-    logoColor: 'var(--services-banner)',
+    textClass: 'text-services-light-color',
+    logoColor: 'var(--services-light-color)',
   },
   '/contact': {
-    textClass: 'text-contact-main',
-    logoColor: 'var(--contact-banner)',
+    textClass: 'text-contact-light-color',
+    logoColor: 'var(--contact-light-color)',
   },
   // default / fallback
   _default: {
-    textClass: 'text-landing-main',
-    logoColor: 'var(--landing-banner)',
+    textClass: 'text-landing-light-color',
+    logoColor: 'var(--landing-light-color)',
   },
 };
 

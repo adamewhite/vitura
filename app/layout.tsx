@@ -1,6 +1,14 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from 'next';
-import { League_Spartan, Libre_Baskerville, Gantari } from 'next/font/google';
+import {
+  League_Spartan,
+  Libre_Baskerville,
+  Libre_Franklin,
+  Gantari,
+  Schibsted_Grotesk,
+  Castoro,
+  Goudy_Bookletter_1911,
+} from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 import Footer from './components/Footer';
@@ -8,10 +16,21 @@ import HeaderShell from './components/HeaderShell';
 import ImagePreloader from './components/ImagePreloader';
 import PageLoader from './components/PageLoader';
 
-const secondary = League_Spartan({
+const secondary = Libre_Franklin({
+  weight: '400',
+  variable: '--font-secondary', // Add this
+});
+
+// const secondary = Libre_Baskerville({
+//   subsets: ['latin'],
+//   weight: ['400', '700'],
+//   variable: '--font-secondary', // Add this
+// });
+
+const primary = Schibsted_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
-  variable: '--font-secondary', // Add this
+  variable: '--font-primary', // Add this
 });
 
 // const primary = Libre_Baskerville({
@@ -26,26 +45,26 @@ const secondary = League_Spartan({
 //   variable: '--font-primary', // Add this
 // });
 
-const primary = localFont({
-  src: [
-    {
-      path: './fonts/Folio-Light.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/FolioLightItalic.ttf',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './fonts/Folio-Medium.otf',
-      weight: '700',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-primary',
-});
+// const primary = localFont({
+//   src: [
+//     {
+//       path: './fonts/Folio-Light.otf',
+//       weight: '400',
+//       style: 'normal',
+//     },
+//     {
+//       path: './fonts/FolioLightItalic.ttf',
+//       weight: '400',
+//       style: 'italic',
+//     },
+//     {
+//       path: './fonts/Folio-Medium.otf',
+//       weight: '700',
+//       style: 'normal',
+//     },
+//   ],
+//   variable: '--font-primary',
+// });
 
 export const viewport: Viewport = {
   // single color…

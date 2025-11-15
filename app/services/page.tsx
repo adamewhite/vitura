@@ -10,10 +10,9 @@ import {
   Search,
   Palette,
   Database,
-  ArrowRight,
 } from 'lucide-react';
 import Image from 'next/image';
-import wyeth from '../../public/wyeth.jpg'; // import the image file
+import wyeth from '../../public/yrbedit.jpg';
 import PillButton from '../components/PillButton';
 
 export const metadata: Metadata = {
@@ -24,14 +23,13 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className='text-neutral-900 bg-services-base font-primary'>
+    <main className='font-primary'>
       {/* ==== HERO (full viewport) ==== */}
-      <section className='relative h-[100svh]'>
+      <section className='relative h-[100svh] bg-services-base'>
         {/* BG image */}
         <Image
           src={wyeth}
           alt='Vitura gradient background'
-          // placeholder='blur'
           fill
           priority
           sizes='100vw'
@@ -39,27 +37,20 @@ export default function ServicesPage() {
         />
 
         {/* Legibility overlay */}
-        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.15)_30%,rgba(0,0,0,0.2))]' />
+        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.8),rgba(0,0,0,0.3)_30%,rgba(0,0,0,0.4))]' />
 
         {/* If your Header is fixed, keep content clear of it */}
         <div className='pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24' />
 
         {/* HERO COPY */}
-
         <div className='relative z-10 h-full'>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
-            <div className='mx-auto max-w-5xl text-center text-white'>
-              <h1
-                className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
-             drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance italic'
-              >
+            <div className='mx-auto max-w-5xl text-center'>
+              <h1 className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-services-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
                 Our Services
               </h1>
 
-              <p
-                className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90
-             drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]'
-              >
+              <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-services-light-color [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%),_0_0_20px_rgb(0_0_0_/_60%)] font-primary'>
                 We combine strategy, design, and engineering to turn messy data
                 and complex ideas into clear digital experiences.
               </p>
@@ -69,12 +60,12 @@ export default function ServicesPage() {
       </section>
 
       {/* CAPABILITIES GRID */}
-      <section className='py-16 md:py-20'>
+      <section className='py-16 md:py-20 bg-services-base text-services-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
             Core capabilities
           </h2>
-          <p className='mt-2 max-w-2xl text-neutral-600'>
+          <p className='mt-2 max-w-2xl opacity-70 font-secondary'>
             Engagements are scoped as focused sprints or end-to-end delivery.
           </p>
 
@@ -82,14 +73,18 @@ export default function ServicesPage() {
             {capabilities.map((c) => (
               <article
                 key={c.title}
-                className='rounded-2xl border bg-white p-6 shadow-sm'
+                className='rounded-2xl border border-services-light-color/10 bg-white text-services-dark-color p-6 shadow-sm'
               >
                 <div className='flex items-center gap-3'>
                   <c.icon className='h-5 w-5' />
-                  <h3 className='text-lg font-semibold'>{c.title}</h3>
+                  <h3 className='text-lg font-semibold'>
+                    {c.title}
+                  </h3>
                 </div>
-                <p className='mt-2 text-sm text-neutral-600'>{c.desc}</p>
-                <ul className='mt-4 space-y-1 text-sm text-neutral-700'>
+                <p className='mt-2 text-sm opacity-80 font-secondary'>
+                  {c.desc}
+                </p>
+                <ul className='mt-4 space-y-1 text-sm opacity-70 font-secondary'>
                   {c.items.map((i) => (
                     <li
                       key={i}
@@ -104,10 +99,11 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
       {/* PROCESS */}
-      <section className='border-y bg-neutral-50 py-16 md:py-20'>
+      <section className='py-16 md:py-20 bg-services-alternative'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-services-dark-color'>
             How we work
           </h2>
           <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-4'>
@@ -119,19 +115,22 @@ export default function ServicesPage() {
             ].map(([title, desc]) => (
               <div
                 key={title}
-                className='rounded-2xl border bg-white p-6'
+                className='rounded-2xl border border-services-dark-color/10 bg-white text-services-dark-color p-6'
               >
-                <div className='text-sm font-semibold uppercase tracking-wide text-neutral-500'>
+                <div className='text-sm font-semibold uppercase tracking-wide opacity-70 font-secondary'>
                   {title}
                 </div>
-                <p className='mt-2 text-sm text-neutral-700'>{desc}</p>
+                <p className='mt-2 text-sm font-secondary'>
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
       {/* PACKAGES / WAYS TO ENGAGE */}
-      <section className='py-16 md:py-20'>
+      <section className='py-16 md:py-20 bg-services-base text-services-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
             Ways to engage
@@ -140,14 +139,18 @@ export default function ServicesPage() {
             {packages.map((p) => (
               <div
                 key={p.name}
-                className='flex h-full flex-col rounded-2xl border bg-white p-6'
+                className='flex h-full flex-col rounded-2xl border border-services-light-color/10 bg-white text-services-dark-color p-6'
               >
                 <div className='flex items-center gap-3'>
                   <p.icon className='h-5 w-5' />
-                  <div className='text-lg font-semibold'>{p.name}</div>
+                  <div className='text-lg font-semibold'>
+                    {p.name}
+                  </div>
                 </div>
-                <p className='mt-2 text-sm text-neutral-600'>{p.desc}</p>
-                <ul className='mt-4 space-y-1 text-sm text-neutral-700'>
+                <p className='mt-2 text-sm opacity-80 font-secondary'>
+                  {p.desc}
+                </p>
+                <ul className='mt-4 space-y-1 text-sm opacity-70 font-secondary'>
                   {p.highlights.map((h) => (
                     <li
                       key={h}
@@ -166,41 +169,45 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
       {/* FAQ */}
-      <section className='border-t bg-neutral-50 py-16 md:py-20'>
+      <section className='py-16 md:py-20 bg-services-alternative'>
         <div className='mx-auto max-w-4xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-services-dark-color'>
             FAQs
           </h2>
           <div className='mt-8 space-y-6'>
             {faqs.map(([q, a]) => (
               <details
                 key={q}
-                className='group rounded-2xl border bg-white p-5 open:shadow-sm'
+                className='group rounded-2xl border border-services-dark-color/10 bg-white text-services-dark-color p-5 open:shadow-sm'
               >
                 <summary className='cursor-pointer list-none text-base font-medium'>
                   {q}
                 </summary>
-                <p className='mt-2 text-sm text-neutral-700'>{a}</p>
+                <p className='mt-2 text-sm opacity-80 font-secondary'>
+                  {a}
+                </p>
               </details>
             ))}
           </div>
         </div>
       </section>
+
       {/* CTA */}
-      <section className='py-16 md:py-24'>
+      <section className='py-16 md:py-24 bg-services-base text-services-light-color'>
         <div className='mx-auto max-w-5xl px-6 text-center'>
           <h3 className='text-2xl font-bold tracking-tight'>
             Have a challenge in mind?
           </h3>
-          <p className='mx-auto mt-2 max-w-2xl text-neutral-600'>
-            Tell us your goals and constraints—we’ll map the fastest path from
+          <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary'>
+            Tell us your goals and constraints—we'll map the fastest path from
             idea to impact.
           </p>
           <div className='mt-6'>
             <Link
               href='/contact'
-              className='inline-flex items-center rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800'
+              className='inline-flex items-center rounded-full bg-button-light-bg text-button-light-text px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity'
             >
               Contact us
             </Link>

@@ -11,7 +11,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import Image from 'next/image';
-import pinkpurpleblue from '../../public/pinkpurpleblue.jpg'; // import the image file
+import pinkpurpleblue from '../../public/pinkpurpleblue.jpg';
 
 export const metadata: Metadata = {
   title: 'Our Story',
@@ -21,13 +21,12 @@ export const metadata: Metadata = {
 
 export default function OurStoryPage() {
   return (
-    <main className='text-neutral-900 bg-story-base font-primary'>
-      <section className='relative h-[100svh]'>
+    <main className='font-primary'>
+      <section className='relative h-[100svh] bg-story-base'>
         {/* BG image */}
         <Image
           src={pinkpurpleblue}
           alt='Vitura gradient background'
-          // placeholder='blur'
           fill
           priority
           sizes='100vw'
@@ -42,52 +41,28 @@ export default function OurStoryPage() {
 
         {/* HERO COPY */}
         <div className='relative z-10 flex h-full items-center'>
-          <div className='mx-auto max-w-5xl px-6 text-center text-white'>
-            <h1
-              className='mx-auto max-w-4xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[500] tracking-tight
-                   drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] text-balance'
-            >
+          <div className='mx-auto max-w-5xl px-6 text-center'>
+            <h1 className='mx-auto max-w-4xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-story-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
               Our Story
             </h1>
 
-            <p
-              className='mx-auto mt-6 max-w-3xl text-base sm:text-lg text-white/90
-                   drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]'
-            >
+            <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-story-light-color [text-shadow:_0_1px_6px_rgb(0_0_0_/_45%)] font-primary'>
               We started Vitura after too many rooms where the software was
               clearly built for itself—not for the people who had to use it.
             </p>
-
-            {/* <div className='mt-8 flex flex-wrap items-center justify-center gap-4'>
-              <Link
-                href='/contact'
-                className='inline-flex items-center rounded-full bg-white/10 px-6 py-3 text-sm font-medium
-                     text-white ring-1 ring-white/30 backdrop-blur hover:bg-white/15'
-              >
-                Get in touch <ArrowRight className='ml-2 h-4 w-4' />
-              </Link> */}
-            {/* Optional secondary */}
-            {/* <Link
-          href="/work"
-          className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium
-                     text-neutral-900 hover:bg-neutral-100"
-        >
-          See our work
-        </Link> */}
-            {/* </div> */}
           </div>
         </div>
       </section>
 
       {/* ORIGIN STORY */}
-      <section className='py-16 md:py-20'>
+      <section className='py-16 md:py-20 bg-story-base text-story-light-color'>
         <div className='mx-auto max-w-4xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary'>
             Why we exist
           </h2>
-          <div className='mt-5 space-y-4 text-neutral-700'>
+          <div className='mt-5 space-y-4 opacity-80 font-secondary'>
             <p>
-              We’ve led teams inside orgs where critical work happened in a maze
+              We've led teams inside orgs where critical work happened in a maze
               of tabs, inscrutable settings, and dashboards that tried to show
               everything at once—and told us nothing. Features shipped because
               they were possible, not because anyone needed them.
@@ -99,7 +74,7 @@ export default function OurStoryPage() {
                 no progressive disclosure, no research with actual users,
                 fragile workflows,
               </em>{' '}
-              and “templates” that multiplied complexity. People did the real
+              and "templates" that multiplied complexity. People did the real
               design work—by inventing workarounds in spreadsheets, sticky
               notes, and long email threads.
             </p>
@@ -112,7 +87,7 @@ export default function OurStoryPage() {
           </div>
 
           {/* Pain points list */}
-          <ul className='mt-8 grid grid-cols-1 gap-4 text-sm text-neutral-800 md:grid-cols-2'>
+          <ul className='mt-8 grid grid-cols-1 gap-4 text-sm md:grid-cols-2'>
             {[
               'Endless settings, unclear defaults',
               'No progressive disclosure—everything exposed at once',
@@ -123,7 +98,7 @@ export default function OurStoryPage() {
             ].map((item) => (
               <li
                 key={item}
-                className='rounded-2xl border bg-white p-4 leading-relaxed'
+                className='rounded-2xl border border-story-light-color/10 bg-white text-story-dark-color p-4 leading-relaxed font-secondary'
               >
                 • {item}
               </li>
@@ -133,22 +108,26 @@ export default function OurStoryPage() {
       </section>
 
       {/* PRINCIPLES */}
-      <section className='border-y bg-neutral-50 py-16 md:py-20'>
+      <section className='py-16 md:py-20 bg-story-alternative'>
         <div className='mx-auto max-w-7xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-story-dark-color font-primary'>
             What we believe
           </h2>
           <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-3'>
             {principles.map((p) => (
               <article
                 key={p.title}
-                className='rounded-2xl border bg-white p-6 shadow-sm'
+                className='rounded-2xl border border-story-dark-color/10 bg-white text-story-dark-color p-6 shadow-sm'
               >
                 <div className='flex items-center gap-3'>
                   <p.icon className='h-5 w-5' />
-                  <h3 className='text-lg font-semibold'>{p.title}</h3>
+                  <h3 className='text-lg font-semibold font-primary'>
+                    {p.title}
+                  </h3>
                 </div>
-                <p className='mt-2 text-sm text-neutral-700'>{p.desc}</p>
+                <p className='mt-2 text-sm opacity-80 font-secondary'>
+                  {p.desc}
+                </p>
               </article>
             ))}
           </div>
@@ -156,16 +135,16 @@ export default function OurStoryPage() {
       </section>
 
       {/* APPROACH */}
-      <section className='py-16 md:py-20'>
+      <section className='py-16 md:py-20 bg-story-base text-story-light-color'>
         <div className='mx-auto max-w-7xl px-6'>
           <div className='grid grid-cols-1 items-start gap-10 md:grid-cols-2'>
             <div>
-              <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+              <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary'>
                 How we turn frustration into focus
               </h2>
-              <p className='mt-3 text-neutral-700'>
+              <p className='mt-3 opacity-80 font-secondary'>
                 We practice progressive disclosure by default: surface the next
-                best action, hide the rest until it’s relevant. Then we test it
+                best action, hide the rest until it's relevant. Then we test it
                 with the people who will actually use it.
               </p>
             </div>
@@ -190,12 +169,14 @@ export default function OurStoryPage() {
               ].map(([title, desc]) => (
                 <div
                   key={title}
-                  className='rounded-2xl border p-5'
+                  className='rounded-2xl border border-story-light-color/10 bg-white text-story-dark-color p-5'
                 >
-                  <div className='text-sm font-semibold uppercase tracking-wide text-neutral-500'>
+                  <div className='text-sm font-semibold uppercase tracking-wide opacity-70 font-secondary'>
                     {title}
                   </div>
-                  <p className='mt-1 text-sm text-neutral-700'>{desc}</p>
+                  <p className='mt-1 text-sm font-secondary'>
+                    {desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -204,9 +185,9 @@ export default function OurStoryPage() {
       </section>
 
       {/* MINI–TIMELINE */}
-      <section className='border-y bg-neutral-50 py-16 md:py-20'>
+      <section className='py-16 md:py-20 bg-story-alternative'>
         <div className='mx-auto max-w-5xl px-6'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl'>
+          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-story-dark-color font-primary'>
             Milestones
           </h2>
           <ol className='mt-6 space-y-4'>
@@ -226,10 +207,14 @@ export default function OurStoryPage() {
             ].map(([title, desc], i) => (
               <li
                 key={i}
-                className='rounded-2xl border bg-white p-5'
+                className='rounded-2xl border border-story-dark-color/10 bg-white text-story-dark-color p-5'
               >
-                <div className='text-base font-semibold'>{title}</div>
-                <p className='mt-1 text-sm text-neutral-700'>{desc}</p>
+                <div className='text-base font-semibold font-primary'>
+                  {title}
+                </div>
+                <p className='mt-1 text-sm opacity-80 font-secondary'>
+                  {desc}
+                </p>
               </li>
             ))}
           </ol>
@@ -237,28 +222,22 @@ export default function OurStoryPage() {
       </section>
 
       {/* CTA */}
-      <section className='py-16 md:py-24'>
+      <section className='py-16 md:py-24 bg-story-base text-story-light-color'>
         <div className='mx-auto max-w-4xl px-6 text-center'>
-          <h3 className='text-2xl font-bold tracking-tight'>
-            Let’s design for people, not just for platforms.
+          <h3 className='text-2xl font-bold tracking-tight font-primary'>
+            Let's design for people, not just for platforms.
           </h3>
-          <p className='mx-auto mt-2 max-w-2xl text-neutral-600'>
-            Have a tool that feels heavier than the work it’s supposed to help?
-            We’ll find the smallest, clearest next step together.
+          <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary'>
+            Have a tool that feels heavier than the work it's supposed to help?
+            We'll find the smallest, clearest next step together.
           </p>
           <div className='mt-6 flex items-center justify-center gap-3'>
             <Link
               href='/contact'
-              className='inline-flex items-center rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800'
+              className='inline-flex items-center rounded-full bg-button-light-bg text-button-light-text px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity'
             >
               Get in touch <ArrowRight className='ml-2 h-4 w-4' />
             </Link>
-            {/* <Link
-              href='/work'
-              className='inline-flex items-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium hover:bg-neutral-100'
-            >
-              See our work
-            </Link> */}
           </div>
         </div>
       </section>
@@ -277,7 +256,7 @@ const principles = [
   {
     title: 'Progressive disclosure',
     icon: Layers,
-    desc: 'Show the next best action first; reveal complexity only when it’s needed.',
+    desc: 'Show the next best action first; reveal complexity only when it is needed.',
   },
   {
     title: 'Research, always',

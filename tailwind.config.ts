@@ -1,5 +1,4 @@
 // tailwind.config.ts
-import { b, body } from 'framer-motion/client';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -16,37 +15,41 @@ const config: Config = {
         secondary: ['var(--font-secondary)'],
       },
       colors: {
+        button: {
+          'dark-bg': 'var(--button-dark-bg)',
+          'dark-text': 'var(--button-dark-text)',
+          'light-bg': 'var(--button-light-bg)',
+          'light-text': 'var(--button-light-text)',
+        },
         landing: {
-          banner: 'var(--landing-banner)',
-          main: 'var(--landing-main)',
           base: 'var(--landing-base)',
+          alternative: 'var(--landing-alternative)',
+          'light-color': 'var(--landing-light-color)',
+          'dark-color': 'var(--landing-dark-color)',
         },
         services: {
-          banner: 'var(--services-banner)',
-          main: 'var(--services-main)',
           base: 'var(--services-base)',
+          alternative: 'var(--services-alternative)',
+          'light-color': 'var(--services-light-color)',
+          'dark-color': 'var(--services-dark-color)',
         },
         story: {
-          banner: 'var(--story-banner)',
-          main: 'var(--story-main)',
           base: 'var(--story-base)',
+          alternative: 'var(--story-alternative)',
+          'light-color': 'var(--story-light-color)',
+          'dark-color': 'var(--story-dark-color)',
         },
         contact: {
-          banner: 'var(--contact-banner)',
-          main: 'var(--contact-main)',
           base: 'var(--contact-base)',
+          alternative: 'var(--contact-alternative)',
+          'light-color': 'var(--contact-light-color)',
+          'dark-color': 'var(--contact-dark-color)',
         },
+
         footer: {
           banner: 'var(--footer-banner)',
           main: 'var(--footer-main)',
           base: 'var(--footer-base)',
-        },
-        card: {
-          base: 'var(--card-base)',
-          main: 'var(--card-main)',
-          body: 'var(--card-body)',
-          neutral: 'var(--card-neutral)',
-          black: 'var(--card-black)',
         },
       },
     },

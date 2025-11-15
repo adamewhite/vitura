@@ -78,48 +78,87 @@ h6 {
   isolation: isolate;
 }
 
-/* Subtle paper-like texture hint (optional) */
+/**
+ * Theme Configuration
+ *
+ * Unified color palette across all routes based on rich blue/teal tones.
+ * All sections now share the same consistent color scheme.
+ */
 :root {
-  /* Tweak these if you want closer color matching */
-  /* --page: linear-gradient(135deg, #fafbfc 0%, #f4f6f8 50%, #bfd3ed 100%); */
-  --page: #b5c1eb; /* pinkish background (body is set via layout) */
+  /* Global colors */
+  --primary-white: #fff5ee; /* Warm off-white for hero text */
+  --primary-black: #0f0f17; /* Soft black for body text */
 
-  /* card styles */
-  --card-base: #3f65d6;
-  --card-main: #b2b6c2;
-  --card-body: #e8e6e1;
-  --card-neutral: #f4f4f4;
-  --card-black: #1c150f;
+  /* Button colors - Use these for consistent button styling */
+  --button-dark-bg: hsl(200, 70%, 25%); /* Dark button background (rich blue) */
+  --button-dark-text: #e2f4f9; /* Dark button text (warm white) */
+  --button-light-bg: #41a5da; /* Light button background (warm white) */
+  --button-light-text: hsl(199, 100%, 97%); /* Light button text (rich blue) */
 
-  /* landing styles */
-  --landing-banner: hsl(60, 100%, 87%);
-  --landing-main: hsl(55, 92%, 90%);
-  --landing-base: hsl(93, 22%, 46%);
+  /* Unified page theme - Single color scheme across all pages */
+  --page-base: hsl(200, 70%, 25%); /* Rich deep blue background */
+  --page-alternative: hsl(189, 71%, 41%); /* Light cyan/teal */
+  --page-light-color: #fff5ee; /* Warm white for dark backgrounds */
+  --page-dark-color: hsl(199, 26%, 14%); /* Very dark blue for light backgrounds */
 
-  /* services styles */
-  --services-banner: hsl(0, 100%, 51%);
-  --services-main: hsl(0, 100%, 51%);
-  --services-base: hsl(93, 22%, 46%);
+  /* Legacy aliases - map to unified page variables */
+  --landing-base: var(--page-base);
+  --landing-alternative: var(--page-alternative);
+  --landing-light-color: var(--page-light-color);
+  --landing-dark-color: var(--page-dark-color);
 
-  /* our story styles */
-  --story-banner: hsl(75, 100%, 51%);
-  --story-main: hsl(75, 100%, 51%);
-  --story-base: hsl(93, 22%, 46%);
+  --services-base: var(--page-base);
+  --services-alternative: var(--page-alternative);
+  --services-light-color: var(--page-light-color);
+  --services-dark-color: var(--page-dark-color);
 
-  /* contact styles */
-  --contact-banner: hsl(178, 100%, 51%);
-  --contact-main: hsl(178, 100%, 51%);
-  --contact-base: hsl(93, 22%, 46%);
+  --story-base: var(--page-base);
+  --story-alternative: var(--page-alternative);
+  --story-light-color: var(--page-light-color);
+  --story-dark-color: var(--page-dark-color);
 
-  /* footer styles */
+  --contact-base: var(--page-base);
+  --contact-alternative: var(--page-alternative);
+  --contact-light-color: var(--page-light-color);
+  --contact-dark-color: var(--page-dark-color);
+
+  /* Footer theme */
   --footer-banner: hsl(25, 68%, 62%);
   --footer-main: hsl(178, 95%, 84%);
   --footer-base: hsl(233, 98%, 16%);
 }
 
 body {
-  /* background: var(--mist); */
+  background: hsl(200, 60%, 15%); /* Darker blue to prevent white flash */
   color: var(--primary-black);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overscroll-behavior-y: none; /* Prevent bounce/overscroll on top and bottom */
+}
+
+html {
+  overscroll-behavior-y: none; /* Prevent bounce/overscroll */
+}
+
+/* Page load fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Ensure all text elements inherit color from their immediate parent */
+strong,
+em,
+b,
+i {
+  color: inherit;
 }
 
 .custom-banner {
