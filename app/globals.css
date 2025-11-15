@@ -97,7 +97,7 @@ h6 {
 
   /* Unified page theme - Single color scheme across all pages */
   --page-base: hsl(200, 70%, 25%); /* Rich deep blue background */
-  --page-alternative: hsl(189, 71%, 41%); /* Light cyan/teal */
+  --page-alternative: hsl(198, 71%, 41%); /* Light cyan/teal */
   --page-light-color: #fff5ee; /* Warm white for dark backgrounds */
   --page-dark-color: hsl(199, 26%, 14%); /* Very dark blue for light backgrounds */
 
@@ -128,15 +128,16 @@ h6 {
   --footer-base: hsl(233, 98%, 16%);
 }
 
+html {
+  overscroll-behavior-y: none; /* Prevent bounce/overscroll */
+  font-size: 125%; /* Increase base font size by 25% - affects all rem-based sizes */
+}
+
 body {
   background: hsl(200, 60%, 15%); /* Darker blue to prevent white flash */
   color: var(--primary-black);
   overflow-x: hidden; /* Prevent horizontal scroll */
   overscroll-behavior-y: none; /* Prevent bounce/overscroll on top and bottom */
-}
-
-html {
-  overscroll-behavior-y: none; /* Prevent bounce/overscroll */
 }
 
 /* Page load fade-in animation */
@@ -159,6 +160,68 @@ em,
 b,
 i {
   color: inherit;
+}
+
+/* Adjust horizontal padding for better spacing */
+.px-6 {
+  padding-left: 1.5rem !important; /* Same as default on mobile */
+  padding-right: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .px-6 {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+}
+
+/* Reduce vertical padding on sections */
+.py-20 {
+  padding-top: 3rem !important; /* Reduced from 5rem */
+  padding-bottom: 3rem !important;
+}
+
+.py-16 {
+  padding-top: 2.5rem !important; /* Reduced from 4rem */
+  padding-bottom: 2.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .py-20 {
+    padding-top: 5rem !important; /* Original size on desktop */
+    padding-bottom: 5rem !important;
+  }
+
+  .py-16,
+  .md\:py-20 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+}
+
+/* Subtle gradient on content sections */
+.bg-landing-base,
+.bg-services-base,
+.bg-story-base,
+.bg-contact-base {
+  background: linear-gradient(
+    to bottom,
+    hsl(200, 70%, 25%),
+    hsl(200, 65%, 22%) 50%,
+    hsl(200, 70%, 25%)
+  ) !important;
+}
+
+.bg-landing-alternative,
+.bg-services-alternative,
+.bg-story-alternative,
+.bg-contact-alternative {
+  background: linear-gradient(
+    to bottom,
+    hsl(189, 71%, 41%),
+    hsl(189, 68%, 38%) 50%,
+    hsl(189, 71%, 41%)
+  ) !important;
 }
 
 .custom-banner {

@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from 'next';
 import { Hanken_Grotesk, Instrument_Sans } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import Footer from './components/Footer';
 import HeaderShell from './components/HeaderShell';
@@ -132,6 +133,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </PageLoader>
+        <Analytics />
       </body>
     </html>
   );

@@ -137,7 +137,7 @@ export default function Home() {
       <section className='py-20 bg-landing-alternative text-landing-light-color'>
         <div className='mx-auto max-w-5xl px-6'>
           <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary'>
-            Let's talk
+            Let&apos;s talk
           </h2>
           <p className='mt-3 max-w-2xl font-secondary'>
             Tell us about your team, timelines, and what success looks like.

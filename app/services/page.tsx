@@ -201,7 +201,7 @@ export default function ServicesPage() {
             Have a challenge in mind?
           </h3>
           <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary text-balance'>
-            Tell us your goals and constraints—we'll map the fastest path from
+            Tell us your goals and constraints—we&apos;ll map the fastest path from
             idea to impact.
           </p>
           <div className='mt-6'>
