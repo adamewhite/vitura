@@ -42,7 +42,7 @@ export default function OurStoryPage() {
         {/* HERO COPY */}
         <div className='relative z-10 flex h-full items-center'>
           <div className='mx-auto max-w-5xl px-6 text-center'>
-            <h1 className='mx-auto max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-story-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
+            <h1 className='mx-auto max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-story-light-color [text-shadow:_0_1px_2px_rgb(0_0_0_/_30%)] text-balance font-secondary'>
               Our Story
             </h1>
 
@@ -56,7 +56,7 @@ export default function OurStoryPage() {
 
       {/* ORIGIN STORY */}
       <section className='py-16 md:py-20 bg-story-base text-story-light-color'>
-        <div className='mx-auto max-w-4xl px-6'>
+        <div className='mx-auto max-w-4xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-base'>
             Why we exist
           </h2>
@@ -109,7 +109,7 @@ export default function OurStoryPage() {
 
       {/* PRINCIPLES */}
       <section className='py-16 md:py-20 bg-story-alternative text-story-light-color'>
-        <div className='mx-auto max-w-7xl px-6'>
+        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-alt'>
             What we believe
           </h2>
@@ -136,7 +136,7 @@ export default function OurStoryPage() {
 
       {/* APPROACH */}
       <section className='py-16 md:py-20 bg-story-base text-story-light-color'>
-        <div className='mx-auto max-w-7xl px-6'>
+        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
           <div className='grid grid-cols-1 items-start gap-10 md:grid-cols-2'>
             <div>
               <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-base'>
@@ -186,7 +186,7 @@ export default function OurStoryPage() {
 
       {/* MINI–TIMELINE */}
       <section className='py-16 md:py-20 bg-story-alternative text-story-light-color'>
-        <div className='mx-auto max-w-5xl px-6'>
+        <div className='mx-auto max-w-5xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-alt'>
             Milestones
           </h2>
@@ -223,7 +223,7 @@ export default function OurStoryPage() {
 
       {/* CTA */}
       <section className='py-16 md:py-24 bg-story-base text-story-light-color'>
-        <div className='mx-auto max-w-4xl px-6 text-center'>
+        <div className='mx-auto max-w-4xl px-6 md:px-8 lg:px-20 text-center'>
           <h3 className='text-2xl font-bold tracking-tight font-primary text-balance text-heading-base'>
             Let&apos;s design for people, not just for platforms.
           </h3>

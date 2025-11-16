@@ -7,8 +7,8 @@ export default function Footer() {
   return (
     <footer className='border-t bg-footer-base text-footer-main'>
       <div className='mx-auto max-w-7xl px-6 py-12'>
-        <div className='grid grid-cols-1 gap-10 md:grid-cols-4'>
-          <div>
+        <div className='grid grid-cols-2 gap-10 lg:grid-cols-3'>
+          <div className='col-span-2 lg:col-span-1'>
             <VituraLogo className='vitura-logo-footer' />
             <p className='mt-3 max-w-xs text-sm text-footer-main'>
               A studio for digital transformation, data strategy, and
@@ -20,28 +20,28 @@ export default function Footer() {
                 aria-label='Email'
                 className='rounded-full border p-2 hover:bg-white'
               >
-                <Mail className='h-4 w-4' />
+                <Mail className='h-5 w-5' />
               </Link>
               <Link
                 href='tel:+13476888230'
                 aria-label='Phone'
                 className='rounded-full border p-2 hover:bg-white'
               >
-                <Phone className='h-4 w-4' />
+                <Phone className='h-5 w-5' />
               </Link>
               <Link
                 href='https://www.linkedin.com'
                 aria-label='LinkedIn'
                 className='rounded-full border p-2 hover:bg-white'
               >
-                <Linkedin className='h-4 w-4' />
+                <Linkedin className='h-5 w-5' />
               </Link>
               <Link
                 href='https://www.instagram.com'
                 aria-label='Instagram'
                 className='rounded-full border p-2 hover:bg-white'
               >
-                <Instagram className='h-4 w-4' />
+                <Instagram className='h-5 w-5' />
               </Link>
             </div>
           </div>

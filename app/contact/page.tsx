@@ -108,7 +108,7 @@ export default function ContactPage({
         <div className='relative z-10 h-full'>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
             <div className='mx-auto max-w-5xl text-center'>
-              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-contact-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-contact-light-color [text-shadow:_0_1px_2px_rgb(0_0_0_/_30%)] text-balance font-secondary'>
                 Contact Us
               </h1>
 
@@ -122,7 +122,7 @@ export default function ContactPage({
 
       {/* FORM */}
       <section className='py-16 md:py-20 bg-contact-base text-contact-light-color'>
-        <div className='mx-auto max-w-3xl px-6'>
+        <div className='mx-auto max-w-3xl px-6 md:px-8 lg:px-20'>
           <form
             action={sendEmail}
             className='grid grid-cols-1 gap-4 md:grid-cols-2 rounded-md border border-contact-light-color/10 bg-gradient-to-b from-white to-white/80 p-6 shadow-sm'

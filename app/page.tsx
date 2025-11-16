@@ -24,7 +24,7 @@ export default function Home() {
         <div className='relative z-10 h-full'>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
             <div className='mx-auto max-w-5xl text-center'>
-              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-landing-light-color tracking-[.001em] [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-landing-light-color tracking-[.001em] [text-shadow:_0_1px_2px_rgb(0_0_0_/_30%)] text-balance font-secondary'>
                 We are a studio for digital transformation, data strategy, and
                 human-centered design based in New York.
               </h1>
@@ -35,7 +35,7 @@ export default function Home() {
 
       {/* ==== SERVICES ==== */}
       <section className='py-20 bg-landing-alternative text-landing-light-color'>
-        <div className='mx-auto max-w-7xl px-6'>
+        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
           <div className='max-w-3xl'>
             <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary text-heading-alt'>
               What we do
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* ==== PROCESS / APPROACH ==== */}
       <section className='py-20 bg-landing-base text-landing-light-color'>
-        <div className='mx-auto max-w-7xl px-6'>
+        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary text-heading-base'>
             How we work
           </h2>
@@ -135,7 +135,7 @@ export default function Home() {
 
       {/* ==== CONTACT PREVIEW ==== */}
       <section className='py-20 bg-landing-alternative text-landing-light-color'>
-        <div className='mx-auto max-w-5xl px-6'>
+        <div className='mx-auto max-w-5xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-3xl sm:text-4xl font-bold tracking-tight font-primary text-heading-alt'>
             Let&apos;s talk
           </h2>

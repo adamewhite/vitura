@@ -5,9 +5,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import VituraLogo from './VituraLogo';
 
-export default function Header({
-  textClass = 'text-red-900',
-}) {
+export default function Header({ textClass = 'text-red-900' }) {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +55,7 @@ export default function Header({
             <li key={l.href}>
               <Link
                 href={l.href}
-                className='hover:opacity-80 text-lg lg:text-2xl font-medium'
+                className='hover:opacity-80 text-lg lg:text-2xl font-extralight'
               >
                 {l.label}
               </Link>
@@ -100,9 +98,7 @@ export default function Header({
           id='mobile-menu'
           ref={panelRef}
           className={`absolute right-4 top-[4.5rem] w-64 rounded-md border border-white/10 bg-white/10 px-4 py-2 text-white shadow-xl transition-all duration-300 ${
-            open
-              ? 'translate-x-0 opacity-100'
-              : 'translate-x-full opacity-0'
+            open ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
           }`}
           onClick={(e) => e.stopPropagation()}
         >
@@ -111,7 +107,7 @@ export default function Header({
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className='block px-2 py-3 text-base hover:bg-white/10'
+                  className='block px-2 py-3 text-base hover:bg-white/10 font-extralight'
                   onClick={() => setOpen(false)}
                 >
                   {l.label}

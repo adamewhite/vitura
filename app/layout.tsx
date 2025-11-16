@@ -24,38 +24,6 @@ const secondary = Hanken_Grotesk({
   variable: '--font-secondary', // Add this
 });
 
-// const primary = Libre_Baskerville({
-//   subsets: ['latin'],
-//   weight: ['400', '700'],
-//   style: ['italic', 'normal'],
-//   variable: '--font-primary', // Add this
-// });
-
-// const primary = Gantari({
-//   subsets: ['latin'],
-//   variable: '--font-primary', // Add this
-// });
-
-// const primary = localFont({
-//   src: [
-//     {
-//       path: './fonts/Folio-Light.otf',
-//       weight: '400',
-//       style: 'normal',
-//     },
-//     {
-//       path: './fonts/FolioLightItalic.ttf',
-//       weight: '400',
-//       style: 'italic',
-//     },
-//     {
-//       path: './fonts/Folio-Medium.otf',
-//       weight: '700',
-//       style: 'normal',
-//     },
-//   ],
-//   variable: '--font-primary',
-// });
 
 export const viewport: Viewport = {
   // single color…
@@ -86,11 +54,6 @@ export const metadata: Metadata = {
     'Next.js',
     'design systems',
   ],
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-    shortcut: '/favicon.ico',
-  },
 
   // OpenGraph (used by LinkedIn/FB, and helpful for Google too)
   openGraph: {

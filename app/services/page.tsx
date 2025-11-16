@@ -46,7 +46,7 @@ export default function ServicesPage() {
         <div className='relative z-10 h-full'>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
             <div className='mx-auto max-w-5xl text-center'>
-              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-services-light-color [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%),_0_0_40px_rgb(0_0_0_/_80%),_0_0_80px_rgb(0_0_0_/_60%)] text-balance font-secondary'>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-services-light-color [text-shadow:_0_1px_2px_rgb(0_0_0_/_30%)] text-balance font-secondary'>
                 Our Services
               </h1>
 
@@ -61,7 +61,7 @@ export default function ServicesPage() {
 
       {/* CAPABILITIES GRID */}
       <section className='py-16 md:py-20 bg-services-base text-services-light-color'>
-        <div className='mx-auto max-w-7xl px-6'>
+        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-base'>
             Core capabilities
           </h2>
@@ -102,7 +102,7 @@ export default function ServicesPage() {
 
       {/* PROCESS */}
       <section className='py-16 md:py-20 bg-services-alternative text-services-light-color'>
-        <div className='mx-auto max-w-7xl px-6'>
+        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-alt'>
             How we work
           </h2>
@@ -131,7 +131,7 @@ export default function ServicesPage() {
 
       {/* PACKAGES / WAYS TO ENGAGE */}
       <section className='py-16 md:py-20 bg-services-base text-services-light-color'>
-        <div className='mx-auto max-w-7xl px-6'>
+        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-base'>
             Ways to engage
           </h2>
@@ -172,7 +172,7 @@ export default function ServicesPage() {
 
       {/* FAQ */}
       <section className='py-16 md:py-20 bg-services-alternative text-services-light-color'>
-        <div className='mx-auto max-w-4xl px-6'>
+        <div className='mx-auto max-w-4xl px-6 md:px-8 lg:px-20'>
           <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-alt'>
             FAQs
           </h2>
@@ -196,7 +196,7 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section className='py-16 md:py-24 bg-services-base text-services-light-color'>
-        <div className='mx-auto max-w-5xl px-6 text-center'>
+        <div className='mx-auto max-w-5xl px-6 md:px-8 lg:px-20 text-center'>
           <h3 className='text-2xl font-bold tracking-tight text-balance text-heading-base'>
             Have a challenge in mind?
           </h3>
