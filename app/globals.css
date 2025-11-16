@@ -132,15 +132,18 @@ h6 {
 }
 
 html {
-  overscroll-behavior-y: none; /* Prevent bounce/overscroll */
   font-size: 125%; /* Increase base font size by 25% - affects all rem-based sizes */
+  overscroll-behavior-y: none;
+  touch-action: manipulation;
+  position: relative;
 }
 
 body {
-  background: hsl(200, 60%, 15%); /* Darker blue to prevent white flash */
   color: var(--primary-black);
   overflow-x: hidden; /* Prevent horizontal scroll */
-  overscroll-behavior-y: none; /* Prevent bounce/overscroll on top and bottom */
+  overscroll-behavior-y: none;
+  touch-action: manipulation;
+  position: relative;
 }
 
 /* Page load fade-in animation */

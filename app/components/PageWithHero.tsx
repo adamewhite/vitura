@@ -25,7 +25,7 @@ export default function PageWithHero({
   return (
     <main className='bg-transparent text-neutral-900'>
       {/* Hero - stays mounted, doesn't animate */}
-      <section className='relative h-[100svh]'>
+      <section className='relative h-[100dvh]'>
         <Image
           src={heroImage}
           alt={heroAlt}

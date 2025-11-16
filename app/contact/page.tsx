@@ -68,7 +68,7 @@ export default function ContactPage({
   const status = searchParams?.status;
 
   return (
-    <main className='min-h-screen font-primary'>
+    <main className='font-primary'>
       {/* Optional status banners */}
       {status === 'sent' && (
         <div className='bg-green-50 text-green-800 px-6 py-3 border-b border-green-200'>
@@ -87,7 +87,7 @@ export default function ContactPage({
       )}
 
       {/* HERO */}
-      <section className='relative h-[100svh] bg-contact-base'>
+      <section className='relative h-[100dvh] bg-contact-base'>
         {/* BG image */}
         <Image
           src={yayoi}

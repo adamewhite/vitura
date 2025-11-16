@@ -86,14 +86,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' suppressHydrationWarning className='h-full'>
+    <html lang='en' suppressHydrationWarning>
       <body
-        className={`${secondary.variable} ${primary.variable} antialiased min-h-full flex flex-col`}
+        className={`${secondary.variable} ${primary.variable} antialiased`}
       >
         <ImagePreloader />
         <PageLoader>
           <HeaderShell />
-          <main className='flex-1'>{children}</main>
+          {children}
           <Footer />
         </PageLoader>
         <Analytics />

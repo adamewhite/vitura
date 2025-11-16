@@ -5,9 +5,9 @@ import purples from '../public/purples.jpg';
 
 export default function Home() {
   return (
-    <main className='min-h-screen'>
+    <main>
       {/* ==== HERO (full viewport) ==== */}
-      <section className='relative h-screen bg-landing-base'>
+      <section className='relative h-[100dvh] bg-landing-base'>
         {/* BG image */}
         <Image
           src={purples}

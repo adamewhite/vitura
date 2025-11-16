@@ -25,7 +25,7 @@ export default function ServicesPage() {
   return (
     <main className='font-primary'>
       {/* ==== HERO (full viewport) ==== */}
-      <section className='relative h-[100svh] bg-services-base'>
+      <section className='relative h-[100dvh] bg-services-base'>
         {/* BG image */}
         <Image
           src={wyeth}
