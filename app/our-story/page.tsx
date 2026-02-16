@@ -11,7 +11,8 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import Image from 'next/image';
-import pinkpurpleblue from '../../public/pinkpurpleblue.jpg';
+import heroImage from '../../public/ed-clark-sotheby-3.jpeg';
+import sidebarImage from '../../public/richter.jpg';
 
 export const metadata: Metadata = {
   title: 'Our Story',
@@ -21,11 +22,11 @@ export const metadata: Metadata = {
 
 export default function OurStoryPage() {
   return (
-    <main className='font-primary'>
-      <section className='relative h-[100dvh] bg-story-base'>
+    <main className='font-primary bg-gradient-to-b from-story-alternative via-story-alternative to-story-base'>
+      <section className='relative h-[100dvh] bg-story-base border-b'>
         {/* BG image */}
         <Image
-          src={pinkpurpleblue}
+          src={heroImage}
           alt='Vitura gradient background'
           fill
           priority
@@ -34,7 +35,7 @@ export default function OurStoryPage() {
         />
 
         {/* Legibility overlay */}
-        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.15)_30%,rgba(0,0,0,0.2))]' />
+        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.2))]' />
 
         {/* If your Header is fixed, keep content clear of it */}
         <div className='pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24' />
@@ -54,13 +55,31 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* ORIGIN STORY */}
-      <section className='py-16 md:py-20 bg-story-base text-story-light-color'>
+      {/* ==== CONTENT WITH SIDEBAR ==== */}
+      <div className='flex flex-col lg:flex-row'>
+        {/* Left Sidebar */}
+        <aside className='hidden lg:block lg:w-1/4 xl:w-1/5 sticky top-0 h-screen border-r'>
+          <div className='relative h-full w-full'>
+            <Image
+              src={sidebarImage}
+              alt='Gerhard Richter artwork'
+              fill
+              className='object-cover'
+              sizes='25vw'
+            />
+          </div>
+        </aside>
+
+        {/* Main Content */}
+        <div className='flex-1 lg:w-3/4 xl:w-4/5 pb-16 md:pb-24'>
+          {/* ORIGIN STORY */}
+          <section className='py-16 md:py-20 text-story-light-color'>
         <div className='mx-auto max-w-4xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-base'>
-            Why we exist
-          </h2>
-          <div className='mt-5 space-y-4 opacity-80 font-secondary'>
+          <div className='bg-story-base shadow-xl p-8 md:p-12 lg:p-16 text-story-light-color'>
+            <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-primary text-heading-base'>
+              Why we exist
+            </h2>
+            <div className='mt-8 space-y-6 text-lg opacity-80 font-secondary'>
             <p>
               We&apos;ve led teams inside orgs where critical work happened in a maze
               of tabs, inscrutable settings, and dashboards that tried to show
@@ -86,8 +105,8 @@ export default function OurStoryPage() {
             </p>
           </div>
 
-          {/* Pain points list */}
-          <ul className='mt-8 grid grid-cols-1 gap-4 text-sm md:grid-cols-2'>
+            {/* Pain points list */}
+            <ul className='mt-12 grid grid-cols-1 gap-4 text-base md:grid-cols-2'>
             {[
               'Endless settings, unclear defaults',
               'No progressive disclosure—everything exposed at once',
@@ -98,34 +117,49 @@ export default function OurStoryPage() {
             ].map((item) => (
               <li
                 key={item}
-                className='rounded-md border border-story-light-color/10 bg-gradient-to-b from-white to-white/80 text-story-dark-color p-4 leading-relaxed font-secondary'
+                className='border border-story-light-color/20 bg-story-base/50 backdrop-blur-sm text-story-light-color p-5 leading-relaxed font-secondary shadow-md'
               >
                 • {item}
               </li>
             ))}
-          </ul>
+            </ul>
+          </div>
         </div>
       </section>
 
+      {/* Image Divider 1 - Top of image (mobile/tablet only) */}
+      <div className='lg:hidden relative h-32 md:h-40 w-full overflow-hidden'>
+        <Image
+          src={sidebarImage}
+          alt='Divider'
+          fill
+          className='object-cover object-top'
+          sizes='100vw'
+        />
+      </div>
+
       {/* PRINCIPLES */}
-      <section className='py-16 md:py-20 bg-story-alternative text-story-light-color'>
+      <section className='py-16 md:py-20 text-story-light-color'>
         <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-alt'>
+          <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-primary text-heading-alt mb-6'>
             What we believe
           </h2>
-          <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-3'>
+          <p className='text-lg md:text-xl font-secondary opacity-80 max-w-3xl mb-16'>
+            Our principles guide every decision, from research to delivery.
+          </p>
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3'>
             {principles.map((p) => (
               <article
                 key={p.title}
-                className='rounded-md border border-story-light-color/10 bg-gradient-to-b from-white to-white/80 text-story-dark-color p-6 shadow-sm'
+                className='border border-story-light-color/10 bg-gradient-to-b from-story-base to-story-base/95 text-story-light-color p-8 shadow-lg hover:shadow-xl transition-shadow'
               >
                 <div className='flex items-center gap-3'>
                   <p.icon className='h-5 w-5' />
-                  <h3 className='text-lg font-semibold font-primary'>
+                  <h3 className='text-xl font-semibold font-primary'>
                     {p.title}
                   </h3>
                 </div>
-                <p className='mt-2 text-sm opacity-80 font-secondary'>
+                <p className='mt-3 text-base opacity-80 font-secondary leading-relaxed'>
                   {p.desc}
                 </p>
               </article>
@@ -134,21 +168,33 @@ export default function OurStoryPage() {
         </div>
       </section>
 
+      {/* Image Divider 2 - Bottom of image (mobile/tablet only) */}
+      <div className='lg:hidden relative h-32 md:h-40 w-full overflow-hidden'>
+        <Image
+          src={sidebarImage}
+          alt='Divider'
+          fill
+          className='object-cover object-bottom'
+          sizes='100vw'
+        />
+      </div>
+
       {/* APPROACH */}
-      <section className='py-16 md:py-20 bg-story-base text-story-light-color'>
+      <section className='py-16 md:py-20 text-story-light-color'>
         <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
-          <div className='grid grid-cols-1 items-start gap-10 md:grid-cols-2'>
-            <div>
-              <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-base'>
-                How we turn frustration into focus
-              </h2>
-              <p className='mt-3 opacity-80 font-secondary'>
-                We practice progressive disclosure by default: surface the next
-                best action, hide the rest until it&apos;s relevant. Then we test it
-                with the people who will actually use it.
-              </p>
-            </div>
-            <div className='grid grid-cols-1 gap-4'>
+          <div className='bg-story-base shadow-xl p-8 md:p-12 lg:p-16 text-story-light-color'>
+            <div className='grid grid-cols-1 items-start gap-10 md:grid-cols-2'>
+              <div>
+                <h2 className='text-4xl sm:text-5xl font-bold tracking-tight font-primary text-heading-base'>
+                  How we turn frustration into focus
+                </h2>
+                <p className='mt-6 text-lg opacity-80 font-secondary leading-relaxed'>
+                  We practice progressive disclosure by default: surface the next
+                  best action, hide the rest until it&apos;s relevant. Then we test it
+                  with the people who will actually use it.
+                </p>
+              </div>
+              <div className='grid grid-cols-1 gap-4'>
               {[
                 [
                   'Observe first',
@@ -169,28 +215,29 @@ export default function OurStoryPage() {
               ].map(([title, desc]) => (
                 <div
                   key={title}
-                  className='rounded-md border border-story-light-color/10 bg-gradient-to-b from-white to-white/80 text-story-dark-color p-5'
+                  className='border border-story-light-color/20 bg-story-base/50 backdrop-blur-sm text-story-light-color p-6 shadow-md hover:shadow-lg transition-shadow'
                 >
-                  <div className='text-sm font-semibold uppercase tracking-wide opacity-70 font-secondary'>
+                  <div className='text-base font-semibold uppercase tracking-wide opacity-70 font-secondary'>
                     {title}
                   </div>
-                  <p className='mt-1 text-sm font-secondary'>
+                  <p className='mt-2 text-base font-secondary leading-relaxed'>
                     {desc}
                   </p>
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* MINI–TIMELINE */}
-      <section className='py-16 md:py-20 bg-story-alternative text-story-light-color'>
+      <section className='py-16 md:py-20 text-story-light-color'>
         <div className='mx-auto max-w-5xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl font-primary text-heading-alt'>
+          <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-primary text-heading-alt'>
             Milestones
           </h2>
-          <ol className='mt-6 space-y-4'>
+          <ol className='mt-12 space-y-6'>
             {[
               [
                 'The insight',
@@ -207,12 +254,12 @@ export default function OurStoryPage() {
             ].map(([title, desc], i) => (
               <li
                 key={i}
-                className='rounded-md border border-story-light-color/10 bg-gradient-to-b from-white to-white/80 text-story-dark-color p-5'
+                className='border border-story-light-color/10 bg-story-base/50 backdrop-blur-sm text-story-light-color p-6 shadow-md'
               >
-                <div className='text-base font-semibold font-primary'>
+                <div className='text-xl font-semibold font-primary'>
                   {title}
                 </div>
-                <p className='mt-1 text-sm opacity-80 font-secondary'>
+                <p className='mt-3 text-base opacity-80 font-secondary leading-relaxed'>
                   {desc}
                 </p>
               </li>
@@ -222,12 +269,12 @@ export default function OurStoryPage() {
       </section>
 
       {/* CTA */}
-      <section className='py-16 md:py-24 bg-story-base text-story-light-color'>
+      <section className='py-16 md:py-20 text-story-light-color'>
         <div className='mx-auto max-w-4xl px-6 md:px-8 lg:px-20 text-center'>
-          <h3 className='text-2xl font-bold tracking-tight font-primary text-balance text-heading-base'>
+          <h3 className='text-4xl sm:text-5xl font-bold tracking-tight font-primary text-balance text-heading-alt'>
             Let&apos;s design for people, not just for platforms.
           </h3>
-          <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary text-balance'>
+          <p className='mx-auto mt-6 max-w-2xl text-lg md:text-xl opacity-80 font-secondary text-balance'>
             Have a tool that feels heavier than the work it&apos;s supposed to help?
             We&apos;ll find the smallest, clearest next step together.
           </p>
@@ -241,6 +288,8 @@ export default function OurStoryPage() {
           </div>
         </div>
       </section>
+        </div>
+      </div>
     </main>
   );
 }

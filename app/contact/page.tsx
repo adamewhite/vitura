@@ -3,7 +3,8 @@ import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { Resend } from 'resend';
 import Image from 'next/image';
-import yayoi from '../../public/yayoi.jpg';
+import heroImage from '../../public/ed-clark-sotheby-4.jpeg';
+import sidebarImage from '../../public/pinkpurpleblue.jpg';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -68,7 +69,7 @@ export default function ContactPage({
   const status = searchParams?.status;
 
   return (
-    <main className='font-primary'>
+    <main className='font-primary bg-gradient-to-b from-contact-alternative via-contact-alternative to-contact-base'>
       {/* Optional status banners */}
       {status === 'sent' && (
         <div className='bg-green-50 text-green-800 px-6 py-3 border-b border-green-200'>
@@ -87,10 +88,10 @@ export default function ContactPage({
       )}
 
       {/* HERO */}
-      <section className='relative h-[100dvh] bg-contact-base'>
+      <section className='relative h-[100dvh] bg-contact-base border-b'>
         {/* BG image */}
         <Image
-          src={yayoi}
+          src={heroImage}
           alt='Vitura contact background'
           fill
           priority
@@ -120,13 +121,37 @@ export default function ContactPage({
         </div>
       </section>
 
-      {/* FORM */}
-      <section className='py-16 md:py-20 bg-contact-base text-contact-light-color'>
-        <div className='mx-auto max-w-3xl px-6 md:px-8 lg:px-20'>
-          <form
-            action={sendEmail}
-            className='grid grid-cols-1 gap-4 md:grid-cols-2 rounded-md border border-contact-light-color/10 bg-gradient-to-b from-white to-white/80 p-6 shadow-sm'
-          >
+      {/* ==== CONTENT WITH SIDEBAR ==== */}
+      <div className='flex flex-col lg:flex-row'>
+        {/* Left Sidebar */}
+        <aside className='hidden lg:block lg:w-1/4 xl:w-1/5 sticky top-0 h-screen border-r'>
+          <div className='relative h-full w-full'>
+            <Image
+              src={sidebarImage}
+              alt='Abstract artwork'
+              fill
+              className='object-cover'
+              sizes='25vw'
+            />
+          </div>
+        </aside>
+
+        {/* Main Content */}
+        <div className='flex-1 lg:w-3/4 xl:w-4/5 pb-16 md:pb-24'>
+          {/* FORM */}
+          <section className='py-16 md:py-20 text-contact-light-color'>
+            <div className='mx-auto max-w-3xl px-6 md:px-8 lg:px-20'>
+              <div className='bg-contact-base shadow-xl p-8 md:p-12 lg:p-16 text-contact-light-color'>
+                <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-primary text-heading-base mb-6'>
+                  Get in touch
+                </h2>
+                <p className='text-lg md:text-xl opacity-80 font-secondary mb-12'>
+                  Tell us about your team, timelines, and what success looks like.
+                </p>
+                <form
+                  action={sendEmail}
+                  className='grid grid-cols-1 gap-4 md:grid-cols-2'
+                >
             {/* honeypot (hidden) */}
             <input
               type='text'
@@ -137,79 +162,82 @@ export default function ContactPage({
               aria-hidden='true'
             />
 
-            <div className='md:col-span-1'>
-              <label className='block text-lg font-medium text-contact-dark-color font-primary'>
-                Name
-              </label>
-              <input
-                name='name'
-                required
-                className='mt-1 w-full rounded-md border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
-                placeholder='Your name'
-              />
-            </div>
+              <div className='md:col-span-1'>
+                <label className='block text-lg font-medium text-contact-light-color font-primary'>
+                  Name
+                </label>
+                <input
+                  name='name'
+                  required
+                  className='mt-1 w-full border border-contact-light-color/20 px-4 py-3 text-contact-dark-color bg-contact-alternative placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-light-color shadow-sm'
+                  placeholder='Your name'
+                />
+              </div>
 
-            <div className='md:col-span-1'>
-              <label className='block text-lg font-medium text-contact-dark-color font-primary'>
-                Email
-              </label>
-              <input
-                name='email'
-                type='email'
-                required
-                className='mt-1 w-full rounded-md border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
-                placeholder='you@company.com'
-              />
-            </div>
+              <div className='md:col-span-1'>
+                <label className='block text-lg font-medium text-contact-light-color font-primary'>
+                  Email
+                </label>
+                <input
+                  name='email'
+                  type='email'
+                  required
+                  className='mt-1 w-full border border-contact-light-color/20 px-4 py-3 text-contact-dark-color bg-contact-alternative placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-light-color shadow-sm'
+                  placeholder='you@company.com'
+                />
+              </div>
 
-            <div className='md:col-span-2'>
-              <label className='block text-lg font-medium text-contact-dark-color font-primary'>
-                Company / Organization (optional)
-              </label>
-              <input
-                name='company'
-                className='mt-1 w-full rounded-md border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
-                placeholder='Company name'
-              />
-            </div>
+              <div className='md:col-span-2'>
+                <label className='block text-lg font-medium text-contact-light-color font-primary'>
+                  Company / Organization (optional)
+                </label>
+                <input
+                  name='company'
+                  className='mt-1 w-full border border-contact-light-color/20 px-4 py-3 text-contact-dark-color bg-contact-alternative placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-light-color shadow-sm'
+                  placeholder='Company name'
+                />
+              </div>
 
-            <div className='md:col-span-2'>
-              <label className='block text-lg font-medium text-contact-dark-color font-primary'>
-                About Your Project
-              </label>
-              <textarea
-                name='message'
-                required
-                rows={6}
-                className='mt-1 w-full rounded-md border border-contact-dark-color/20 px-4 py-3 text-contact-dark-color placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-dark-color font-secondary text-xl'
-                placeholder='What are you trying to achieve? Timelines? Constraints?'
-              />
-            </div>
+              <div className='md:col-span-2'>
+                <label className='block text-lg font-medium text-contact-light-color font-primary'>
+                  About Your Project
+                </label>
+                <textarea
+                  name='message'
+                  required
+                  rows={6}
+                  className='mt-1 w-full border border-contact-light-color/20 px-4 py-3 text-contact-dark-color bg-contact-alternative placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-light-color shadow-sm'
+                  placeholder='What are you trying to achieve? Timelines? Constraints?'
+                />
+              </div>
 
-            <div className='md:col-span-2 flex items-center justify-between'>
-              <p className='text-xs text-contact-dark-color/60 font-secondary'>
-                We&apos;ll only use your info to reply about this inquiry.
-              </p>
-              <button
-                type='submit'
-                className='rounded-full bg-button-light-bg text-button-light-text px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity'
-              >
-                Send message
-              </button>
-            </div>
-          </form>
+              <div className='md:col-span-2 flex items-center justify-between'>
+                <p className='text-xs text-contact-light-color/60 font-secondary'>
+                  We&apos;ll only use your info to reply about this inquiry.
+                </p>
+                <button
+                  type='submit'
+                  className='rounded-full bg-button-dark-bg text-button-dark-text px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity shadow-md hover:shadow-lg'
+                >
+                  Send message
+                </button>
+              </div>
+                </form>
 
-          {/* Direct email as backup (obfuscated) */}
-          <p className='mt-4 text-sm opacity-70 font-secondary'>
-            Prefer email? Reach us at{' '}
-            <EmailObfuscated
-              user='hello'
-              domain='vitura.studio'
-            />
-            .
-          </p>
+                {/* Direct email as backup (obfuscated) */}
+                <p className='mt-6 text-sm opacity-70 font-secondary'>
+                  Prefer email? Reach us at{' '}
+                  <EmailObfuscated
+                    user='hello'
+                    domain='vitura.studio'
+                  />
+                  .
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   );
 }

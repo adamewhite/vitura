@@ -1,6 +1,9 @@
 // app/services/page.tsx
+'use client';
+
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { useState } from 'react';
 import {
   Rocket,
   Layout,
@@ -12,23 +15,21 @@ import {
   Database,
 } from 'lucide-react';
 import Image from 'next/image';
-import wyeth from '../../public/yrbedit.jpg';
+import heroImage from '../../public/ed-clark-sotheby-2.jpeg';
+import sidebarImage from '../../public/yayoi.jpg';
 import PillButton from '../components/PillButton';
 
-export const metadata: Metadata = {
-  title: 'Services',
-  description:
-    'Strategy, design, and engineering for data-rich products and content experiences.',
-};
+// Note: metadata export removed due to 'use client' directive
+// Metadata should be handled in layout or parent server component
 
 export default function ServicesPage() {
   return (
-    <main className='font-primary'>
+    <main className='font-primary bg-gradient-to-b from-services-alternative via-services-alternative to-services-base'>
       {/* ==== HERO (full viewport) ==== */}
-      <section className='relative h-[100dvh] bg-services-base'>
+      <section className='relative h-[100dvh] bg-services-base border-b'>
         {/* BG image */}
         <Image
-          src={wyeth}
+          src={heroImage}
           alt='Vitura gradient background'
           fill
           priority
@@ -59,29 +60,47 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CAPABILITIES GRID */}
-      <section className='py-16 md:py-20 bg-services-base text-services-light-color'>
-        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-base'>
-            Core capabilities
-          </h2>
-          <p className='mt-2 max-w-2xl opacity-70 font-secondary'>
-            Engagements are scoped as focused sprints or end-to-end delivery.
-          </p>
+      {/* ==== CONTENT WITH SIDEBAR ==== */}
+      <div className='flex flex-col lg:flex-row'>
+        {/* Left Sidebar */}
+        <aside className='hidden lg:block lg:w-1/4 xl:w-1/5 sticky top-0 h-screen border-r'>
+          <div className='relative h-full w-full'>
+            <Image
+              src={sidebarImage}
+              alt='Yayoi Kusama artwork'
+              fill
+              className='object-cover'
+              sizes='25vw'
+            />
+          </div>
+        </aside>
 
-          <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-3'>
+        {/* Main Content */}
+        <div className='flex-1 lg:w-3/4 xl:w-4/5 pb-16 md:pb-24'>
+          {/* CAPABILITIES GRID */}
+          <section className='py-16 md:py-20 text-services-light-color'>
+        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
+          <div className='bg-services-base shadow-xl p-8 md:p-12 lg:p-16 text-services-light-color'>
+            <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-heading-base'>
+              Core capabilities
+            </h2>
+            <p className='mt-6 text-lg md:text-xl max-w-2xl opacity-80 font-secondary'>
+              Engagements are scoped as focused sprints or end-to-end delivery.
+            </p>
+
+            <div className='mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3'>
             {capabilities.map((c) => (
               <article
                 key={c.title}
-                className='rounded-md border border-services-light-color/10 bg-gradient-to-b from-white to-white/80 text-services-dark-color p-6 shadow-sm'
+                className='border border-services-light-color/20 bg-services-base/50 backdrop-blur-sm p-6 shadow-md hover:shadow-lg transition-shadow'
               >
-                <div className='flex items-center gap-3'>
-                  <c.icon className='h-5 w-5' />
-                  <h3 className='text-lg font-semibold'>
+                <div className='flex items-start gap-3'>
+                  <c.icon className='h-5 w-5 mt-1.5' />
+                  <h3 className='text-xl font-semibold'>
                     {c.title}
                   </h3>
                 </div>
-                <p className='mt-2 text-sm opacity-80 font-secondary'>
+                <p className='mt-3 text-sm opacity-80 font-secondary leading-relaxed'>
                   {c.desc}
                 </p>
                 <ul className='mt-4 space-y-1 text-sm opacity-70 font-secondary'>
@@ -96,17 +115,32 @@ export default function ServicesPage() {
                 </ul>
               </article>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Image Divider 1 - Top of image (mobile/tablet only) */}
+      <div className='lg:hidden relative h-32 md:h-40 w-full overflow-hidden'>
+        <Image
+          src={sidebarImage}
+          alt='Divider'
+          fill
+          className='object-cover object-top'
+          sizes='100vw'
+        />
+      </div>
+
       {/* PROCESS */}
-      <section className='py-16 md:py-20 bg-services-alternative text-services-light-color'>
+      <section className='py-16 md:py-20 text-services-light-color'>
         <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-alt'>
+          <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-heading-alt mb-6'>
             How we work
           </h2>
-          <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-4'>
+          <p className='text-lg md:text-xl font-secondary opacity-80 max-w-3xl mb-16'>
+            Our process is designed to move fast, reduce risk, and deliver measurable impact.
+          </p>
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-4'>
             {[
               ['Discover', 'Align on outcomes, audiences, and constraints.'],
               ['Define', 'Pick the smallest valuable release; set metrics.'],
@@ -115,12 +149,12 @@ export default function ServicesPage() {
             ].map(([title, desc]) => (
               <div
                 key={title}
-                className='rounded-md border border-services-light-color/10 bg-gradient-to-b from-white to-white/80 text-services-dark-color p-6'
+                className='border border-services-light-color/10 bg-gradient-to-b from-services-base to-services-base/95 text-services-light-color p-8 shadow-lg hover:shadow-xl transition-shadow'
               >
-                <div className='text-sm font-semibold uppercase tracking-wide opacity-70 font-secondary'>
+                <div className='text-base uppercase tracking-wide opacity-70 font-secondary font-bold'>
                   {title}
                 </div>
-                <p className='mt-2 text-sm font-secondary'>
+                <p className='mt-3 text-base font-secondary leading-relaxed'>
                   {desc}
                 </p>
               </div>
@@ -129,25 +163,40 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Image Divider 2 - Bottom of image (mobile/tablet only) */}
+      <div className='lg:hidden relative h-32 md:h-40 w-full overflow-hidden'>
+        <Image
+          src={sidebarImage}
+          alt='Divider'
+          fill
+          className='object-cover object-bottom'
+          sizes='100vw'
+        />
+      </div>
+
       {/* PACKAGES / WAYS TO ENGAGE */}
-      <section className='py-16 md:py-20 bg-services-base text-services-light-color'>
+      <section className='py-16 md:py-20 text-services-light-color'>
         <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-base'>
-            Ways to engage
-          </h2>
-          <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-3'>
+          <div className='bg-services-base shadow-xl p-8 md:p-12 lg:p-16 text-services-light-color'>
+            <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-heading-base'>
+              Ways to engage
+            </h2>
+            <p className='mt-6 text-lg md:text-xl opacity-80 font-secondary max-w-3xl'>
+              Choose the engagement model that fits your timeline and goals.
+            </p>
+            <div className='mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3'>
             {packages.map((p) => (
               <div
                 key={p.name}
-                className='flex h-full flex-col rounded-md border border-services-light-color/10 bg-gradient-to-b from-white to-white/80 text-services-dark-color p-6'
+                className='flex h-full flex-col border border-services-light-color/20 bg-services-base/50 backdrop-blur-sm p-6 shadow-md hover:shadow-lg transition-shadow'
               >
                 <div className='flex items-center gap-3'>
                   <p.icon className='h-5 w-5' />
-                  <div className='text-lg font-semibold'>
+                  <div className='text-xl font-semibold'>
                     {p.name}
                   </div>
                 </div>
-                <p className='mt-2 text-sm opacity-80 font-secondary'>
+                <p className='mt-3 text-sm opacity-80 font-secondary leading-relaxed'>
                   {p.desc}
                 </p>
                 <ul className='mt-4 space-y-1 text-sm opacity-70 font-secondary'>
@@ -166,41 +215,32 @@ export default function ServicesPage() {
                 />
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className='py-16 md:py-20 bg-services-alternative text-services-light-color'>
+      <section className='py-16 md:py-20 text-services-light-color'>
         <div className='mx-auto max-w-4xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-2xl font-bold tracking-tight sm:text-3xl text-heading-alt'>
+          <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-heading-alt'>
             FAQs
           </h2>
-          <div className='mt-8 space-y-6'>
-            {faqs.map(([q, a]) => (
-              <details
-                key={q}
-                className='group rounded-md border border-services-light-color/10 bg-gradient-to-b from-white to-white/80 text-services-dark-color p-5 open:shadow-sm'
-              >
-                <summary className='cursor-pointer list-none text-base font-medium'>
-                  {q}
-                </summary>
-                <p className='mt-2 text-sm opacity-80 font-secondary'>
-                  {a}
-                </p>
-              </details>
+          <div className='mt-12 space-y-6'>
+            {faqs.map(([q, a], index) => (
+              <FAQItem key={q} question={q} answer={a} />
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className='py-16 md:py-24 bg-services-base text-services-light-color'>
+      <section className='py-16 md:py-20 text-services-light-color'>
         <div className='mx-auto max-w-5xl px-6 md:px-8 lg:px-20 text-center'>
-          <h3 className='text-2xl font-bold tracking-tight text-balance text-heading-base'>
+          <h3 className='text-4xl sm:text-5xl font-bold tracking-tight text-balance text-heading-alt'>
             Have a challenge in mind?
           </h3>
-          <p className='mx-auto mt-2 max-w-2xl opacity-70 font-secondary text-balance'>
+          <p className='mx-auto mt-6 max-w-2xl text-lg md:text-xl opacity-80 font-secondary text-balance'>
             Tell us your goals and constraints—we&apos;ll map the fastest path from
             idea to impact.
           </p>
@@ -214,7 +254,44 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+        </div>
+      </div>
     </main>
+  );
+}
+
+/* ---- FAQ Accordion Component ---- */
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className='border border-services-light-color/10 bg-services-base/50 backdrop-blur-sm text-services-light-color p-6 shadow-md transition-shadow duration-300 hover:shadow-lg'>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className='w-full text-left cursor-pointer flex items-start justify-between gap-4'
+      >
+        <span className='text-lg font-medium'>{question}</span>
+        <span className='text-lg flex-shrink-0 transition-transform duration-300' style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }}>
+          ▶
+        </span>
+      </button>
+      <div
+        className='overflow-hidden transition-all duration-300 ease-in-out'
+        style={{
+          maxHeight: isOpen ? '500px' : '0px',
+        }}
+      >
+        <p
+          className='mt-6 text-base opacity-80 font-secondary leading-relaxed transition-opacity duration-300 ease-in-out'
+          style={{
+            opacity: isOpen ? 1 : 0,
+            transitionDelay: isOpen ? '150ms' : '0ms',
+          }}
+        >
+          {answer}
+        </p>
+      </div>
+    </div>
   );
 }
 

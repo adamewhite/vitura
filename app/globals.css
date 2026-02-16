@@ -97,12 +97,12 @@ h6 {
   --button-light-text: hsl(199, 100%, 97%); /* Light button text (rich blue) */
 
   /* Unified page theme - Single color scheme across all pages */
-  --page-base: hsl(200, 70%, 25%); /* Rich deep blue background */
-  --page-alternative: hsl(195, 83%, 16%); /* Dark blue alternative */
+  --page-base: hsl(200, 80%, 32%); /* Rich deep blue background */
+  --page-alternative: hsl(195, 85%, 25%); /* Dark blue alternative */
   --page-light-color: #fff5ee; /* Warm white for dark backgrounds */
   --page-dark-color: hsl(199, 26%, 14%); /* Very dark blue for light backgrounds */
-  --heading-color-base: hsl(26, 90%, 37%); /* Amber-700 for base sections */
-  --heading-color-alt: hsl(38, 92%, 50%); /* Amber-400 for alternative sections */
+  --heading-color-base: hsl(26, 95%, 45%); /* Amber-700 for base sections */
+  --heading-color-alt: hsl(38, 95%, 58%); /* Amber-400 for alternative sections */
 
   /* Legacy aliases - map to unified page variables */
   --landing-base: var(--page-base);
@@ -212,9 +212,9 @@ i {
 .bg-contact-base {
   background: linear-gradient(
     to bottom,
-    hsl(200, 70%, 25%),
-    hsl(200, 65%, 22%) 50%,
-    hsl(200, 70%, 25%)
+    hsl(200, 80%, 33%),
+    hsl(201, 78%, 32%) 50%,
+    hsl(200, 80%, 34%)
   ) !important;
 }
 
@@ -224,9 +224,9 @@ i {
 .bg-contact-alternative {
   background: linear-gradient(
     to bottom,
-    hsl(195, 83%, 16%),
-    hsl(195, 80%, 13%) 50%,
-    hsl(195, 83%, 16%)
+    hsl(195, 85%, 26%),
+    hsl(195, 83%, 25%) 50%,
+    hsl(195, 85%, 27%)
   ) !important;
 }
 
@@ -266,3 +266,4 @@ h1 {
 .vitura-logo-white:hover {
   background-color: hsl(0, 0%, 90%);
 }
+
