@@ -154,18 +154,11 @@ export default function Home() {
 
           <RevealGroup
             stagger={0.1}
-            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8'
           >
-            {services.map((s, i) => (
+            {services.map((s) => (
               <RevealItem key={s.title}>
-                <article
-                  className='border-t border-rule pt-8 pb-12 pr-8 h-full'
-                  style={{
-                    borderLeft:
-                      i % 3 === 0 ? 'none' : `1px solid var(--rule)`,
-                    paddingLeft: i % 3 === 0 ? 0 : '2rem',
-                  }}
-                >
+                <article className='border-t border-rule pt-8 pb-12 h-full'>
                   <h3 className='text-2xl md:text-3xl font-normal leading-snug'>
                     {s.title}
                   </h3>
@@ -215,16 +208,10 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <RevealGroup stagger={0.12} className='grid grid-cols-1 md:grid-cols-4 gap-0'>
+          <RevealGroup stagger={0.12} className='grid grid-cols-1 md:grid-cols-4 md:gap-x-8'>
             {process.map(([title, desc], i) => (
               <RevealItem key={title}>
-                <div
-                  className='border-t border-rule pt-8 pb-2 pr-8 h-full'
-                  style={{
-                    borderLeft: i === 0 ? 'none' : `1px solid var(--rule)`,
-                    paddingLeft: i === 0 ? 0 : '2rem',
-                  }}
-                >
+                <div className='border-t border-rule pt-8 pb-2 h-full'>
                   <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
                     Step {String(i + 1).padStart(2, '0')}
                   </div>

@@ -63,18 +63,13 @@ export default function ServicesPage() {
 
           <RevealGroup
             stagger={0.1}
-            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8'
           >
-            {capabilities.map((c, i) => (
+            {capabilities.map((c) => (
               <RevealItem key={c.title}>
                 <article
                   id={c.id}
-                  className='border-t border-rule pt-8 pb-12 pr-8 h-full'
-                  style={{
-                    borderLeft:
-                      i % 3 === 0 ? 'none' : `1px solid var(--rule)`,
-                    paddingLeft: i % 3 === 0 ? 0 : '2rem',
-                  }}
+                  className='border-t border-rule pt-8 pb-12 h-full'
                 >
                   <div className='flex items-center gap-3 text-blue'>
                     <c.icon className='h-4 w-4' />
@@ -86,8 +81,8 @@ export default function ServicesPage() {
                     {c.desc}
                   </p>
                   <ul className='mt-5 space-y-1.5 text-sm font-secondary text-blue'>
-                    {c.items.map((i) => (
-                      <li key={i}>— {i}</li>
+                    {c.items.map((item) => (
+                      <li key={item}>— {item}</li>
                     ))}
                   </ul>
                 </article>
@@ -118,7 +113,7 @@ export default function ServicesPage() {
             </p>
           </Reveal>
 
-          <RevealGroup stagger={0.12} className='grid grid-cols-1 md:grid-cols-4 gap-0'>
+          <RevealGroup stagger={0.12} className='grid grid-cols-1 md:grid-cols-4 md:gap-x-8'>
             {[
               ['Discover', 'Align on outcomes, audiences, and constraints.'],
               ['Define', 'Pick the smallest valuable release; set metrics.'],
@@ -126,13 +121,7 @@ export default function ServicesPage() {
               ['Deliver', 'Ship production code and clear handoff docs.'],
             ].map(([title, desc], i) => (
               <RevealItem key={title}>
-                <div
-                  className='border-t border-rule pt-8 pb-2 pr-8 h-full'
-                  style={{
-                    borderLeft: i === 0 ? 'none' : `1px solid var(--rule)`,
-                    paddingLeft: i === 0 ? 0 : '2rem',
-                  }}
-                >
+                <div className='border-t border-rule pt-8 pb-2 h-full'>
                   <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
                     Step {String(i + 1).padStart(2, '0')}
                   </div>
@@ -169,17 +158,13 @@ export default function ServicesPage() {
 
           <RevealGroup
             stagger={0.12}
-            className='grid grid-cols-1 md:grid-cols-3'
+            className='grid grid-cols-1 md:grid-cols-3 md:gap-x-8'
           >
-            {packages.map((p, i) => (
+            {packages.map((p) => (
               <RevealItem key={p.name}>
                 <div
                   id={p.id}
-                  className='flex h-full flex-col border-t border-rule pt-8 pb-12 pr-8'
-                  style={{
-                    borderLeft: i === 0 ? 'none' : `1px solid var(--rule)`,
-                    paddingLeft: i === 0 ? 0 : '2rem',
-                  }}
+                  className='flex h-full flex-col border-t border-rule pt-8 pb-12'
                 >
                   <div className='flex items-center gap-3 text-blue'>
                     <p.icon className='h-4 w-4' />

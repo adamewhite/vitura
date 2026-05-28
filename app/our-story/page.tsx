@@ -86,7 +86,7 @@ export default function OurStoryPage() {
             <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-8'>
               What we kept seeing
             </div>
-            <ul className='grid grid-cols-1 md:grid-cols-2 gap-0'>
+            <ul className='grid grid-cols-1 md:grid-cols-2 md:gap-x-8'>
               {[
                 'Endless settings, unclear defaults',
                 'No progressive disclosure — everything exposed at once',
@@ -94,15 +94,10 @@ export default function OurStoryPage() {
                 'KPIs without meaning; dashboards without decisions',
                 'Every team forced into the same rigid workflow',
                 'Accessibility and performance as afterthoughts',
-              ].map((item, i) => (
+              ].map((item) => (
                 <li
                   key={item}
-                  className='border-t border-rule py-6 pr-8 text-base font-primary leading-[1.7]'
-                  style={{
-                    borderLeft:
-                      i % 2 === 0 ? 'none' : `1px solid var(--rule)`,
-                    paddingLeft: i % 2 === 0 ? 0 : '2rem',
-                  }}
+                  className='border-t border-rule py-6 text-base font-primary leading-[1.7]'
                 >
                   — {item}
                 </li>
@@ -166,18 +161,11 @@ export default function OurStoryPage() {
 
           <RevealGroup
             stagger={0.1}
-            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8'
           >
-            {principles.map((p, i) => (
+            {principles.map((p) => (
               <RevealItem key={p.title}>
-                <article
-                  className='border-t border-rule pt-8 pb-12 pr-8 h-full'
-                  style={{
-                    borderLeft:
-                      i % 3 === 0 ? 'none' : `1px solid var(--rule)`,
-                    paddingLeft: i % 3 === 0 ? 0 : '2rem',
-                  }}
-                >
+                <article className='border-t border-rule pt-8 pb-12 h-full'>
                   <div className='flex items-center gap-3 text-blue'>
                     <p.icon className='h-4 w-4' />
                     <h3 className='text-2xl md:text-3xl font-normal leading-snug text-navy'>
