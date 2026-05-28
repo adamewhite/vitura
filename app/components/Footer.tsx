@@ -1,105 +1,99 @@
 import React from 'react';
 import Link from 'next/link';
 import { Instagram, Linkedin, Mail, Phone } from 'lucide-react';
-import VituraLogo from './VituraLogo';
 
 export default function Footer() {
   return (
-    <footer className='border-t bg-footer-base text-footer-main'>
-      <div className='mx-auto max-w-7xl px-6 py-12'>
-        <div className='grid grid-cols-2 gap-10 lg:grid-cols-3'>
-          <div className='col-span-2 lg:col-span-1'>
-            <VituraLogo className='vitura-logo-footer' />
-            <p className='mt-3 max-w-xs text-sm text-footer-main'>
+    <footer className='border-t border-rule bg-paper text-navy'>
+      <div className='mx-auto max-w-6xl px-6 md:px-10 py-16'>
+        <div className='grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12'>
+          {/* Wordmark + tagline */}
+          <div className='md:col-span-5'>
+            <div
+              role='img'
+              aria-label='Vitura'
+              className='h-10 md:h-12 w-[154px] md:w-[185px] bg-vitura-red'
+              style={{
+                WebkitMask: 'url(/vitura.svg) center / contain no-repeat',
+                mask: 'url(/vitura.svg) center / contain no-repeat',
+              }}
+            />
+            <p className='mt-6 max-w-sm text-base font-primary leading-[1.7] text-navy/90'>
               A studio for digital transformation, data strategy, and
               human-centered design.
             </p>
-            <div className='mt-4 flex items-center gap-3'>
+            <div className='mt-6 flex items-center gap-3'>
               <Link
                 href='mailto:hello@vitura.studio'
                 aria-label='Email'
-                className='rounded-full border p-2 hover:bg-white'
+                className='border border-rule p-2 hover:border-navy transition-colors'
               >
-                <Mail className='h-5 w-5' />
+                <Mail className='h-4 w-4' />
               </Link>
               <Link
                 href='tel:+13476888230'
                 aria-label='Phone'
-                className='rounded-full border p-2 hover:bg-white'
+                className='border border-rule p-2 hover:border-navy transition-colors'
               >
-                <Phone className='h-5 w-5' />
+                <Phone className='h-4 w-4' />
               </Link>
               <Link
                 href='https://www.linkedin.com'
                 aria-label='LinkedIn'
-                className='rounded-full border p-2 hover:bg-white'
+                className='border border-rule p-2 hover:border-navy transition-colors'
               >
-                <Linkedin className='h-5 w-5' />
+                <Linkedin className='h-4 w-4' />
               </Link>
               <Link
                 href='https://www.instagram.com'
                 aria-label='Instagram'
-                className='rounded-full border p-2 hover:bg-white'
+                className='border border-rule p-2 hover:border-navy transition-colors'
               >
-                <Instagram className='h-5 w-5' />
+                <Instagram className='h-4 w-4' />
               </Link>
             </div>
           </div>
 
-          <div>
-            <div className='text-sm font-semibold'>Company</div>
-            <ul className='mt-3 space-y-2 text-sm'>
+          <div className='md:col-span-3 md:col-start-7'>
+            <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+              Company
+            </div>
+            <ul className='mt-4 space-y-3 text-base font-primary'>
               <li>
-                <Link
-                  href='/our-story'
-                  className='hover:underline'
-                >
+                <Link href='/our-story' className='hover:text-teal transition-colors'>
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link
-                  href='/work'
-                  className='hover:underline'
-                >
-                  Work
+                <Link href='/services' className='hover:text-teal transition-colors'>
+                  Services
                 </Link>
               </li>
               <li>
-                <Link
-                  href='/contact'
-                  className='hover:underline'
-                >
+                <Link href='/contact' className='hover:text-teal transition-colors'>
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div>
-            <div className='text-sm font-semibold'>Services</div>
-            <ul className='mt-3 space-y-2 text-sm'>
+          <div className='md:col-span-3'>
+            <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+              Services
+            </div>
+            <ul className='mt-4 space-y-3 text-base font-primary'>
               <li>
-                <Link
-                  href='/services#strategy'
-                  className='hover:underline'
-                >
+                <Link href='/services#strategy' className='hover:text-teal transition-colors'>
                   Digital Strategy
                 </Link>
               </li>
               <li>
-                <Link
-                  href='/services#design'
-                  className='hover:underline'
-                >
+                <Link href='/services#design' className='hover:text-teal transition-colors'>
                   Experience Design
                 </Link>
               </li>
               <li>
-                <Link
-                  href='/services#data'
-                  className='hover:underline'
-                >
+                <Link href='/services#data' className='hover:text-teal transition-colors'>
                   Data Products
                 </Link>
               </li>
@@ -107,8 +101,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='mt-10 border-t pt-6 text-xs text-neutral-500'>
-          © {new Date().getFullYear()} Vitura Studio. All rights reserved.
+        <div className='mt-16 pt-6 border-t border-rule flex flex-wrap items-baseline justify-between gap-4 font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+          <div>© {new Date().getFullYear()} Vitura Studio</div>
         </div>
       </div>
     </footer>

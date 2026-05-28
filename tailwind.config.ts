@@ -15,6 +15,18 @@ const config: Config = {
         secondary: ['var(--font-secondary)'],
       },
       colors: {
+        // Editorial style-guide tokens
+        paper: 'var(--paper)',
+        mist: 'var(--mist)',
+        navy: 'var(--navy)',
+        indigo: 'var(--indigo)',
+        blue: 'var(--blue)',
+        teal: 'var(--teal)',
+        rule: 'var(--rule)',
+        'vitura-red': 'var(--vitura-red)',
+        'vitura-red-hover': 'var(--vitura-red-hover)',
+
+        // Legacy aliases — map to new tokens so existing class names still work.
         'heading-base': 'var(--heading-color-base)',
         'heading-alt': 'var(--heading-color-alt)',
         button: {
@@ -47,7 +59,6 @@ const config: Config = {
           'light-color': 'var(--contact-light-color)',
           'dark-color': 'var(--contact-dark-color)',
         },
-
         footer: {
           banner: 'var(--footer-banner)',
           main: 'var(--footer-main)',

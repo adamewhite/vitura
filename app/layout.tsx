@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from 'next';
-import { Hanken_Grotesk, Instrument_Sans } from 'next/font/google';
+import { Zilla_Slab, Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import Footer from './components/Footer';
@@ -8,31 +8,26 @@ import HeaderShell from './components/HeaderShell';
 import ImagePreloader from './components/ImagePreloader';
 import PageLoader from './components/PageLoader';
 
-const primary = Instrument_Sans({
-  variable: '--font-primary', // Add this
+// Primary (serif) — Zilla Slab. Used for headings, body, lede, captions.
+const primary = Zilla_Slab({
+  variable: '--font-primary',
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
 });
 
-// const secondary = Libre_Baskerville({
-//   subsets: ['latin'],
-//   weight: ['400', '700'],
-//   variable: '--font-secondary', // Add this
-// });
-
-const secondary = Hanken_Grotesk({
+// Secondary (sans) — Inter. Reserved for nav, eyebrows, labels, buttons.
+const secondary = Inter({
+  variable: '--font-secondary',
   subsets: ['latin'],
-  variable: '--font-secondary', // Add this
+  weight: ['300', '400', '500'],
 });
 
 
 export const viewport: Viewport = {
-  // single color…
-  // themeColor: '#111827',
-
-  // or adaptive by color scheme:
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#111827' },
+    { media: '(prefers-color-scheme: light)', color: '#f1f1f5' },
+    { media: '(prefers-color-scheme: dark)', color: '#121358' },
   ],
 };
 

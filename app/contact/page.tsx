@@ -1,24 +1,22 @@
 // app/contact/page.tsx
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { Resend } from 'resend';
 import Image from 'next/image';
-import heroImage from '../../public/ed-clark-sotheby-4.jpeg';
-import sidebarImage from '../../public/pinkpurpleblue.jpg';
+import { Resend } from 'resend';
+import { Reveal, RevealGroup, RevealItem } from '../styles/Reveal';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
   description: 'Tell us about your project and timelines.',
 };
 
-// --- Server Action (must return void | Promise<void>) ---
+// --- Server Action ---
 async function sendEmail(formData: FormData): Promise<void> {
   'use server';
 
-  // honeypot
   const hp = (formData.get('website') || '').toString().trim();
   if (hp) {
-    redirect('/contact?status=sent'); // silently accept bots
+    redirect('/contact?status=sent');
   }
 
   const name = (formData.get('name') || '').toString().trim();
@@ -37,7 +35,6 @@ async function sendEmail(formData: FormData): Promise<void> {
 
   try {
     const { error } = await resend.emails.send({
-      // If your domain isn't verified in Resend yet, temporarily use: "Vitura <onboarding@resend.dev>"
       from: 'Vitura <hello@vitura.studio>',
       to: [process.env.CONTACT_TO_EMAIL!],
       replyTo: email,
@@ -69,180 +66,184 @@ export default function ContactPage({
   const status = searchParams?.status;
 
   return (
-    <main className='font-primary bg-gradient-to-b from-contact-alternative via-contact-alternative to-contact-base'>
-      {/* Optional status banners */}
+    <main className='bg-paper text-navy font-primary'>
+      {/* Status banners */}
       {status === 'sent' && (
-        <div className='bg-green-50 text-green-800 px-6 py-3 border-b border-green-200'>
-          Message sent. We&apos;ll get back to you shortly.
+        <div className='border-b border-rule bg-mist'>
+          <div className='mx-auto max-w-6xl px-6 md:px-10 py-4 font-secondary text-[11px] uppercase tracking-[0.28em] text-teal'>
+            Message sent. We&apos;ll get back to you shortly.
+          </div>
         </div>
       )}
       {status === 'error' && (
-        <div className='bg-rose-50 text-rose-800 px-6 py-3 border-b border-rose-200'>
-          Could not send email. Please try again.
+        <div className='border-b border-rule bg-mist'>
+          <div className='mx-auto max-w-6xl px-6 md:px-10 py-4 font-secondary text-[11px] uppercase tracking-[0.28em] text-navy'>
+            Could not send email. Please try again.
+          </div>
         </div>
       )}
       {status === 'invalid' && (
-        <div className='bg-amber-50 text-amber-800 px-6 py-3 border-b border-amber-200'>
-          Please fill name, valid email, and message.
+        <div className='border-b border-rule bg-mist'>
+          <div className='mx-auto max-w-6xl px-6 md:px-10 py-4 font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+            Please fill name, valid email, and message.
+          </div>
         </div>
       )}
 
       {/* HERO */}
-      <section className='relative h-[100dvh] bg-contact-base border-b'>
-        {/* BG image */}
-        <Image
-          src={heroImage}
-          alt='Vitura contact background'
-          fill
-          priority
-          sizes='100vw'
-          className='object-cover transition-opacity duration-500'
-        />
-
-        {/* Legibility overlay */}
-        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.5))]' />
-
-        {/* If your Header is fixed, keep content clear of it */}
-        <div className='pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24' />
-
-        {/* HERO COPY */}
-        <div className='relative z-10 h-full'>
-          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6'>
-            <div className='mx-auto max-w-5xl text-center'>
-              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-contact-light-color [text-shadow:_0_1px_2px_rgb(0_0_0_/_30%)] text-balance font-secondary'>
-                Contact Us
-              </h1>
-
-              <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-contact-light-color [text-shadow:_0_1px_6px_rgb(0_0_0_/_45%)] font-primary text-balance'>
-                Tell us about your team, timelines, and what success looks like.
-              </p>
+      <section className='border-b border-rule'>
+        <div className='mx-auto max-w-6xl px-6 md:px-10 pt-20 md:pt-32 pb-16 md:pb-24'>
+          <Reveal variant='up'>
+            <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-10'>
+              Vol. IV — Correspondence
             </div>
-          </div>
+          </Reveal>
+          <Reveal variant='up' delay={0.1}>
+            <h1 className='text-5xl md:text-7xl font-normal leading-[1.02] tracking-tight max-w-5xl'>
+              Let&apos;s <em className='text-indigo'>talk</em>.
+            </h1>
+          </Reveal>
+          <Reveal variant='up' delay={0.25}>
+            <p className='mt-10 max-w-2xl text-xl md:text-2xl italic leading-relaxed text-blue'>
+              Tell us about your team, timelines, and what success looks like.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* ==== CONTENT WITH SIDEBAR ==== */}
-      <div className='flex flex-col lg:flex-row'>
-        {/* Left Sidebar */}
-        <aside className='hidden lg:block lg:w-1/4 xl:w-1/5 sticky top-0 h-screen border-r'>
-          <div className='relative h-full w-full'>
-            <Image
-              src={sidebarImage}
-              alt='Abstract artwork'
-              fill
-              className='object-cover'
-              sizes='25vw'
-            />
+      {/* FORM */}
+      <section>
+        <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
+          <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+            {/* Left column — context */}
+            <Reveal variant='left' className='lg:col-span-5'>
+              <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
+                Send a note
+              </div>
+              <p className='text-2xl md:text-3xl font-normal leading-snug text-navy'>
+                We reply within two working days. For larger engagements, we
+                usually start with a thirty-minute call to see if there&apos;s
+                a fit.
+              </p>
+
+              <div className='mt-12 relative aspect-square border border-rule overflow-hidden max-w-sm'>
+                <Image
+                  src='/pinkpurpleblue.jpg'
+                  alt=''
+                  fill
+                  sizes='(min-width: 1024px) 30vw, 80vw'
+                  className='object-cover'
+                />
+              </div>
+
+              <div className='mt-12 text-base font-secondary'>
+                <div className='text-[11px] uppercase tracking-[0.22em] text-blue'>
+                  Inquiries
+                </div>
+                <div className='mt-2 font-primary'>
+                  <EmailObfuscated user='hello' domain='vitura.studio' />
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Right column — form */}
+            <RevealGroup
+              stagger={0.08}
+              delay={0.15}
+              className='lg:col-span-7 lg:col-start-7'
+            >
+              <form action={sendEmail} className='space-y-8'>
+                {/* honeypot */}
+                <input
+                  type='text'
+                  name='website'
+                  tabIndex={-1}
+                  autoComplete='off'
+                  className='hidden'
+                  aria-hidden='true'
+                />
+
+                <RevealItem>
+                  <Field name='name' label='Name' required />
+                </RevealItem>
+                <RevealItem>
+                  <Field name='email' label='Email' type='email' required />
+                </RevealItem>
+                <RevealItem>
+                  <Field name='company' label='Company / Organization (optional)' />
+                </RevealItem>
+                <RevealItem>
+                  <div>
+                    <label
+                      htmlFor='message'
+                      className='block font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-3'
+                    >
+                      Tell us about your project
+                    </label>
+                    <textarea
+                      id='message'
+                      name='message'
+                      required
+                      rows={5}
+                      placeholder='What are you trying to achieve? Timelines? Constraints?'
+                      className='w-full bg-transparent border-b border-rule py-3 outline-none text-base font-primary text-navy placeholder:text-blue/60 placeholder:italic resize-none focus:border-navy transition-colors'
+                    />
+                  </div>
+                </RevealItem>
+
+                <RevealItem>
+                  <div className='pt-4 flex flex-wrap items-center justify-between gap-6'>
+                    <p className='text-xs font-secondary text-blue max-w-xs'>
+                      We&apos;ll only use your info to reply about this
+                      inquiry.
+                    </p>
+                    <button
+                      type='submit'
+                      className='font-secondary text-[11px] uppercase tracking-[0.28em] px-8 py-4 bg-navy text-paper hover:opacity-90 transition-opacity'
+                    >
+                      Send message
+                    </button>
+                  </div>
+                </RevealItem>
+              </form>
+            </RevealGroup>
           </div>
-        </aside>
-
-        {/* Main Content */}
-        <div className='flex-1 lg:w-3/4 xl:w-4/5 pb-16 md:pb-24'>
-          {/* FORM */}
-          <section className='py-16 md:py-20 text-contact-light-color'>
-            <div className='mx-auto max-w-3xl px-6 md:px-8 lg:px-20'>
-              <div className='bg-contact-base shadow-xl p-8 md:p-12 lg:p-16 text-contact-light-color'>
-                <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-primary text-heading-base mb-6'>
-                  Get in touch
-                </h2>
-                <p className='text-lg md:text-xl opacity-80 font-secondary mb-12'>
-                  Tell us about your team, timelines, and what success looks like.
-                </p>
-                <form
-                  action={sendEmail}
-                  className='grid grid-cols-1 gap-4 md:grid-cols-2'
-                >
-            {/* honeypot (hidden) */}
-            <input
-              type='text'
-              name='website'
-              tabIndex={-1}
-              autoComplete='off'
-              className='hidden'
-              aria-hidden='true'
-            />
-
-              <div className='md:col-span-1'>
-                <label className='block text-lg font-medium text-contact-light-color font-primary'>
-                  Name
-                </label>
-                <input
-                  name='name'
-                  required
-                  className='mt-1 w-full border border-contact-light-color/20 px-4 py-3 text-contact-dark-color bg-contact-alternative placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-light-color shadow-sm'
-                  placeholder='Your name'
-                />
-              </div>
-
-              <div className='md:col-span-1'>
-                <label className='block text-lg font-medium text-contact-light-color font-primary'>
-                  Email
-                </label>
-                <input
-                  name='email'
-                  type='email'
-                  required
-                  className='mt-1 w-full border border-contact-light-color/20 px-4 py-3 text-contact-dark-color bg-contact-alternative placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-light-color shadow-sm'
-                  placeholder='you@company.com'
-                />
-              </div>
-
-              <div className='md:col-span-2'>
-                <label className='block text-lg font-medium text-contact-light-color font-primary'>
-                  Company / Organization (optional)
-                </label>
-                <input
-                  name='company'
-                  className='mt-1 w-full border border-contact-light-color/20 px-4 py-3 text-contact-dark-color bg-contact-alternative placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-light-color shadow-sm'
-                  placeholder='Company name'
-                />
-              </div>
-
-              <div className='md:col-span-2'>
-                <label className='block text-lg font-medium text-contact-light-color font-primary'>
-                  About Your Project
-                </label>
-                <textarea
-                  name='message'
-                  required
-                  rows={6}
-                  className='mt-1 w-full border border-contact-light-color/20 px-4 py-3 text-contact-dark-color bg-contact-alternative placeholder:text-contact-dark-color/50 outline-none focus:ring-2 focus:ring-contact-light-color shadow-sm'
-                  placeholder='What are you trying to achieve? Timelines? Constraints?'
-                />
-              </div>
-
-              <div className='md:col-span-2 flex items-center justify-between'>
-                <p className='text-xs text-contact-light-color/60 font-secondary'>
-                  We&apos;ll only use your info to reply about this inquiry.
-                </p>
-                <button
-                  type='submit'
-                  className='rounded-full bg-button-dark-bg text-button-dark-text px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity shadow-md hover:shadow-lg'
-                >
-                  Send message
-                </button>
-              </div>
-                </form>
-
-                {/* Direct email as backup (obfuscated) */}
-                <p className='mt-6 text-sm opacity-70 font-secondary'>
-                  Prefer email? Reach us at{' '}
-                  <EmailObfuscated
-                    user='hello'
-                    domain='vitura.studio'
-                  />
-                  .
-                </p>
-              </div>
-            </div>
-          </section>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
 
-/** Obfuscate email in HTML to deter basic scrapers */
+function Field({
+  name,
+  label,
+  type = 'text',
+  required,
+}: {
+  name: string;
+  label: string;
+  type?: string;
+  required?: boolean;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={name}
+        className='block font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-3'
+      >
+        {label}
+      </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        required={required}
+        className='w-full bg-transparent border-b border-rule py-3 outline-none text-base font-primary text-navy focus:border-navy transition-colors'
+      />
+    </div>
+  );
+}
+
 function EmailObfuscated({ user, domain }: { user: string; domain: string }) {
   const at = String.fromCharCode(64);
   const dot = String.fromCharCode(46);
@@ -250,7 +251,7 @@ function EmailObfuscated({ user, domain }: { user: string; domain: string }) {
   return (
     <a
       href={`mailto:${address}`}
-      className='underline underline-offset-4 hover:opacity-80'
+      className='border-b border-navy hover:text-teal hover:border-teal transition-colors'
       aria-label='email address'
     >
       {user}

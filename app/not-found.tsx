@@ -3,46 +3,45 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <main className='mx-auto flex min-h-[60vh] max-w-3xl flex-col items-center justify-center px-6 text-center'>
-      <p className='text-sm uppercase tracking-widest text-neutral-500'>404</p>
-      <h1 className='mt-2 text-3xl font-semibold sm:text-4xl'>
-        We can{"'"}t find that page.
-      </h1>
-      <p className='mt-3 text-neutral-600'>
-        The link may be outdated or the address has changed.
-      </p>
+    <main className='bg-paper text-navy font-primary'>
+      <div className='mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center justify-center px-6 md:px-10 py-20 text-center'>
+        <p className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+          404 — Not Found
+        </p>
+        <h1 className='mt-6 text-5xl md:text-7xl font-normal leading-[1.05] tracking-tight'>
+          We can&apos;t find <em className='text-indigo'>that page</em>.
+        </h1>
+        <p className='mt-8 max-w-xl text-xl italic leading-relaxed text-blue'>
+          The link may be outdated, or the address has changed. The library is
+          still open.
+        </p>
 
-      <div className='mt-8 flex flex-wrap items-center justify-center gap-3'>
-        <Link
-          href='/'
-          className='rounded-xl bg-black px-4 py-2 text-white transition hover:opacity-90'
-        >
-          Go to Home
-        </Link>
-        <Link
-          href='/services'
-          className='rounded-xl border px-4 py-2 text-black transition hover:bg-neutral-50'
-        >
-          Services
-        </Link>
-        {/* <Link
-          href='/work'
-          className='rounded-xl border px-4 py-2 text-black transition hover:bg-neutral-50'
-        >
-          Work
-        </Link> */}
-        <Link
-          href='/about'
-          className='rounded-xl border px-4 py-2 text-black transition hover:bg-neutral-50'
-        >
-          About
-        </Link>
-        <Link
-          href='/contact'
-          className='rounded-xl border px-4 py-2 text-black transition hover:bg-neutral-50'
-        >
-          Contact
-        </Link>
+        <div className='mt-12 flex flex-wrap items-center justify-center gap-6 font-secondary text-[11px] uppercase tracking-[0.28em]'>
+          <Link
+            href='/'
+            className='px-8 py-4 bg-navy text-paper hover:opacity-90 transition-opacity'
+          >
+            Go to Home
+          </Link>
+          <Link
+            href='/services'
+            className='px-8 py-4 border border-navy text-navy hover:bg-navy hover:text-paper transition-colors'
+          >
+            Services
+          </Link>
+          <Link
+            href='/our-story'
+            className='px-8 py-4 border border-navy text-navy hover:bg-navy hover:text-paper transition-colors'
+          >
+            Our Story
+          </Link>
+          <Link
+            href='/contact'
+            className='px-8 py-4 border border-navy text-navy hover:bg-navy hover:text-paper transition-colors'
+          >
+            Contact
+          </Link>
+        </div>
       </div>
     </main>
   );

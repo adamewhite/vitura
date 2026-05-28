@@ -1,6 +1,7 @@
 // app/our-story/page.tsx
 import Link from 'next/link';
-import { Metadata } from 'next';
+import Image from 'next/image';
+import type { Metadata } from 'next';
 import {
   Users,
   Heart,
@@ -8,11 +9,8 @@ import {
   Layers,
   Gauge,
   Beaker,
-  ArrowRight,
 } from 'lucide-react';
-import Image from 'next/image';
-import heroImage from '../../public/ed-clark-sotheby-3.jpeg';
-import sidebarImage from '../../public/richter.jpg';
+import { Reveal, RevealGroup, RevealItem } from '../styles/Reveal';
 
 export const metadata: Metadata = {
   title: 'Our Story',
@@ -22,179 +20,203 @@ export const metadata: Metadata = {
 
 export default function OurStoryPage() {
   return (
-    <main className='font-primary bg-gradient-to-b from-story-alternative via-story-alternative to-story-base'>
-      <section className='relative h-[100dvh] bg-story-base border-b'>
-        {/* BG image */}
-        <Image
-          src={heroImage}
-          alt='Vitura gradient background'
-          fill
-          priority
-          sizes='100vw'
-          className='object-cover transition-opacity duration-500'
-        />
-
-        {/* Legibility overlay */}
-        <div className='absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.2))]' />
-
-        {/* If your Header is fixed, keep content clear of it */}
-        <div className='pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24' />
-
-        {/* HERO COPY */}
-        <div className='relative z-10 flex h-full items-center'>
-          <div className='mx-auto max-w-5xl px-6 text-center'>
-            <h1 className='mx-auto max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-story-light-color [text-shadow:_0_1px_2px_rgb(0_0_0_/_30%)] text-balance font-secondary'>
-              Our Story
+    <main className='bg-paper text-navy font-primary'>
+      {/* HERO */}
+      <section className='border-b border-rule'>
+        <div className='mx-auto max-w-6xl px-6 md:px-10 pt-20 md:pt-32 pb-16 md:pb-24'>
+          <Reveal variant='up'>
+            <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-10'>
+              Vol. III — Our Story
+            </div>
+          </Reveal>
+          <Reveal variant='up' delay={0.1}>
+            <h1 className='text-5xl md:text-7xl font-normal leading-[1.02] tracking-tight max-w-5xl'>
+              We started Vitura because the software was{' '}
+              <em className='text-indigo'>built for itself</em> — not for the
+              people who had to use it.
             </h1>
-
-            <p className='mx-auto mt-6 max-w-3xl text-lg sm:text-2xl text-story-light-color [text-shadow:_0_1px_6px_rgb(0_0_0_/_45%)] font-primary text-balance'>
-              We started Vitura after too many rooms where the software was
-              clearly built for itself—not for the people who had to use it.
-            </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ==== CONTENT WITH SIDEBAR ==== */}
-      <div className='flex flex-col lg:flex-row'>
-        {/* Left Sidebar */}
-        <aside className='hidden lg:block lg:w-1/4 xl:w-1/5 sticky top-0 h-screen border-r'>
-          <div className='relative h-full w-full'>
-            <Image
-              src={sidebarImage}
-              alt='Gerhard Richter artwork'
-              fill
-              className='object-cover'
-              sizes='25vw'
-            />
-          </div>
-        </aside>
+      {/* ORIGIN */}
+      <section className='border-b border-rule'>
+        <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
+          <div className='grid grid-cols-1 lg:grid-cols-12 gap-10'>
+            <Reveal variant='up' className='lg:col-span-5'>
+              <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
+                I. Why we exist
+              </div>
+              <h2 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
+                Tools that fight you.
+              </h2>
+            </Reveal>
 
-        {/* Main Content */}
-        <div className='flex-1 lg:w-3/4 xl:w-4/5 pb-16 md:pb-24'>
-          {/* ORIGIN STORY */}
-          <section className='py-16 md:py-20 text-story-light-color'>
-        <div className='mx-auto max-w-4xl px-6 md:px-8 lg:px-20'>
-          <div className='bg-story-base shadow-xl p-8 md:p-12 lg:p-16 text-story-light-color'>
-            <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-primary text-heading-base'>
-              Why we exist
-            </h2>
-            <div className='mt-8 space-y-6 text-lg opacity-80 font-secondary'>
-            <p>
-              We&apos;ve led teams inside orgs where critical work happened in a maze
-              of tabs, inscrutable settings, and dashboards that tried to show
-              everything at once—and told us nothing. Features shipped because
-              they were possible, not because anyone needed them.
-            </p>
-            <p>
-              Time and again we watched tools ignore fundamentals:
-              <em>
-                {' '}
-                no progressive disclosure, no research with actual users,
-                fragile workflows,
-              </em>{' '}
-              and &ldquo;templates&rdquo; that multiplied complexity. People did the real
-              design work—by inventing workarounds in spreadsheets, sticky
-              notes, and long email threads.
-            </p>
-            <p>
-              Vitura is our answer: a studio that puts <strong>clarity</strong>,
-              <strong> context</strong>, and <strong>care</strong> back into
-              digital tools so teams can do their best work without fighting the
-              interface.
-            </p>
-          </div>
-
-            {/* Pain points list */}
-            <ul className='mt-12 grid grid-cols-1 gap-4 text-base md:grid-cols-2'>
-            {[
-              'Endless settings, unclear defaults',
-              'No progressive disclosure—everything exposed at once',
-              'Zero research with the people who actually use the product',
-              'KPIs without meaning; dashboards without decisions',
-              'Every team forced into the same rigid workflow',
-              'Accessibility and performance as afterthoughts',
-            ].map((item) => (
-              <li
-                key={item}
-                className='border border-story-light-color/20 bg-story-base/50 backdrop-blur-sm text-story-light-color p-5 leading-relaxed font-secondary shadow-md'
-              >
-                • {item}
-              </li>
-            ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Image Divider 1 - Top of image (mobile/tablet only) */}
-      <div className='lg:hidden relative h-32 md:h-40 w-full overflow-hidden'>
-        <Image
-          src={sidebarImage}
-          alt='Divider'
-          fill
-          className='object-cover object-top'
-          sizes='100vw'
-        />
-      </div>
-
-      {/* PRINCIPLES */}
-      <section className='py-16 md:py-20 text-story-light-color'>
-        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-primary text-heading-alt mb-6'>
-            What we believe
-          </h2>
-          <p className='text-lg md:text-xl font-secondary opacity-80 max-w-3xl mb-16'>
-            Our principles guide every decision, from research to delivery.
-          </p>
-          <div className='grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3'>
-            {principles.map((p) => (
-              <article
-                key={p.title}
-                className='border border-story-light-color/10 bg-gradient-to-b from-story-base to-story-base/95 text-story-light-color p-8 shadow-lg hover:shadow-xl transition-shadow'
-              >
-                <div className='flex items-center gap-3'>
-                  <p.icon className='h-5 w-5' />
-                  <h3 className='text-xl font-semibold font-primary'>
-                    {p.title}
-                  </h3>
-                </div>
-                <p className='mt-3 text-base opacity-80 font-secondary leading-relaxed'>
-                  {p.desc}
+            <Reveal variant='up' delay={0.15} className='lg:col-span-7 lg:col-start-6'>
+              <div className='space-y-6 text-lg leading-[1.7] text-navy'>
+                <p>
+                  We&apos;ve led teams inside orgs where critical work happened
+                  in a maze of tabs, inscrutable settings, and dashboards that
+                  tried to show everything at once — and told us nothing.
+                  Features shipped because they were possible, not because
+                  anyone needed them.
                 </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Image Divider 2 - Bottom of image (mobile/tablet only) */}
-      <div className='lg:hidden relative h-32 md:h-40 w-full overflow-hidden'>
-        <Image
-          src={sidebarImage}
-          alt='Divider'
-          fill
-          className='object-cover object-bottom'
-          sizes='100vw'
-        />
-      </div>
-
-      {/* APPROACH */}
-      <section className='py-16 md:py-20 text-story-light-color'>
-        <div className='mx-auto max-w-7xl px-6 md:px-8 lg:px-20'>
-          <div className='bg-story-base shadow-xl p-8 md:p-12 lg:p-16 text-story-light-color'>
-            <div className='grid grid-cols-1 items-start gap-10 md:grid-cols-2'>
-              <div>
-                <h2 className='text-4xl sm:text-5xl font-bold tracking-tight font-primary text-heading-base'>
-                  How we turn frustration into focus
-                </h2>
-                <p className='mt-6 text-lg opacity-80 font-secondary leading-relaxed'>
-                  We practice progressive disclosure by default: surface the next
-                  best action, hide the rest until it&apos;s relevant. Then we test it
-                  with the people who will actually use it.
+                <p>
+                  Time and again we watched tools ignore fundamentals:
+                  <em className='text-indigo'>
+                    {' '}
+                    no progressive disclosure, no research with actual users,
+                    fragile workflows
+                  </em>{' '}
+                  — and &ldquo;templates&rdquo; that multiplied complexity. People did the
+                  real design work by inventing workarounds in spreadsheets,
+                  sticky notes, and long email threads.
+                </p>
+                <p>
+                  Vitura is our answer: a studio that puts{' '}
+                  <strong>clarity</strong>, <strong>context</strong>, and{' '}
+                  <strong>care</strong> back into digital tools so teams can do
+                  their best work without fighting the interface.
                 </p>
               </div>
-              <div className='grid grid-cols-1 gap-4'>
+            </Reveal>
+          </div>
+
+          <Reveal variant='up' delay={0.1} className='mt-20'>
+            <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-8'>
+              What we kept seeing
+            </div>
+            <ul className='grid grid-cols-1 md:grid-cols-2 gap-0'>
+              {[
+                'Endless settings, unclear defaults',
+                'No progressive disclosure — everything exposed at once',
+                'Zero research with the people who actually use the product',
+                'KPIs without meaning; dashboards without decisions',
+                'Every team forced into the same rigid workflow',
+                'Accessibility and performance as afterthoughts',
+              ].map((item, i) => (
+                <li
+                  key={item}
+                  className='border-t border-rule py-6 pr-8 text-base font-primary leading-[1.7]'
+                  style={{
+                    borderLeft:
+                      i % 2 === 0 ? 'none' : `1px solid var(--rule)`,
+                    paddingLeft: i % 2 === 0 ? 0 : '2rem',
+                  }}
+                >
+                  — {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* EDITORIAL FIGURE */}
+      <section className='border-b border-rule'>
+        <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
+          <Reveal variant='up'>
+            <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-end'>
+              <div className='md:col-span-5'>
+                <div className='relative aspect-[4/5] border border-rule overflow-hidden'>
+                  <Image
+                    src='/richter.jpg'
+                    alt=''
+                    fill
+                    sizes='(min-width: 768px) 40vw, 100vw'
+                    className='object-cover'
+                  />
+                </div>
+              </div>
+              <div className='md:col-span-6 md:col-start-7'>
+                <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-4'>
+                  Our posture
+                </div>
+                <p className='text-2xl md:text-3xl font-normal leading-snug text-navy'>
+                  Design like a curator, not an inventor.{' '}
+                  <em className='text-indigo'>
+                    What is here? What is missing? What should remain?
+                  </em>
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* PRINCIPLES */}
+      <section className='border-b border-rule'>
+        <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
+          <Reveal variant='up'>
+            <div className='flex items-baseline gap-6 mb-16'>
+              <span className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+                II.
+              </span>
+              <h2 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
+                What we believe
+              </h2>
+            </div>
+          </Reveal>
+
+          <Reveal variant='up' delay={0.15}>
+            <p className='max-w-2xl text-xl md:text-2xl italic leading-relaxed mb-20 text-blue'>
+              Our principles guide every decision, from research to delivery.
+            </p>
+          </Reveal>
+
+          <RevealGroup
+            stagger={0.1}
+            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+          >
+            {principles.map((p, i) => (
+              <RevealItem key={p.title}>
+                <article
+                  className='border-t border-rule pt-8 pb-12 pr-8 h-full'
+                  style={{
+                    borderLeft:
+                      i % 3 === 0 ? 'none' : `1px solid var(--rule)`,
+                    paddingLeft: i % 3 === 0 ? 0 : '2rem',
+                  }}
+                >
+                  <div className='flex items-center gap-3 text-blue'>
+                    <p.icon className='h-4 w-4' />
+                    <h3 className='text-2xl md:text-3xl font-normal leading-snug text-navy'>
+                      {p.title}
+                    </h3>
+                  </div>
+                  <p className='mt-5 text-base leading-[1.7] text-navy'>
+                    {p.desc}
+                  </p>
+                </article>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
+      {/* APPROACH */}
+      <section className='border-b border-rule'>
+        <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
+          <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+            <Reveal variant='up' className='lg:col-span-5'>
+              <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
+                III. Approach
+              </div>
+              <h2 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
+                Turning frustration into focus.
+              </h2>
+              <p className='mt-8 max-w-md text-xl italic leading-relaxed text-blue'>
+                We practice progressive disclosure by default: surface the next
+                best action, hide the rest until it&apos;s relevant. Then we
+                test it with the people who will actually use it.
+              </p>
+            </Reveal>
+
+            <RevealGroup
+              stagger={0.1}
+              delay={0.15}
+              className='lg:col-span-7 lg:col-start-7'
+            >
               {[
                 [
                   'Observe first',
@@ -210,34 +232,39 @@ export default function OurStoryPage() {
                 ],
                 [
                   'Ship with care',
-                  'Accessible, fast, documented—so teams can own it.',
+                  'Accessible, fast, documented — so teams can own it.',
                 ],
               ].map(([title, desc]) => (
-                <div
-                  key={title}
-                  className='border border-story-light-color/20 bg-story-base/50 backdrop-blur-sm text-story-light-color p-6 shadow-md hover:shadow-lg transition-shadow'
-                >
-                  <div className='text-base font-semibold uppercase tracking-wide opacity-70 font-secondary'>
-                    {title}
+                <RevealItem key={title}>
+                  <div className='border-t border-rule py-6'>
+                    <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+                      {title}
+                    </div>
+                    <p className='mt-3 text-base leading-[1.7] text-navy'>
+                      {desc}
+                    </p>
                   </div>
-                  <p className='mt-2 text-base font-secondary leading-relaxed'>
-                    {desc}
-                  </p>
-                </div>
+                </RevealItem>
               ))}
-              </div>
-            </div>
+            </RevealGroup>
           </div>
         </div>
       </section>
 
-      {/* MINI–TIMELINE */}
-      <section className='py-16 md:py-20 text-story-light-color'>
-        <div className='mx-auto max-w-5xl px-6 md:px-8 lg:px-20'>
-          <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-primary text-heading-alt'>
-            Milestones
-          </h2>
-          <ol className='mt-12 space-y-6'>
+      {/* MILESTONES */}
+      <section className='border-b border-rule'>
+        <div className='mx-auto max-w-4xl px-6 md:px-10 py-20 md:py-32'>
+          <Reveal variant='up'>
+            <div className='flex items-baseline gap-6 mb-16'>
+              <span className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+                IV.
+              </span>
+              <h2 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
+                Milestones
+              </h2>
+            </div>
+          </Reveal>
+          <RevealGroup stagger={0.12}>
             {[
               [
                 'The insight',
@@ -249,52 +276,50 @@ export default function OurStoryPage() {
               ],
               [
                 'The practice',
-                'Short discovery sprints, measurable releases, and design systems teams can extend—without vendor lock-in.',
+                'Short discovery sprints, measurable releases, and design systems teams can extend — without vendor lock-in.',
               ],
-            ].map(([title, desc], i) => (
-              <li
-                key={i}
-                className='border border-story-light-color/10 bg-story-base/50 backdrop-blur-sm text-story-light-color p-6 shadow-md'
-              >
-                <div className='text-xl font-semibold font-primary'>
-                  {title}
+            ].map(([title, desc]) => (
+              <RevealItem key={title}>
+                <div className='border-t border-rule py-8'>
+                  <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
+                    {title}
+                  </div>
+                  <p className='mt-4 text-xl leading-[1.6] text-navy'>
+                    {desc}
+                  </p>
                 </div>
-                <p className='mt-3 text-base opacity-80 font-secondary leading-relaxed'>
-                  {desc}
-                </p>
-              </li>
+              </RevealItem>
             ))}
-          </ol>
+          </RevealGroup>
         </div>
       </section>
 
       {/* CTA */}
-      <section className='py-16 md:py-20 text-story-light-color'>
-        <div className='mx-auto max-w-4xl px-6 md:px-8 lg:px-20 text-center'>
-          <h3 className='text-4xl sm:text-5xl font-bold tracking-tight font-primary text-balance text-heading-alt'>
-            Let&apos;s design for people, not just for platforms.
-          </h3>
-          <p className='mx-auto mt-6 max-w-2xl text-lg md:text-xl opacity-80 font-secondary text-balance'>
-            Have a tool that feels heavier than the work it&apos;s supposed to help?
-            We&apos;ll find the smallest, clearest next step together.
-          </p>
-          <div className='mt-6 flex items-center justify-center gap-3'>
-            <Link
-              href='/contact'
-              className='inline-flex items-center rounded-full bg-button-light-bg text-button-light-text px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity'
-            >
-              Get in touch <ArrowRight className='ml-2 h-4 w-4' />
-            </Link>
-          </div>
+      <section>
+        <div className='mx-auto max-w-4xl px-6 md:px-10 py-20 md:py-32 text-center'>
+          <Reveal variant='up'>
+            <h3 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
+              Let&apos;s design for people, not just for platforms.
+            </h3>
+            <p className='mx-auto mt-8 max-w-2xl text-xl italic leading-relaxed text-blue'>
+              Have a tool that feels heavier than the work it&apos;s supposed
+              to help? We&apos;ll find the smallest, clearest next step
+              together.
+            </p>
+            <div className='mt-12'>
+              <Link
+                href='/contact'
+                className='inline-block font-secondary text-[11px] uppercase tracking-[0.28em] px-8 py-4 bg-navy text-paper hover:opacity-90 transition-opacity'
+              >
+                Get in touch
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
-        </div>
-      </div>
     </main>
   );
 }
-
-/* --- content --- */
 
 const principles = [
   {
@@ -325,6 +350,6 @@ const principles = [
   {
     title: 'Evidence over hype',
     icon: Beaker,
-    desc: 'Hypotheses, experiments, and instrumentation—so choices are explainable and repeatable.',
+    desc: 'Hypotheses, experiments, and instrumentation — so choices are explainable and repeatable.',
   },
 ];

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. Use a more-intuitive box-sizing model */
+/* 1. Box-sizing */
 *,
 *::before,
 *::after {
@@ -22,13 +22,11 @@
 }
 
 body {
-  /* 4. Add accessible line-height */
   line-height: 1.5;
-  /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
 
-/* 6. Improve media defaults */
+/* 4. Improve media defaults */
 img,
 picture,
 video,
@@ -38,7 +36,7 @@ svg {
   max-width: 100%;
 }
 
-/* 7. Inherit fonts for form controls */
+/* 5. Inherit fonts for form controls */
 input,
 button,
 textarea,
@@ -46,7 +44,7 @@ select {
   font: inherit;
 }
 
-/* 8. Avoid text overflows */
+/* 6. Avoid text overflows */
 p,
 h1,
 h2,
@@ -57,7 +55,7 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* 9. Improve line wrapping */
+/* 7. Text wrapping */
 p {
   text-wrap: pretty;
 }
@@ -68,85 +66,89 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
-/*
-  10. Create a root stacking context
-*/
+/* 8. Root stacking context */
 #root,
 #__next {
   isolation: isolate;
 }
 
 /**
- * Theme Configuration
- *
- * Unified color palette across all routes based on rich blue/teal tones.
- * All sections now share the same consistent color scheme.
+ * Editorial style-guide tokens.
+ * Single source of truth — mirrors app/styles/tokens.ts.
  */
 :root {
-  /* Global colors */
-  --primary-white: #fff5ee; /* Warm off-white for hero text */
-  --primary-black: #0f0f17; /* Soft black for body text */
+  --paper: #f1f1f5;
+  --mist: #f5fafc;
+  --navy: #121358;
+  --indigo: #232f72;
+  --blue: #2f578a;
+  --teal: #36ada3;
+  --rule: #d3d9de;
 
-  /* Button colors - Use these for consistent button styling */
-  --button-dark-bg: hsl(200, 70%, 25%); /* Dark button background (rich blue) */
-  --button-dark-text: #e2f4f9; /* Dark button text (warm white) */
-  --button-light-bg: #41a5da; /* Light button background (warm white) */
-  --button-light-text: hsl(199, 100%, 97%); /* Light button text (rich blue) */
+  /* Vitura wordmark — vivid red from the original landing logo. */
+  --vitura-red: hsl(0, 100%, 60%);
+  --vitura-red-hover: hsl(0, 100%, 52%);
 
-  /* Unified page theme - Single color scheme across all pages */
-  --page-base: hsl(200, 80%, 32%); /* Rich deep blue background */
-  --page-alternative: hsl(195, 85%, 25%); /* Dark blue alternative */
-  --page-light-color: #fff5ee; /* Warm white for dark backgrounds */
-  --page-dark-color: hsl(199, 26%, 14%); /* Very dark blue for light backgrounds */
-  --heading-color-base: hsl(26, 95%, 45%); /* Amber-700 for base sections */
-  --heading-color-alt: hsl(38, 95%, 58%); /* Amber-400 for alternative sections */
+  /* Legacy aliases — keep so older Tailwind utilities still resolve.
+     New code should reference --paper, --mist, --navy, etc. directly. */
+  --primary-white: var(--paper);
+  --primary-black: var(--navy);
+  --button-dark-bg: var(--navy);
+  --button-dark-text: var(--paper);
+  --button-light-bg: var(--paper);
+  --button-light-text: var(--navy);
 
-  /* Legacy aliases - map to unified page variables */
-  --landing-base: var(--page-base);
-  --landing-alternative: var(--page-alternative);
-  --landing-light-color: var(--page-light-color);
-  --landing-dark-color: var(--page-dark-color);
+  --page-base: var(--paper);
+  --page-alternative: var(--mist);
+  --page-light-color: var(--paper);
+  --page-dark-color: var(--navy);
+  --heading-color-base: var(--indigo);
+  --heading-color-alt: var(--teal);
 
-  --services-base: var(--page-base);
-  --services-alternative: var(--page-alternative);
-  --services-light-color: var(--page-light-color);
-  --services-dark-color: var(--page-dark-color);
+  --landing-base: var(--paper);
+  --landing-alternative: var(--mist);
+  --landing-light-color: var(--navy);
+  --landing-dark-color: var(--navy);
 
-  --story-base: var(--page-base);
-  --story-alternative: var(--page-alternative);
-  --story-light-color: var(--page-light-color);
-  --story-dark-color: var(--page-dark-color);
+  --services-base: var(--paper);
+  --services-alternative: var(--mist);
+  --services-light-color: var(--navy);
+  --services-dark-color: var(--navy);
 
-  --contact-base: var(--page-base);
-  --contact-alternative: var(--page-alternative);
-  --contact-light-color: var(--page-light-color);
-  --contact-dark-color: var(--page-dark-color);
+  --story-base: var(--paper);
+  --story-alternative: var(--mist);
+  --story-light-color: var(--navy);
+  --story-dark-color: var(--navy);
 
-  /* Footer theme */
-  --footer-banner: hsl(25, 68%, 62%);
-  --footer-main: hsl(178, 95%, 84%);
-  --footer-base: hsl(233, 98%, 16%);
+  --contact-base: var(--paper);
+  --contact-alternative: var(--mist);
+  --contact-light-color: var(--navy);
+  --contact-dark-color: var(--navy);
+
+  --footer-banner: var(--teal);
+  --footer-main: var(--navy);
+  --footer-base: var(--paper);
 }
 
 html {
-  font-size: 125%; /* Increase base font size by 25% - affects all rem-based sizes */
   overscroll-behavior-y: none;
   touch-action: manipulation;
   position: relative;
 }
 
 body {
-  color: var(--primary-black);
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  background-color: var(--paper);
+  color: var(--navy);
+  overflow-x: hidden;
   overscroll-behavior-y: none;
   touch-action: manipulation;
   position: relative;
+  font-family: var(--font-primary), Georgia, serif;
 }
 
-/* Page load fade-in animation */
+/* Page-load fade-in */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -160,7 +162,6 @@ main {
   animation: fadeIn 0.6s ease-in-out;
 }
 
-/* Ensure all text elements inherit color from their immediate parent */
 strong,
 em,
 b,
@@ -168,102 +169,22 @@ i {
   color: inherit;
 }
 
-/* Adjust horizontal padding for better spacing */
-.px-6 {
-  padding-left: 1.5rem !important; /* Same as default on mobile */
-  padding-right: 1.5rem !important;
-}
-
-@media (min-width: 768px) {
-  .px-6 {
-    padding-left: 4rem !important;
-    padding-right: 4rem !important;
-  }
-}
-
-/* Reduce vertical padding on sections */
-.py-20 {
-  padding-top: 3rem !important; /* Reduced from 5rem */
-  padding-bottom: 3rem !important;
-}
-
-.py-16 {
-  padding-top: 2.5rem !important; /* Reduced from 4rem */
-  padding-bottom: 2.5rem !important;
-}
-
-@media (min-width: 768px) {
-  .py-20 {
-    padding-top: 5rem !important; /* Original size on desktop */
-    padding-bottom: 5rem !important;
-  }
-
-  .py-16,
-  .md\:py-20 {
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
-  }
-}
-
-/* Subtle gradient on content sections */
-.bg-landing-base,
-.bg-services-base,
-.bg-story-base,
-.bg-contact-base {
-  background: linear-gradient(
-    to bottom,
-    hsl(200, 80%, 33%),
-    hsl(201, 78%, 32%) 50%,
-    hsl(200, 80%, 34%)
-  ) !important;
-}
-
-.bg-landing-alternative,
-.bg-services-alternative,
-.bg-story-alternative,
-.bg-contact-alternative {
-  background: linear-gradient(
-    to bottom,
-    hsl(195, 85%, 26%),
-    hsl(195, 83%, 25%) 50%,
-    hsl(195, 85%, 27%)
-  ) !important;
-}
-
-.custom-banner {
-  background: var(--slate);
-  color: white;
-  padding: 5rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  font-weight: bold;
-}
-
-h1 {
-  color: var(--banner-text);
-}
-
+/* Logo helpers — kept for backward compat with VituraLogo masking. */
 .vitura-logo-color {
-  background-color: hsl(0, 100%, 60%);
+  background-color: var(--navy);
 }
-
 .vitura-logo-color:hover {
-  background-color: hsl(0, 100%, 52%);
+  background-color: var(--indigo);
 }
-
 .vitura-logo-footer {
-  background-color: var(--footer-banner);
+  background-color: var(--navy);
 }
-
 .vitura-logo-footer:hover {
-  background-color: hsl(25, 68%, 55%);
+  background-color: var(--indigo);
 }
-
 .vitura-logo-white {
-  background-color: white;
+  background-color: var(--paper);
 }
-
 .vitura-logo-white:hover {
-  background-color: hsl(0, 0%, 90%);
+  background-color: var(--mist);
 }
-
