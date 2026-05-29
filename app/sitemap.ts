@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const staticRoutes = ['', '/about', '/services', '/work', '/contact'];
+const staticRoutes = ['', '/services', '/our-story', '/contact'];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();

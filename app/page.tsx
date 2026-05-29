@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Reveal, RevealGroup, RevealItem } from './styles/Reveal';
+import QuoteBand from './components/QuoteBand';
 
 const services = [
   {
@@ -31,8 +32,14 @@ const services = [
 ];
 
 const process: Array<[string, string]> = [
-  ['Discover', 'Align on goals, audiences, and constraints with lightweight research.'],
-  ['Define', 'Plan the smallest valuable release and the metrics that prove it.'],
+  [
+    'Discover',
+    'Align on goals, audiences, and constraints with lightweight research.',
+  ],
+  [
+    'Define',
+    'Plan the smallest valuable release and the metrics that prove it.',
+  ],
   ['Design', 'Prototype flows, content, and UI; test quickly and iterate.'],
   ['Deliver', 'Ship production-ready code and handoff docs your team can own.'],
 ];
@@ -43,12 +50,18 @@ export default function Home() {
       {/* HERO */}
       <section className='border-b border-rule'>
         <div className='mx-auto max-w-6xl px-6 md:px-10 pt-20 md:pt-32 pb-20 md:pb-32'>
-          <Reveal variant='up' duration={0.7}>
+          <Reveal
+            variant='up'
+            duration={0.7}
+          >
             <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-10'>
-              Vol. I — A studio based in New York
+              A studio based in New York
             </div>
           </Reveal>
-          <Reveal variant='up' delay={0.1}>
+          <Reveal
+            variant='up'
+            delay={0.1}
+          >
             <h1 className='text-5xl md:text-7xl font-normal leading-[1.02] tracking-tight max-w-5xl'>
               We are a studio for{' '}
               <em className='text-indigo'>digital transformation</em>,{' '}
@@ -56,7 +69,10 @@ export default function Home() {
               <em className='text-indigo'>human-centered design</em>.
             </h1>
           </Reveal>
-          <Reveal variant='up' delay={0.25}>
+          <Reveal
+            variant='up'
+            delay={0.25}
+          >
             <p className='mt-10 max-w-2xl text-xl md:text-2xl italic leading-relaxed text-blue'>
               Clean pipelines, clear decisions, and human-centered products for
               teams that take their craft seriously.
@@ -64,7 +80,11 @@ export default function Home() {
           </Reveal>
 
           <div className='mt-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end'>
-            <Reveal variant='up' delay={0.1} className='lg:col-span-8'>
+            <Reveal
+              variant='up'
+              delay={0.1}
+              className='lg:col-span-8'
+            >
               <div className='relative aspect-[3/2] border border-rule overflow-hidden'>
                 <Image
                   src='/ed-clark-hauser.jpg'
@@ -104,7 +124,10 @@ export default function Home() {
       </section>
 
       {/* SERVICES */}
-      <section id='services' className='border-b border-rule'>
+      <section
+        id='services'
+        className='border-b border-rule'
+      >
         <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
           <Reveal variant='up'>
             <div className='flex items-baseline gap-6 mb-16'>
@@ -117,14 +140,21 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal variant='up' delay={0.15}>
+          <Reveal
+            variant='up'
+            delay={0.15}
+          >
             <p className='max-w-2xl text-xl md:text-2xl italic leading-relaxed mb-20 text-blue'>
               Strategy, design, and engineering for data-rich products and
               content experiences.
             </p>
           </Reveal>
 
-          <Reveal variant='up' delay={0.1} className='mb-20'>
+          <Reveal
+            variant='up'
+            delay={0.1}
+            className='mb-20'
+          >
             <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-end'>
               <div className='md:col-span-5'>
                 <div className='relative aspect-[4/5] border border-rule overflow-hidden'>
@@ -142,8 +172,7 @@ export default function Home() {
                   On craft
                 </div>
                 <p className='text-2xl md:text-3xl font-normal leading-snug text-navy'>
-                  Each engagement begins with the same questions a curator
-                  asks:{' '}
+                  Each engagement begins with the same questions a curator asks:{' '}
                   <em className='text-indigo'>
                     What is here? What is missing? What should remain?
                   </em>
@@ -178,17 +207,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ORNAMENT */}
-      <div className='mx-auto max-w-6xl px-6 md:px-10 py-16'>
-        <div className='flex items-center gap-6 text-blue'>
-          <span className='h-px flex-1 bg-rule' />
-          <span className='text-2xl'>§</span>
-          <span className='h-px flex-1 bg-rule' />
-        </div>
-      </div>
-
       {/* PROCESS */}
-      <section id='process' className='border-b border-rule'>
+      <section
+        id='process'
+        className='border-b border-rule'
+      >
         <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
           <Reveal variant='up'>
             <div className='flex items-baseline gap-6 mb-16'>
@@ -201,14 +224,20 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal variant='up' delay={0.15}>
+          <Reveal
+            variant='up'
+            delay={0.15}
+          >
             <p className='max-w-2xl text-xl md:text-2xl italic leading-relaxed mb-20 text-blue'>
               A process designed to move fast, reduce risk, and deliver
               measurable impact.
             </p>
           </Reveal>
 
-          <RevealGroup stagger={0.12} className='grid grid-cols-1 md:grid-cols-4 md:gap-x-8'>
+          <RevealGroup
+            stagger={0.12}
+            className='grid grid-cols-1 md:grid-cols-4 md:gap-x-8'
+          >
             {process.map(([title, desc], i) => (
               <RevealItem key={title}>
                 <div className='border-t border-rule pt-8 pb-2 h-full'>
@@ -226,42 +255,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PULL QUOTE */}
-      <section className='relative border-b border-navy overflow-hidden bg-navy'>
-        <Image
-          src='/ed-clark-sotheby-1.jpeg'
-          alt=''
-          fill
-          sizes='100vw'
-          aria-hidden='true'
-          className='object-cover opacity-25'
-        />
-        <div
-          className='absolute inset-0'
-          style={{
-            background:
-              'linear-gradient(to bottom, rgba(18,19,88,0.85), rgba(18,19,88,0.7) 50%, rgba(18,19,88,0.85))',
-          }}
-        />
-        <div className='relative mx-auto max-w-4xl px-6 md:px-10 py-24 md:py-32 text-center'>
-          <Reveal variant='fade' duration={1.2} amount={0.4}>
-            <span className='text-2xl text-teal font-primary'>❝</span>
-            <blockquote className='mt-6 text-3xl md:text-5xl font-normal leading-[1.15] tracking-tight italic text-paper'>
-              They treated our data product like an editorial object — with
-              intention, restraint, and craft.
-            </blockquote>
-            <div className='mt-10 font-secondary text-[11px] uppercase tracking-[0.28em] text-teal'>
-              — Director of Product, Financial Services
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <QuoteBand
+        image='/ed-clark-sotheby-1.jpeg'
+        quote='They treated our data product like an editorial object — with intention, restraint, and craft.'
+        attribution='— Director of Product, Financial Services'
+      />
 
       {/* CONTACT PREVIEW */}
       <section id='contact'>
         <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
           <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-            <Reveal variant='left' className='lg:col-span-5'>
+            <Reveal
+              variant='left'
+              className='lg:col-span-5'
+            >
               <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
                 III. Correspondence
               </div>
@@ -290,7 +297,11 @@ export default function Home() {
               </div>
             </Reveal>
 
-            <Reveal variant='right' delay={0.15} className='lg:col-span-7 lg:col-start-7'>
+            <Reveal
+              variant='right'
+              delay={0.15}
+              className='lg:col-span-7 lg:col-start-7'
+            >
               <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
                 Send a note
               </div>

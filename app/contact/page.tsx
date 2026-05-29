@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import Image from 'next/image';
 import { Resend } from 'resend';
 import { Reveal, RevealGroup, RevealItem } from '../styles/Reveal';
+import QuoteBand from '../components/QuoteBand';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -58,12 +59,12 @@ ${message}`,
   }
 }
 
-export default function ContactPage({
+export default async function ContactPage({
   searchParams,
 }: {
-  searchParams?: { status?: string };
+  searchParams?: Promise<{ status?: string }>;
 }) {
-  const status = searchParams?.status;
+  const status = (await searchParams)?.status;
 
   return (
     <main className='bg-paper text-navy font-primary'>
@@ -108,8 +109,26 @@ export default function ContactPage({
               Tell us about your team, timelines, and what success looks like.
             </p>
           </Reveal>
+
+          <Reveal variant='up' delay={0.4} className='mt-16 md:mt-20'>
+            <div className='relative aspect-[3/2] border border-rule overflow-hidden'>
+              <Image
+                src='/yrbedit.jpg'
+                alt=''
+                fill
+                priority
+                sizes='(min-width: 1024px) 1100px, 100vw'
+                className='object-cover'
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
+
+      <QuoteBand
+        image='/purples.jpg'
+        quote='The best work starts with a clear note and a candid conversation. Tell us what you are trying to make true.'
+      />
 
       {/* FORM */}
       <section>

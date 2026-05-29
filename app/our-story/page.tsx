@@ -1,5 +1,4 @@
 // app/our-story/page.tsx
-import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import {
@@ -11,6 +10,8 @@ import {
   Beaker,
 } from 'lucide-react';
 import { Reveal, RevealGroup, RevealItem } from '../styles/Reveal';
+import QuoteBand from '../components/QuoteBand';
+import CTABand from '../components/CTABand';
 
 export const metadata: Metadata = {
   title: 'Our Story',
@@ -35,6 +36,19 @@ export default function OurStoryPage() {
               <em className='text-indigo'>built for itself</em> — not for the
               people who had to use it.
             </h1>
+          </Reveal>
+
+          <Reveal variant='up' delay={0.3} className='mt-16 md:mt-20'>
+            <div className='relative aspect-[4/3] border border-rule overflow-hidden'>
+              <Image
+                src='/ed-clark-contemporary.webp'
+                alt=''
+                fill
+                priority
+                sizes='(min-width: 1024px) 1100px, 100vw'
+                className='object-cover'
+              />
+            </div>
           </Reveal>
         </div>
       </section>
@@ -182,6 +196,11 @@ export default function OurStoryPage() {
         </div>
       </section>
 
+      <QuoteBand
+        image='/ed-clark-bomb.jpg'
+        quote='We design for the people doing the work — not the software that is supposed to help them.'
+      />
+
       {/* APPROACH */}
       <section className='border-b border-rule'>
         <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
@@ -282,29 +301,12 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section>
-        <div className='mx-auto max-w-4xl px-6 md:px-10 py-20 md:py-32 text-center'>
-          <Reveal variant='up'>
-            <h3 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
-              Let&apos;s design for people, not just for platforms.
-            </h3>
-            <p className='mx-auto mt-8 max-w-2xl text-xl italic leading-relaxed text-blue'>
-              Have a tool that feels heavier than the work it&apos;s supposed
-              to help? We&apos;ll find the smallest, clearest next step
-              together.
-            </p>
-            <div className='mt-12'>
-              <Link
-                href='/contact'
-                className='inline-block font-secondary text-[11px] uppercase tracking-[0.28em] px-8 py-4 bg-navy text-paper hover:opacity-90 transition-opacity'
-              >
-                Get in touch
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <CTABand
+        title="Let's design for people, not just for platforms."
+        body="Have a tool that feels heavier than the work it's supposed to help? We'll find the smallest, clearest next step together."
+        cta='Get in touch'
+        href='/contact'
+      />
     </main>
   );
 }

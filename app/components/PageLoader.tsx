@@ -15,6 +15,9 @@ export default function PageLoader({
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let active = true;
+    const cleanups: Array<() => void> = [];
+
     setLoading(true);
     setProgress(0);
 
@@ -31,23 +34,37 @@ export default function PageLoader({
       const images = document.querySelectorAll('img');
       const imagePromises = Array.from(images).map((img) => {
         if (img.complete) return Promise.resolve();
-        return new Promise((resolve) => {
-          img.onload = resolve;
-          img.onerror = resolve;
+        return new Promise<void>((resolve) => {
+          const done = () => resolve();
+          img.addEventListener('load', done);
+          img.addEventListener('error', done);
+          cleanups.push(() => {
+            img.removeEventListener('load', done);
+            img.removeEventListener('error', done);
+          });
         });
       });
 
       Promise.all(imagePromises).then(() => {
+        if (!active) return;
         clearInterval(progressInterval);
         setProgress(100);
-        setTimeout(() => setLoading(false), 200);
+        const hideTimeout = setTimeout(() => {
+          if (active) setLoading(false);
+        }, 200);
+        cleanups.push(() => clearTimeout(hideTimeout));
       });
     };
 
     // Small delay to let React render images
-    setTimeout(checkImages, 50);
+    const startTimeout = setTimeout(checkImages, 50);
 
-    return () => clearInterval(progressInterval);
+    return () => {
+      active = false;
+      clearInterval(progressInterval);
+      clearTimeout(startTimeout);
+      cleanups.forEach((fn) => fn());
+    };
   }, [pathname]);
 
   return (

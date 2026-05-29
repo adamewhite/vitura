@@ -62,17 +62,6 @@ export const metadata: Metadata = {
       { url: '/og.jpg', width: 1200, height: 630, alt: 'Vitura Studio' },
     ],
   },
-
-  // Twitter (X) cards
-  twitter: {
-    card: 'summary_large_image',
-    site: '@yourhandle', // optional
-    creator: '@yourhandle', // optional
-    title: 'Vitura Studio — Digital Strategy, Data & Design',
-    description:
-      'Clean pipelines, clear decisions, and human-centered products.',
-    images: ['/og.jpg'],
-  },
 };
 
 export default function RootLayout({

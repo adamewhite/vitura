@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 type Variant = 'up' | 'fade' | 'left' | 'right';
@@ -41,6 +41,13 @@ export function Reveal({
   className?: string;
   amount?: number;
 }) {
+  const reduce = useReducedMotion();
+
+  // Reduced-motion users get content rendered visible — never gated on JS/scroll.
+  if (reduce) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}
@@ -73,6 +80,12 @@ export function RevealGroup({
   amount?: number;
   className?: string;
 }) {
+  const reduce = useReducedMotion();
+
+  if (reduce) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}
@@ -105,6 +118,12 @@ export function RevealItem({
   duration?: number;
   className?: string;
 }) {
+  const reduce = useReducedMotion();
+
+  if (reduce) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}

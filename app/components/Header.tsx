@@ -14,24 +14,55 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false);
+    if (!open) return;
+
+    // Remember what was focused so we can restore it on close.
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const trigger = triggerRef.current;
+
+    function focusable() {
+      return Array.from(
+        panelRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ) ?? []
+      );
     }
-    if (open) document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [open]);
 
-  useEffect(() => {
-    function onClick(e: MouseEvent) {
-      if (!open) return;
-      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+    // Move focus into the panel.
+    focusable()[0]?.focus();
+
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
         setOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+
+      // Trap focus within the panel.
+      const items = focusable();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const activeEl = document.activeElement;
+
+      if (e.shiftKey && activeEl === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && activeEl === last) {
+        e.preventDefault();
+        first.focus();
       }
     }
-    document.addEventListener('mousedown', onClick);
-    return () => document.removeEventListener('mousedown', onClick);
+
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      // Restore focus to the trigger when the menu closes.
+      (previouslyFocused ?? trigger)?.focus();
+    };
   }, [open]);
 
   useEffect(() => {
@@ -77,9 +108,10 @@ export default function Header() {
 
         {/* Mobile button */}
         <button
+          ref={triggerRef}
           type='button'
           className='inline-flex items-center justify-center border border-rule px-3 py-2 md:hidden text-navy'
-          aria-label='Open menu'
+          aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls='mobile-menu'
           onClick={() => setOpen((v) => !v)}
@@ -93,14 +125,16 @@ export default function Header() {
         className={`fixed inset-0 z-30 bg-navy/40 backdrop-blur-sm md:hidden transition-opacity duration-300 ${
           open ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
-        role='dialog'
-        aria-modal='true'
-        aria-hidden={!open}
         onClick={() => setOpen(false)}
       >
         <div
           id='mobile-menu'
           ref={panelRef}
+          role='dialog'
+          aria-modal='true'
+          aria-label='Menu'
+          aria-hidden={!open}
+          inert={!open}
           className={`absolute right-4 top-[5rem] w-64 border border-rule bg-paper px-2 py-2 text-navy shadow-lg transition-all duration-300 ${
             open ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
           }`}

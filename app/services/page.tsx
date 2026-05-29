@@ -1,8 +1,9 @@
 // app/services/page.tsx
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { useState } from 'react';
+import Image from 'next/image';
+import QuoteBand from '../components/QuoteBand';
+import CTABand from '../components/CTABand';
 import {
   Rocket,
   Layout,
@@ -14,6 +15,13 @@ import {
   Database,
 } from 'lucide-react';
 import { Reveal, RevealGroup, RevealItem } from '../styles/Reveal';
+import { FAQItem } from './FAQ';
+
+export const metadata: Metadata = {
+  title: 'Services',
+  description:
+    'Strategy, design, and engineering for data-rich products — from discovery sprints to production builds and data foundations.',
+};
 
 export default function ServicesPage() {
   return (
@@ -37,6 +45,19 @@ export default function ServicesPage() {
               We combine strategy, design, and engineering to turn messy data
               and complex ideas into clear digital experiences.
             </p>
+          </Reveal>
+
+          <Reveal variant='up' delay={0.4} className='mt-16 md:mt-20'>
+            <div className='relative aspect-[3/2] border border-rule overflow-hidden'>
+              <Image
+                src='/ed-clark-bomb.jpg'
+                alt=''
+                fill
+                priority
+                sizes='(min-width: 1024px) 1100px, 100vw'
+                className='object-cover'
+              />
+            </div>
           </Reveal>
         </div>
       </section>
@@ -72,7 +93,7 @@ export default function ServicesPage() {
                   className='border-t border-rule pt-8 pb-12 h-full'
                 >
                   <div className='flex items-center gap-3 text-blue'>
-                    <c.icon className='h-4 w-4' />
+                    <c.icon className='h-4 w-4' aria-hidden='true' />
                     <h3 className='text-2xl md:text-3xl font-normal leading-snug text-navy'>
                       {c.title}
                     </h3>
@@ -136,6 +157,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <QuoteBand
+        image='/wyeth.jpg'
+        quote='The goal is never more features — it is fewer, sharper decisions, made faster.'
+      />
+
       {/* PACKAGES */}
       <section id='design' className='border-b border-rule'>
         <div className='mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-32'>
@@ -167,7 +193,7 @@ export default function ServicesPage() {
                   className='flex h-full flex-col border-t border-rule pt-8 pb-12'
                 >
                   <div className='flex items-center gap-3 text-blue'>
-                    <p.icon className='h-4 w-4' />
+                    <p.icon className='h-4 w-4' aria-hidden='true' />
                     <h3 className='text-2xl md:text-3xl font-normal leading-snug text-navy'>
                       {p.name}
                     </h3>
@@ -214,63 +240,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section>
-        <div className='mx-auto max-w-4xl px-6 md:px-10 py-20 md:py-32 text-center'>
-          <Reveal variant='up'>
-            <h3 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
-              Have a challenge in mind?
-            </h3>
-            <p className='mx-auto mt-8 max-w-2xl text-xl italic leading-relaxed text-blue'>
-              Tell us your goals and constraints — we&apos;ll map the fastest
-              path from idea to impact.
-            </p>
-            <div className='mt-12'>
-              <Link
-                href='/contact'
-                className='inline-block font-secondary text-[11px] uppercase tracking-[0.28em] px-8 py-4 bg-navy text-paper hover:opacity-90 transition-opacity'
-              >
-                Contact us
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <CTABand
+        title='Have a challenge in mind?'
+        body="Tell us your goals and constraints — we'll map the fastest path from idea to impact."
+        cta='Contact us'
+        href='/contact'
+      />
     </main>
-  );
-}
-
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className='border-t border-rule'>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className='w-full text-left py-6 flex items-baseline justify-between gap-6 group'
-      >
-        <span className='text-xl md:text-2xl font-normal text-navy group-hover:text-indigo transition-colors'>
-          {question}
-        </span>
-        <span
-          className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue flex-shrink-0 transition-transform duration-300'
-          style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
-        >
-          +
-        </span>
-      </button>
-      <div
-        className='overflow-hidden transition-all duration-300 ease-out'
-        style={{ maxHeight: isOpen ? '500px' : '0px' }}
-      >
-        <p
-          className='pb-8 pr-12 text-base leading-[1.7] text-navy transition-opacity duration-300'
-          style={{ opacity: isOpen ? 1 : 0 }}
-        >
-          {answer}
-        </p>
-      </div>
-    </div>
   );
 }
 

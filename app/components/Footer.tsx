@@ -12,7 +12,7 @@ export default function Footer() {
             <div
               role='img'
               aria-label='Vitura'
-              className='h-10 md:h-12 w-[154px] md:w-[185px] bg-vitura-red'
+              className='h-10 md:h-12 w-[154px] md:w-[185px] bg-teal'
               style={{
                 WebkitMask: 'url(/vitura.svg) center / contain no-repeat',
                 mask: 'url(/vitura.svg) center / contain no-repeat',
@@ -23,34 +23,38 @@ export default function Footer() {
               human-centered design.
             </p>
             <div className='mt-6 flex items-center gap-3'>
-              <Link
+              <a
                 href='mailto:hello@vitura.studio'
                 aria-label='Email'
                 className='border border-rule p-2 hover:border-navy transition-colors'
               >
-                <Mail className='h-4 w-4' />
-              </Link>
-              <Link
+                <Mail className='h-4 w-4' aria-hidden='true' />
+              </a>
+              <a
                 href='tel:+13476888230'
                 aria-label='Phone'
                 className='border border-rule p-2 hover:border-navy transition-colors'
               >
-                <Phone className='h-4 w-4' />
-              </Link>
-              <Link
+                <Phone className='h-4 w-4' aria-hidden='true' />
+              </a>
+              <a
                 href='https://www.linkedin.com'
                 aria-label='LinkedIn'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='border border-rule p-2 hover:border-navy transition-colors'
               >
-                <Linkedin className='h-4 w-4' />
-              </Link>
-              <Link
+                <Linkedin className='h-4 w-4' aria-hidden='true' />
+              </a>
+              <a
                 href='https://www.instagram.com'
                 aria-label='Instagram'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='border border-rule p-2 hover:border-navy transition-colors'
               >
-                <Instagram className='h-4 w-4' />
-              </Link>
+                <Instagram className='h-4 w-4' aria-hidden='true' />
+              </a>
             </div>
           </div>
 
