@@ -69,9 +69,25 @@ export default function Header() {
     function onScroll() {
       setScrolled(window.scrollY > 20);
     }
+    // Read the settled scroll position. Reading synchronously on mount can
+    // catch a transient value while the page loader is still laying out the
+    // document; a scroll event with a stale offset can flip `scrolled` true
+    // and then never fire again once the page settles back to the top, leaving
+    // the logo stuck as the "V". Re-check on the next frames and on resize so
+    // state always reflects the real position.
     onScroll();
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(onScroll);
+    });
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   return (
@@ -84,16 +100,47 @@ export default function Header() {
         <Link
           href='/'
           aria-label='Vitura — home'
-          className={`block bg-vitura-red hover:bg-vitura-red-hover transition-[height,width,background-color] duration-300 ease-out ${
+          className={`group relative flex items-center justify-center transition-[height,width] duration-300 ease-out ${
             scrolled
-              ? 'h-7 md:h-8 w-[108px] md:w-[124px]'
+              ? 'h-10 w-10 md:h-12 md:w-12'
               : 'h-10 md:h-12 w-[154px] md:w-[185px]'
           }`}
-          style={{
-            WebkitMask: 'url(/vitura.svg) center / contain no-repeat',
-            mask: 'url(/vitura.svg) center / contain no-repeat',
-          }}
-        />
+        >
+          {scrolled ? (
+            // Scrolled: reproduce the favicon — a cream serif "V" on a red disc,
+            // with the V's top serifs overhanging the circle's edge. The disc and
+            // the glyph are siblings (not nested), and the glyph is scaled past
+            // 100% with overflow visible so the serifs can poke beyond the circle.
+            <span
+              aria-hidden='true'
+              className='relative block h-full w-full'
+            >
+              {/* Red circle — same red as the wordmark (--vitura-red). */}
+              <span className='absolute inset-0 rounded-full bg-vitura-red group-hover:bg-vitura-red-hover transition-colors duration-300 ease-out' />
+              {/* Cream "V" masked from the favicon's V geometry. Sized so the
+                  top serifs reach just to the circle's edge (matching the
+                  favicon), centered within the disc. */}
+              <span
+                className='absolute inset-0 scale-[0.82] bg-[#FFF7E8]'
+                style={{
+                  WebkitMask:
+                    'url(/bimi/vitura-circle-v.svg) center / contain no-repeat',
+                  mask: 'url(/bimi/vitura-circle-v.svg) center / contain no-repeat',
+                }}
+              />
+            </span>
+          ) : (
+            // Unscrolled: full wordmark, anchored left and sized by height.
+            <span
+              aria-hidden='true'
+              className='block h-full w-full bg-vitura-red group-hover:bg-vitura-red-hover transition-colors duration-300 ease-out'
+              style={{
+                WebkitMask: 'url(/vitura.svg) left center / auto 100% no-repeat',
+                mask: 'url(/vitura.svg) left center / auto 100% no-repeat',
+              }}
+            />
+          )}
+        </Link>
 
         {/* Desktop nav */}
         <ul className='hidden md:flex gap-8 font-secondary text-[11px] uppercase tracking-[0.28em] text-navy'>
