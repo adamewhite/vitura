@@ -10,6 +10,14 @@ const links = [
   { href: '/contact', label: 'Contact' },
 ];
 
+// The scrolled logo "V" is drawn by masking a cream <span> with this glyph.
+// iOS Safari/Chrome (WebKit) does not reliably apply an external `url(/file.svg)`
+// as a CSS mask — the mask resolves to empty and the V disappears. Inlining the
+// SVG as a data URI makes the mask self-contained and works across engines.
+const V_GLYPH_SVG =
+  '<svg xmlns="http://www.w3.org/2000/svg" width="76" height="65" viewBox="33 190 76 65"><path d="M71.3789 255.469C69.1914 255.469 67.375 254.766 65.9297 253.359C64.5234 251.992 63.2539 249.805 62.1211 246.797L43.7812 196.875H33V190.312H68.3906V196.875H57.7266L73.1953 243.926L88.1953 196.875H78.2344V190.312H109.32V196.875H98.1562L80.8711 246.445C79.7773 249.648 78.4883 251.953 77.0039 253.359C75.5195 254.766 73.6445 255.469 71.3789 255.469Z" fill="#000"/></svg>';
+const V_GLYPH_MASK = `url("data:image/svg+xml,${encodeURIComponent(V_GLYPH_SVG)}")`;
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -123,9 +131,14 @@ export default function Header() {
               <span
                 className='absolute inset-0 scale-[0.82] bg-[#FFF7E8]'
                 style={{
-                  WebkitMask:
-                    'url(/bimi/vitura-circle-v.svg) center / contain no-repeat',
-                  mask: 'url(/bimi/vitura-circle-v.svg) center / contain no-repeat',
+                  WebkitMaskImage: V_GLYPH_MASK,
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  WebkitMaskSize: 'contain',
+                  maskImage: V_GLYPH_MASK,
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                  maskSize: 'contain',
                 }}
               />
             </span>
