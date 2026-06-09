@@ -386,15 +386,9 @@ export default function SampleLandingPage() {
               className="mt-6 text-3xl md:text-5xl font-normal leading-[1.15] tracking-tight italic"
               style={{ color: colors.paper }}
             >
-              They treated our data product like an editorial object —
-              with intention, restraint, and craft.
+              We treat every data product like an editorial object —
+              built with intention, restraint, and craft.
             </blockquote>
-            <div
-              className="mt-10 text-[11px] uppercase tracking-[0.28em]"
-              style={{ fontFamily: fontStacks.sans, color: colors.teal }}
-            >
-              — Director of Product, Financial Services
-            </div>
           </Reveal>
         </div>
       </section>

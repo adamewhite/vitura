@@ -3,46 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Reveal, RevealGroup, RevealItem } from './styles/Reveal';
 import QuoteBand from './components/QuoteBand';
+import RichText from './components/RichText';
+import { home } from './lib/content';
 
-const services = [
-  {
-    title: 'Digital Strategy',
-    desc: 'Roadmaps, KPIs, analytics, and experimentation frameworks that align teams and de-risk delivery.',
-  },
-  {
-    title: 'Experience Design',
-    desc: 'Human-centered UX/UI, content architecture, and accessibility for web and apps.',
-  },
-  {
-    title: 'Data Products',
-    desc: 'Dashboards, pipelines, and data models that turn messy inputs into clear decisions.',
-  },
-  {
-    title: 'Web Engineering',
-    desc: 'Next.js, React, Tailwind, and modern stacks — fast, maintainable, and SEO-ready.',
-  },
-  {
-    title: 'Content Systems',
-    desc: 'Design systems, CMS builds, and component libraries for scalable storytelling.',
-  },
-  {
-    title: 'Research & Audits',
-    desc: 'User research, heuristics, and technical audits to find leverage before you ship.',
-  },
-];
-
-const process: Array<[string, string]> = [
-  [
-    'Discover',
-    'Align on goals, audiences, and constraints with lightweight research.',
-  ],
-  [
-    'Define',
-    'Plan the smallest valuable release and the metrics that prove it.',
-  ],
-  ['Design', 'Prototype flows, content, and UI; test quickly and iterate.'],
-  ['Deliver', 'Ship production-ready code and handoff docs your team can own.'],
-];
+const { hero, services, process, quote, contact } = home;
 
 export default function Home() {
   return (
@@ -55,7 +19,7 @@ export default function Home() {
             duration={0.7}
           >
             <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-10'>
-              A studio based in New York
+              {hero.eyebrow}
             </div>
           </Reveal>
           <Reveal
@@ -63,10 +27,7 @@ export default function Home() {
             delay={0.1}
           >
             <h1 className='text-5xl md:text-7xl font-normal leading-[1.02] tracking-tight max-w-5xl'>
-              We are a studio for{' '}
-              <em className='text-indigo'>digital transformation</em>,{' '}
-              <em className='text-indigo'>data strategy</em>, and{' '}
-              <em className='text-indigo'>human-centered design</em>.
+              <RichText text={hero.headline} />
             </h1>
           </Reveal>
           <Reveal
@@ -74,8 +35,7 @@ export default function Home() {
             delay={0.25}
           >
             <p className='mt-10 max-w-2xl text-xl md:text-2xl italic leading-relaxed text-blue'>
-              Clean pipelines, clear decisions, and human-centered products for
-              teams that take their craft seriously.
+              {hero.intro}
             </p>
           </Reveal>
 
@@ -102,18 +62,14 @@ export default function Home() {
               delay={0.2}
               className='lg:col-span-4 space-y-8 font-secondary'
             >
-              {[
-                ['Established', '2018, New York'],
-                ['Practice', 'Strategy · Design · Data · Engineering'],
-                ['Clients', 'Media, finance, civic, education'],
-              ].map(([k, v]) => (
-                <RevealItem key={k}>
+              {hero.stats.map(({ label, value }) => (
+                <RevealItem key={label}>
                   <div className='border-t border-rule pt-4'>
                     <div className='text-[11px] uppercase tracking-[0.22em] text-blue'>
-                      {k}
+                      {label}
                     </div>
                     <div className='mt-2 text-lg font-primary text-navy'>
-                      {v}
+                      {value}
                     </div>
                   </div>
                 </RevealItem>
@@ -132,10 +88,10 @@ export default function Home() {
           <Reveal variant='up'>
             <div className='flex items-baseline gap-6 mb-16'>
               <span className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
-                I.
+                {services.sectionLabel}
               </span>
               <h2 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
-                What we do
+                {services.heading}
               </h2>
             </div>
           </Reveal>
@@ -145,8 +101,7 @@ export default function Home() {
             delay={0.15}
           >
             <p className='max-w-2xl text-xl md:text-2xl italic leading-relaxed mb-20 text-blue'>
-              Strategy, design, and engineering for data-rich products and
-              content experiences.
+              {services.intro}
             </p>
           </Reveal>
 
@@ -169,13 +124,10 @@ export default function Home() {
               </div>
               <div className='md:col-span-6 md:col-start-7'>
                 <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-4'>
-                  On craft
+                  {services.craftLabel}
                 </div>
                 <p className='text-2xl md:text-3xl font-normal leading-snug text-navy'>
-                  Each engagement begins with the same questions a curator asks:{' '}
-                  <em className='text-indigo'>
-                    What is here? What is missing? What should remain?
-                  </em>
+                  <RichText text={services.craftStatement} />
                 </p>
               </div>
             </div>
@@ -185,7 +137,7 @@ export default function Home() {
             stagger={0.1}
             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8'
           >
-            {services.map((s) => (
+            {services.items.map((s) => (
               <RevealItem key={s.title}>
                 <article className='border-t border-rule pt-8 pb-12 h-full'>
                   <h3 className='text-2xl md:text-3xl font-normal leading-snug'>
@@ -216,10 +168,10 @@ export default function Home() {
           <Reveal variant='up'>
             <div className='flex items-baseline gap-6 mb-16'>
               <span className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue'>
-                II.
+                {process.sectionLabel}
               </span>
               <h2 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
-                How we work
+                {process.heading}
               </h2>
             </div>
           </Reveal>
@@ -229,8 +181,7 @@ export default function Home() {
             delay={0.15}
           >
             <p className='max-w-2xl text-xl md:text-2xl italic leading-relaxed mb-20 text-blue'>
-              A process designed to move fast, reduce risk, and deliver
-              measurable impact.
+              {process.intro}
             </p>
           </Reveal>
 
@@ -238,7 +189,7 @@ export default function Home() {
             stagger={0.12}
             className='grid grid-cols-1 md:grid-cols-4 md:gap-x-8'
           >
-            {process.map(([title, desc], i) => (
+            {process.steps.map(({ title, desc }, i) => (
               <RevealItem key={title}>
                 <div className='border-t border-rule pt-8 pb-2 h-full'>
                   <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
@@ -257,8 +208,7 @@ export default function Home() {
 
       <QuoteBand
         image='/ed-clark-sotheby-1.jpeg'
-        quote='They treated our data product like an editorial object — with intention, restraint, and craft.'
-        attribution='— Director of Product, Financial Services'
+        quote={quote.text}
       />
 
       {/* CONTACT PREVIEW */}
@@ -270,13 +220,13 @@ export default function Home() {
               className='lg:col-span-5'
             >
               <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
-                III. Correspondence
+                {contact.sectionLabel}
               </div>
               <h2 className='text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight'>
-                Let&apos;s talk.
+                {contact.heading}
               </h2>
               <p className='mt-8 max-w-md text-xl italic leading-relaxed text-blue'>
-                Tell us about your team, timelines, and what success looks like.
+                {contact.intro}
               </p>
 
               <div className='mt-12 relative aspect-square border border-rule overflow-hidden max-w-sm'>
@@ -291,9 +241,9 @@ export default function Home() {
 
               <div className='mt-12 text-base font-secondary'>
                 <div className='text-[11px] uppercase tracking-[0.22em] text-blue'>
-                  Inquiries
+                  {contact.inquiriesLabel}
                 </div>
-                <div className='mt-2 font-primary'>hello@vitura.studio</div>
+                <div className='mt-2 font-primary'>{contact.email}</div>
               </div>
             </Reveal>
 
@@ -303,25 +253,17 @@ export default function Home() {
               className='lg:col-span-7 lg:col-start-7'
             >
               <div className='font-secondary text-[11px] uppercase tracking-[0.28em] text-blue mb-6'>
-                Send a note
+                {contact.sendLabel}
               </div>
               <p className='text-2xl md:text-3xl font-normal leading-snug text-navy mb-10'>
-                The fastest way to start a conversation is to{' '}
-                <Link
-                  href='/contact'
-                  className='border-b border-navy hover:text-teal hover:border-teal transition-colors'
-                >
-                  open the contact form
-                </Link>
-                . Tell us about your team, timelines, and what success looks
-                like.
+                <RichText text={contact.sendStatement} />
               </p>
 
               <Link
                 href='/contact'
                 className='inline-block font-secondary text-[11px] uppercase tracking-[0.28em] px-8 py-4 bg-navy text-paper hover:opacity-90 transition-opacity'
               >
-                Get in touch
+                {contact.ctaLabel}
               </Link>
             </Reveal>
           </div>
