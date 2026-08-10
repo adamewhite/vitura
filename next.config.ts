@@ -7,19 +7,21 @@ const nextConfig = {
       { source: '/:path+/', destination: '/:path+', permanent: true },
       // add any content redirects here, using path-only sources
       // { source: '/about-us', destination: '/about', permanent: true },
-    ];
-  },
-  async rewrites() {
-    return [
-      // Both rules are required: `/rumford/:path*` alone does not match the
-      // bare `/rumford`.
+
+      // The Rumford app briefly lived here behind a rewrite. It now serves
+      // itself at rumford.vitura.studio, which sidesteps the proxy's one real
+      // limitation: next/image URLs stay relative, so they resolved against
+      // this app's optimizer, which has no copy of those files. Redirecting
+      // rather than dropping the route keeps any published /rumford link alive.
       {
         source: '/rumford',
-        destination: 'https://rumford.vercel.app',
+        destination: 'https://rumford.vitura.studio',
+        permanent: true,
       },
       {
         source: '/rumford/:path*',
-        destination: 'https://rumford.vercel.app/:path*',
+        destination: 'https://rumford.vitura.studio/:path*',
+        permanent: true,
       },
     ];
   },
