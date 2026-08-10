@@ -1,6 +1,11 @@
 // tailwind.config.ts
 import type { Config } from 'tailwindcss';
 
+// Tokens are hex values on CSS custom properties, so Tailwind v3 can't synthesize
+// an alpha channel for them on its own — `text-paper/80` and friends would silently
+// emit no rule at all. color-mix keeps the opacity modifiers working.
+const alpha = (v: string) => `color-mix(in srgb, ${v} calc(<alpha-value> * 100%), transparent)`;
+
 const config: Config = {
   content: [
     './app/**/*.{ts,tsx}',
@@ -16,15 +21,15 @@ const config: Config = {
       },
       colors: {
         // Editorial style-guide tokens
-        paper: 'var(--paper)',
-        mist: 'var(--mist)',
-        navy: 'var(--navy)',
-        indigo: 'var(--indigo)',
-        blue: 'var(--blue)',
-        teal: 'var(--teal)',
-        rule: 'var(--rule)',
-        'vitura-red': 'var(--vitura-red)',
-        'vitura-red-hover': 'var(--vitura-red-hover)',
+        paper: alpha('var(--paper)'),
+        mist: alpha('var(--mist)'),
+        navy: alpha('var(--navy)'),
+        indigo: alpha('var(--indigo)'),
+        blue: alpha('var(--blue)'),
+        teal: alpha('var(--teal)'),
+        rule: alpha('var(--rule)'),
+        'vitura-red': alpha('var(--vitura-red)'),
+        'vitura-red-hover': alpha('var(--vitura-red-hover)'),
 
         // Legacy aliases — map to new tokens so existing class names still work.
         'heading-base': 'var(--heading-color-base)',
