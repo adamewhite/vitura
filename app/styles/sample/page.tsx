@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Style Guide — Sample Landing',
   description:
     'A mockup of the Vitura landing page using the /styles design system.',
+  robots: { index: false, follow: false },
 };
 
 const services = [

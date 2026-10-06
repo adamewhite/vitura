@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vitura.studio'),
-  alternates: { canonical: '/' }, // pages can override if needed
+  // Canonicals are set per page — a root canonical is inherited by every route.
 
   title: {
     default: 'Vitura Studio — Digital Strategy, Data & Design',
@@ -62,6 +62,31 @@ export const metadata: Metadata = {
       { url: '/og.jpg', width: 1200, height: 630, alt: 'Vitura Studio' },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vitura Studio — Digital Strategy, Data & Design',
+    description:
+      'Clean pipelines, clear decisions, and human-centered products.',
+    images: ['/og.jpg'],
+  },
+
+  // Search Console / Bing Webmaster Tools ownership tags (set in Vercel env).
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
+};
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Vitura Studio',
+  url: 'https://vitura.studio',
+  logo: 'https://vitura.studio/icon.png',
+  description:
+    'Digital transformation, data strategy, and human-centered design.',
 };
 
 export default function RootLayout({
@@ -81,6 +106,10 @@ export default function RootLayout({
           <Footer />
         </PageLoader>
         <Analytics />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
       </body>
     </html>
   );

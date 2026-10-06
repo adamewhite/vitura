@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Style Guide',
   description:
     'Editorial style guide inspired by bode.com — typography, color, spacing, and components.',
+  robots: { index: false, follow: false },
 };
 
 export default function StylesPage() {

@@ -9,6 +9,7 @@ import QuoteBand from '../components/QuoteBand';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description: 'Tell us about your project and timelines.',
+  alternates: { canonical: '/contact' },
 };
 
 // --- Server Action ---
@@ -109,6 +110,18 @@ export default async function ContactPage({
               Tell us about your team, timelines, and what success looks like.
             </p>
           </Reveal>
+          <Reveal variant='up' delay={0.32}>
+            <div className='mt-8 font-secondary text-base'>
+              <div className='text-[11px] uppercase tracking-[0.22em] text-blue'>
+                Inquiries
+              </div>
+              <p className='mt-2 font-primary text-lg md:text-xl'>
+                Email us at{' '}
+                <EmailObfuscated user='hello' domain='vitura.studio' />, or use
+                the form below.
+              </p>
+            </div>
+          </Reveal>
 
           <Reveal variant='up' delay={0.4} className='mt-16 md:mt-20'>
             <div className='relative aspect-[3/2] border border-rule overflow-hidden'>
@@ -153,15 +166,6 @@ export default async function ContactPage({
                   sizes='(min-width: 1024px) 30vw, 80vw'
                   className='object-cover'
                 />
-              </div>
-
-              <div className='mt-12 text-base font-secondary'>
-                <div className='text-[11px] uppercase tracking-[0.22em] text-blue'>
-                  Inquiries
-                </div>
-                <div className='mt-2 font-primary'>
-                  <EmailObfuscated user='hello' domain='vitura.studio' />
-                </div>
               </div>
             </Reveal>
 

@@ -1,10 +1,15 @@
 // app/page.tsx
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Reveal, RevealGroup, RevealItem } from './styles/Reveal';
 import QuoteBand from './components/QuoteBand';
 import RichText from './components/RichText';
 import { home } from './lib/content';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 const { hero, services, process, quote, contact } = home;
 

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: 'Our Story',
   description:
     'Strategy, design, and engineering for data-rich products and content experiences.',
+  alternates: { canonical: '/our-story' },
 };
 
 export default function OurStoryPage() {

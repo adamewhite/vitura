@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   title: 'Services',
   description:
     'Strategy, design, and engineering for data-rich products — from discovery sprints to production builds and data foundations.',
+  alternates: { canonical: '/services' },
 };
 
 export default function ServicesPage() {
